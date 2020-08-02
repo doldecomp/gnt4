@@ -19,5 +19,4 @@ SECTIONS
     .rodata BIND(0x80276920) : { *(.rodata) }
     .sbss BIND(0x80276FE0) : { *(.sbss) }
     .data BIND(0x80277CA0) : { *(.data) }
-    .sbss2 BIND(0x8027C560) : { *(.sbss2) }
 }

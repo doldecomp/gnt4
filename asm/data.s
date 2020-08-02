@@ -8582,3 +8582,15 @@ lbl_8027C554:
 .global lbl_8027C558
 lbl_8027C558:
 	.incbin "baserom.dol", 0x224958, 0x8
+.global lbl_8027C560
+lbl_8027C560:
+	.skip 0x8
+.global lbl_8027C568
+lbl_8027C568:
+	.skip 0x8
+.global lbl_8027C570
+lbl_8027C570:
+	.skip 0x4
+.global lbl_8027C574
+lbl_8027C574:
+	.skip 0x4
