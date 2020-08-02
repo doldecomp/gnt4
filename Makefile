@@ -92,6 +92,7 @@ $(BUILD_DIR)/%.o: %.s
 
 $(BUILD_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
+	# TODO: See if this is necessary after actually adding some C code
 	# $(PYTHON) $(POSTPROC) $(PROCFLAGS) $@
 
 ### Debug Print ###

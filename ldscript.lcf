@@ -11,8 +11,8 @@ SECTIONS
         text_1.o(.text)
     }
 
-    extab BIND(0x801FD800) : { *(extab) }
-    extabindex BIND(0x801FD820) : { *(extabindex) }
+    extab_ BIND(0x801FD800) : { *(extab_) }
+    extabindex_ BIND(0x801FD820) : { *(extabindex_) }
     .ctors BIND(0x801FD840) : { *(.ctors) }
     .dtors BIND(0x80205C40) : { *(.dtors) }
     .bss BIND(0x802229E0) : { *(.bss) }
