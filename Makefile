@@ -9,7 +9,7 @@ endif
 # Files
 #-------------------------------------------------------------------------------
 
-TARGET := ssbm.us.1.2
+TARGET := gnt4
 
 BUILD_DIR := build/$(TARGET)
 
@@ -24,7 +24,7 @@ LDSCRIPT := ldscript.lcf
 # Outputs
 DOL     := $(BUILD_DIR)/main.dol
 ELF     := $(DOL:.dol=.elf)
-MAP     := $(BUILD_DIR)/ssbm.map
+MAP     := $(BUILD_DIR)/gnt4.map
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
@@ -54,7 +54,7 @@ POSTPROC := tools/postprocess.py
 INCLUDES := -i include -i include/dolphin/ -i include/dolphin/mtx/ -i src -i src/sysdolphin/
 
 ASFLAGS := -mgekko -I include
-LDFLAGS := -map $(MAP)
+LDFLAGS := -v -map $(MAP)
 CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
 
 # for postprocess.py
@@ -92,7 +92,7 @@ $(BUILD_DIR)/%.o: %.s
 
 $(BUILD_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
-	$(PYTHON) $(POSTPROC) $(PROCFLAGS) $@
+	# $(PYTHON) $(POSTPROC) $(PROCFLAGS) $@
 
 ### Debug Print ###
 

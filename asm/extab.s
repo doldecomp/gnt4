@@ -1,3 +1,4 @@
-.section extab_, "wa"  # 0x80005520 - 0x800056C0
-
-	.incbin "baserom.dol", 0x3B3E20, 0x1A0
+.section extab, "wa"  # 0x801FD800 - 0x801FD820
+.global lbl_801FD800
+lbl_801FD800:
+	.incbin "baserom.dol", 0x1FA800, 0x20

@@ -9,6 +9,8 @@ mwcc_compiler/
 
 # Temporary files
 *.swp
+baserom.dump
+main.dump
 
 # IDE
 .vscode/
