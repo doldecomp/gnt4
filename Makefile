@@ -54,7 +54,7 @@ POSTPROC := tools/postprocess.py
 INCLUDES := -i include -i include/dolphin/ -i include/dolphin/mtx/ -i src -i src/sysdolphin/
 
 ASFLAGS := -mgekko -I include
-LDFLAGS := -v -v -v -proc gekko -fp hard -map $(MAP)
+LDFLAGS := -map $(MAP)
 CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
 
 # for postprocess.py
