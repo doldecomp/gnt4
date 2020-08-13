@@ -32,7 +32,7 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 # Tools
 #-------------------------------------------------------------------------------
 
-MWCC_VERSION := 1.1
+MWCC_VERSION := 2.7
 
 # Programs
 ifeq ($(WINDOWS),1)
@@ -54,7 +54,7 @@ POSTPROC := tools/postprocess.py
 INCLUDES := -i include -i include/dolphin/ -i include/dolphin/mtx/ -i src -i src/sysdolphin/
 
 ASFLAGS := -mgekko -I include
-LDFLAGS := -v -map $(MAP)
+LDFLAGS := -v -v -v -proc gekko -fp hard -map $(MAP)
 CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -nodefaults $(INCLUDES)
 
 # for postprocess.py

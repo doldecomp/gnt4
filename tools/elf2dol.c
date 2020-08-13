@@ -150,10 +150,7 @@ void add_bss(DOL_map *map, uint32_t paddr, uint32_t memsz)
 {
 	if(map->flags & HAVE_BSS) {
 		uint32_t start = swap32(map->header.bss_addr);
-		uint32_t size = swap32(map->header.bss_size);
-		if ( (start+size) == paddr) {
-			map->header.bss_size = swap32(size+memsz);
-		}
+		map->header.bss_size = swap32(paddr - start + memsz);
 	} else {
 		map->header.bss_addr = swap32(paddr);
 		map->header.bss_size = swap32(memsz);
