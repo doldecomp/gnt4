@@ -4,7 +4,7 @@ This repo contains a WIP decompilation of Naruto: Gekitou Ninja Taisen 4 (GNT4).
 
 It builds the following DOL:
 
-main.dol: `sha1: ?`
+main.dol: `sha1: 0eb4cc3bd4c7363f8cb7baff79de7a964cbdeadb`
 
 ## Windows Prerequisites
 
