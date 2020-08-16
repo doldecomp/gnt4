@@ -9,6 +9,8 @@ SECTIONS
 
     .text BIND(0x800056C0) : { 
         text_1.o(.text)
+        rand.o(.text)
+        text_2.o(.text)
     }
 
     extab_ BIND(0x801FD800) : { *(extab_) }

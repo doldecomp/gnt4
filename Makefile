@@ -13,12 +13,12 @@ TARGET := gnt4
 
 BUILD_DIR := build/$(TARGET)
 
-SRC_DIRS := src src/sysdolphin
+SRC_DIRS := src src/MSL
 ASM_DIRS := asm
 
 # Inputs
 S_FILES := $(wildcard asm/*.s)
-C_FILES := $(wildcard src/*.c) $(wildcard src/sysdolphin/*.c)
+C_FILES := $(wildcard src/*.c) $(wildcard src/MSL/*.c)
 LDSCRIPT := ldscript.lcf
 
 # Outputs
@@ -51,7 +51,7 @@ PYTHON  := python3
 POSTPROC := tools/postprocess.py
 
 # Options
-INCLUDES := -i include -i include/dolphin/ -i include/dolphin/mtx/ -i src -i src/sysdolphin/
+INCLUDES := -i include -i include/dolphin/ -i src -i src/MSL/
 
 ASFLAGS := -mgekko -I include
 LDFLAGS := -map $(MAP)
