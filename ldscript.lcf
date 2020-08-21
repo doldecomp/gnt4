@@ -1,23 +1,26 @@
-_SDA_BASE_ = 0x8027E920;
-_SDA2_BASE_ = 0x8027FCA0;
-
-SECTIONS
-{
-    .init BIND(0x80003100) : {
-		*(.init) 
-	}
-
-    .text BIND(0x800056C0) : { 
-        text_1.o(.text)
-    }
-
-    extab_ BIND(0x801FD800) : { *(extab_) }
-    extabindex_ BIND(0x801FD820) : { *(extabindex_) }
-    .ctors BIND(0x801FD840) : { *(.ctors) }
-    .dtors BIND(0x80205C40) : { *(.dtors) }
-    .bss BIND(0x802229E0) : { *(.bss) }
-    .rodata BIND(0x80276920) : { *(.rodata) }
-    .sbss BIND(0x80276FE0) : { *(.sbss) }
-    .data BIND(0x80277CA0) : { *(.data) }
-    .sbss2 BIND(0x8027C560) : { *(.sbss2) }
+MEMORY {
+    text : origin = 0x80003100
+}
+SECTIONS {
+    GROUP:{
+        .init ALIGN(0x20):{}
+        .text ALIGN(0x20):{}
+        /* TODO: should be extab and extabindex */
+        extab_ ALIGN(0x20):{}
+        extabindex_ ALIGN(0x20):{}
+        .ctors ALIGN(0x20):{}
+        .dtors ALIGN(0x20):{}
+        .bss ALIGN(0x20):{}
+        .rodata ALIGN(0x20):{}
+        .sbss ALIGN(0x20):{}
+        .data ALIGN(0x20):{}
+        .sbss2 ALIGN(0x20):{}
+        .stack ALIGN(0x100):{}
+    } > text
+    _stack_addr = (_f_sbss2 + SIZEOF(.sbss2) + 65536 + 0x7) & ~0x7;
+    _stack_end = _f_sbss2 + SIZEOF(.sbss2);
+    _db_stack_addr = (_stack_addr + 0x2000);
+    _db_stack_end = _stack_addr;
+    __ArenaLo = (_db_stack_addr + 0x1f) & ~0x1f;
+    __ArenaHi = 0x81700000 ;
 }
