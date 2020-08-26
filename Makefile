@@ -19,8 +19,6 @@ SRC_DIRS := src src/msl src/msl/ppc_eabi src/runtime src/sysdolphin
 ASM_DIRS := asm
 
 # Inputs
-S_FILES := $(wildcard asm/*.s)
-C_FILES := $(wildcard src/*.c) $(wildcard src/sysdolphin/*.c)
 LDSCRIPT := $(BUILD_DIR)/ldscript.lcf
 
 # Outputs
@@ -109,7 +107,7 @@ $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 	# TODO: See if this is necessary after actually adding some C code
-	# $(PYTHON) $(POSTPROC) $(PROCFLAGS) $@
+	# $(PYTHON) $(POSTPROC) $(PROCFLAGS) $@\n
 
 ### Debug Print ###
 
