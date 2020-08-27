@@ -1,6 +1,6 @@
 #include "rand.h"
 
-extern u32 lbl_80276EF8;
+extern u32* lbl_80276F00;
 
 /* 0x801CCDC8 - 0x801CCE8C
 
@@ -8,39 +8,28 @@ extern u32 lbl_80276EF8;
 u16 randomInt(int maxVal)
 {
   u32 uVar1;
-  lbl_80276EF8 = lbl_80276EF8 * 214013 + 2531011;
-  uVar1 = maxVal * (lbl_80276EF8 >> 0x10);
+  lbl_80276F00 = lbl_80276F00 * 214013 + 2531011;
+  uVar1 = maxVal * (lbl_80276F00 >> 0x10);
   return uVar1 >> 0x10;
 }
 
 u16 randomShort(void)
 {
-  lbl_80276EF8 = lbl_80276EF8 * 214013 + 2531011;
-  return lbl_80276EF8 >> 0x10;
+  lbl_80276F00 = lbl_80276F00 * 214013 + 2531011;
+  return lbl_80276F00 >> 0x10;
 }
 
 f64 randomFloat(void)
 {
-  lbl_80276EF8 = lbl_80276EF8 * 214013 + 2531011;
-  return lbl_80276EF8 >> 0x10;
+  lbl_80276F00 = lbl_80276F00 * 214013 + 2531011;
+  return lbl_80276F00 >> 0x10;
 }
 */
 
-asm u16 randomShort(void)
+u16 randomShort(void)
 {
-    nofralloc
-    /* 801CCDC8 001C9DC8  80 8D 85 E0 */	lwz r4, -0x7A20 (r13)
-    /* 801CCDCC 001C9DCC  3C 60 00 03 */	lis r3, 0x0003
-    /* 801CCDD0 001C9DD0  38 03 43 FD */	addi r0, r3, 17405
-    /* 801CCDD4 001C9DD4  80 64 00 00 */	lwz r3, 0 (r4)
-    /* 801CCDD8 001C9DD8  7C 63 01 D6 */	mullw r3, r3, r0
-    /* 801CCDDC 001C9DDC  3C 63 00 27 */	addis r3, r3, 0x27
-    /* 801CCDE0 001C9DE0  38 03 9E C3 */	addi r0, r3, -24893
-    /* 801CCDE4 001C9DE4  90 04 00 00 */	stw r0, 0(r4)
-    /* 801CCDE8 001C9DE8  80 6D 85 E0 */	lwz	r3, -0x7A20 (r13)
-    /* 801CCDEC 001C9DEC  80 03 00 00 */	lwz r0, 0(r3)
-    /* 801CCDF0 001C9DF0  54 03 84 3E */	srwi r3, r0, 0x10
-    /* 801CCDF4 001C9DF4  4E 80 00 20 */	blr 
+  *lbl_80276F00 = *lbl_80276F00 * 214013 + 2531011;
+  return *lbl_80276F00 >> 0x10;
 }
 
 asm f64 randomFloat(void)
