@@ -2,6 +2,8 @@
 
 extern u32 lbl_80276EF8;
 
+/* 0x801CCDC8 - 0x801CCE8C
+
 /*
 u16 randomInt(int maxVal)
 {
