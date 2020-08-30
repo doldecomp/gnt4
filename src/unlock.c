@@ -2,7 +2,7 @@
 
 // 0x8000ABA8 - 0x8000AF18
 
-asm u32 func_8000ABA8(u32)
+asm u32 func_8000ABA8(u32 mask)
 {
     nofralloc
     /* 8000ABA8 00007BA8  3C 80 80 22 */	lis r4, 0x8022
@@ -12,7 +12,7 @@ asm u32 func_8000ABA8(u32)
     /* 8000ABB8 00007BB8  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ABBC(u32)
+asm void func_8000ABBC(u32 mask)
 {
     nofralloc
     /* 8000ABBC 00007BBC  3C 80 80 22 */	lis r4, 0x8022
@@ -23,7 +23,7 @@ asm void func_8000ABBC(u32)
     /* 8000ABD0 00007BD0  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000ABD4(u32)
+asm u32 func_8000ABD4(u32 mask)
 {
     nofralloc
     /* 8000ABD4 00007BD4  3C 80 80 22 */	lis r4, 0x8022
@@ -33,7 +33,7 @@ asm u32 func_8000ABD4(u32)
     /* 8000ABE4 00007BE4  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000ABE8(u32)
+asm u32 func_8000ABE8(u32 mask)
 {
     nofralloc
     /* 8000ABE8 00007BE8  3C 80 80 22 */	lis r4, 0x8022
@@ -43,7 +43,7 @@ asm u32 func_8000ABE8(u32)
     /* 8000ABF8 00007BF8  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ABFC(u32)
+asm void func_8000ABFC(u32 mask)
 {
     nofralloc
     /* 8000ABFC 00007BFC  3C 80 80 22 */	lis r4, 0x8022
@@ -54,7 +54,7 @@ asm void func_8000ABFC(u32)
     /* 8000AC10 00007C10  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AC14(u32)
+asm void func_8000AC14(u32 mask)
 {
     nofralloc
     /* 8000AC14 00007C14  3C 80 80 22 */	lis r4, 0x8022
@@ -65,7 +65,7 @@ asm void func_8000AC14(u32)
     /* 8000AC28 00007C28  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AC2C(u32)
+asm u32 func_8000AC2C(u32 mask)
 {
     nofralloc
     /* 8000AC2C 00007C2C  3C 80 80 22 */	lis r4, 0x8022
@@ -75,7 +75,7 @@ asm u32 func_8000AC2C(u32)
     /* 8000AC3C 00007C3C  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AC40(u32)
+asm u32 func_8000AC40(u32 mask)
 {
     nofralloc
     /* 8000AC40 00007C40  3C 80 80 22 */	lis r4, 0x8022
@@ -85,7 +85,7 @@ asm u32 func_8000AC40(u32)
     /* 8000AC50 00007C50  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AC54(u32)
+asm void func_8000AC54(u32 mask)
 {
     nofralloc
     /* 8000AC54 00007C54  3C 80 80 22 */	lis r4, 0x8022
@@ -96,7 +96,7 @@ asm void func_8000AC54(u32)
     /* 8000AC68 00007C68  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AC6C(u32)
+asm void func_8000AC6C(u32 mask)
 {
     nofralloc
     /* 8000AC6C 00007C6C  3C 80 80 22 */	lis r4, 0x8022
@@ -107,7 +107,7 @@ asm void func_8000AC6C(u32)
     /* 8000AC80 00007C80  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AC84(u32)
+asm u32 func_8000AC84(u32 mask)
 {
     nofralloc
     /* 8000AC84 00007C84  3C 80 80 22 */	lis r4, 0x8022
@@ -117,7 +117,7 @@ asm u32 func_8000AC84(u32)
     /* 8000AC94 00007C94  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AC98(u32)
+asm u32 func_8000AC98(u32 mask)
 {
     nofralloc
     /* 8000AC98 00007C98  3C 80 80 22 */	lis r4, 0x8022
@@ -127,7 +127,7 @@ asm u32 func_8000AC98(u32)
     /* 8000ACA8 00007CA8  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ACAC(u32)
+asm void func_8000ACAC(u32 mask)
 {
     nofralloc
     /* 8000ACAC 00007CAC  3C 80 80 22 */	lis r4, 0x8022
@@ -138,7 +138,7 @@ asm void func_8000ACAC(u32)
     /* 8000ACC0 00007CC0  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ACC4(u32)
+asm void func_8000ACC4(u32 mask)
 {
     nofralloc
     /* 8000ACC4 00007CC4  3C 80 80 22 */	lis r4, 0x8022
@@ -149,7 +149,7 @@ asm void func_8000ACC4(u32)
     /* 8000ACD8 00007CD8  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000ACDC(u32)
+asm u32 func_8000ACDC(u32 mask)
 {
     nofralloc
     /* 8000ACDC 00007CDC  3C 80 80 22 */	lis r4, 0x8022
@@ -159,7 +159,7 @@ asm u32 func_8000ACDC(u32)
     /* 8000ACEC 00007CEC  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000ACF0(u32)
+asm u32 func_8000ACF0(u32 mask)
 {
     nofralloc
     /* 8000ACF0 00007CF0  3C 80 80 22 */	lis r4, 0x8022
@@ -169,7 +169,7 @@ asm u32 func_8000ACF0(u32)
     /* 8000AD00 00007D00  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AD04(u32)
+asm u32 func_8000AD04(u32 mask)
 {
     nofralloc
     /* 8000AD04 00007D04  3C 80 80 22 */	lis r4, 0x8022
@@ -179,7 +179,7 @@ asm u32 func_8000AD04(u32)
     /* 8000AD14 00007D14  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AD18(u32)
+asm void func_8000AD18(u32 mask)
 {
     nofralloc
     /* 8000AD18 00007D18  3C 80 80 22 */	lis r4, 0x8022
@@ -190,7 +190,7 @@ asm void func_8000AD18(u32)
     /* 8000AD2C 00007D2C  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AD30(u32)
+asm void func_8000AD30(u32 mask)
 {
     nofralloc
     /* 8000AD30 00007D30  3C 80 80 22 */	lis r4, 0x8022
@@ -201,7 +201,7 @@ asm void func_8000AD30(u32)
     /* 8000AD44 00007D44  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AD48(u32)
+asm void func_8000AD48(u32 mask)
 {
     nofralloc
     /* 8000AD48 00007D48  3C 80 80 22 */	lis r4, 0x8022
@@ -212,7 +212,7 @@ asm void func_8000AD48(u32)
     /* 8000AD5C 00007D5C  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AD60(u32)
+asm u32 func_8000AD60(u32 mask)
 {
     nofralloc
     /* 8000AD60 00007D60  3C 80 80 22 */	lis r4, 0x8022
@@ -222,7 +222,7 @@ asm u32 func_8000AD60(u32)
     /* 8000AD70 00007D70  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AD74(u32)
+asm u32 func_8000AD74(u32 mask)
 {
     nofralloc
     /* 8000AD74 00007D74  3C 80 80 22 */	lis r4, 0x8022
@@ -232,7 +232,7 @@ asm u32 func_8000AD74(u32)
     /* 8000AD84 00007D84  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AD88(u32)
+asm void func_8000AD88(u32 mask)
 {
     nofralloc
     /* 8000AD88 00007D88  3C 80 80 22 */	lis r4, 0x8022
@@ -243,7 +243,7 @@ asm void func_8000AD88(u32)
     /* 8000AD9C 00007D9C  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ADA0(u32)
+asm void func_8000ADA0(u32 mask)
 {
     nofralloc
     /* 8000ADA0 00007DA0  3C 80 80 22 */	lis r4, 0x8022
@@ -254,7 +254,7 @@ asm void func_8000ADA0(u32)
     /* 8000ADB4 00007DB4  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000ADB8(u32)
+asm u32 func_8000ADB8(u32 mask)
 {
     nofralloc
     /* 8000ADB8 00007DB8  3C 80 80 22 */	lis r4, 0x8022
@@ -264,7 +264,7 @@ asm u32 func_8000ADB8(u32)
     /* 8000ADC8 00007DC8  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000ADCC(u32)
+asm u32 func_8000ADCC(u32 mask)
 {
     nofralloc
     /* 8000ADCC 00007DCC  3C 80 80 22 */	lis r4, 0x8022
@@ -274,7 +274,7 @@ asm u32 func_8000ADCC(u32)
     /* 8000ADDC 00007DDC  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ADE0(u32)
+asm void func_8000ADE0(u32 mask)
 {
     nofralloc
     /* 8000ADE0 00007DE0  3C 80 80 22 */	lis r4, 0x8022
@@ -285,7 +285,7 @@ asm void func_8000ADE0(u32)
     /* 8000ADF4 00007DF4  4E 80 00 20 */	blr 
 }
 
-asm void func_8000ADF8(u32)
+asm void func_8000ADF8(u32 mask)
 {
     nofralloc
     /* 8000ADF8 00007DF8  3C 80 80 22 */	lis r4, 0x8022
@@ -296,7 +296,7 @@ asm void func_8000ADF8(u32)
     /* 8000AE0C 00007E0C  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AE10(u32)
+asm u32 func_8000AE10(u32 mask)
 {
     nofralloc
     /* 8000AE10 00007E10  3C 80 80 22 */	lis r4, 0x8022
@@ -306,7 +306,7 @@ asm u32 func_8000AE10(u32)
     /* 8000AE20 00007E20  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AE24(u32)
+asm u32 func_8000AE24(u32 mask)
 {
     nofralloc
     /* 8000AE24 00007E24  3C 80 80 22 */	lis r4, 0x8022
@@ -316,7 +316,7 @@ asm u32 func_8000AE24(u32)
     /* 8000AE34 00007E34  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AE38(u32)
+asm void func_8000AE38(u32 mask)
 {
     nofralloc
     /* 8000AE38 00007E38  3C 80 80 22 */	lis r4, 0x8022
@@ -327,7 +327,7 @@ asm void func_8000AE38(u32)
     /* 8000AE4C 00007E4C  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AE50(u32)
+asm void func_8000AE50(u32 mask)
 {
     nofralloc
     /* 8000AE50 00007E50  3C 80 80 22 */	lis r4, 0x8022
@@ -338,7 +338,7 @@ asm void func_8000AE50(u32)
     /* 8000AE64 00007E64  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AE68(u32)
+asm u32 func_8000AE68(u32 mask)
 {
     nofralloc
     /* 8000AE68 00007E68  3C 80 80 22 */	lis r4, 0x8022
@@ -348,7 +348,7 @@ asm u32 func_8000AE68(u32)
     /* 8000AE78 00007E78  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AE7C(u32)
+asm u32 func_8000AE7C(u32 mask)
 {
     nofralloc
     /* 8000AE7C 00007E7C  3C 80 80 22 */	lis r4, 0x8022
@@ -358,7 +358,7 @@ asm u32 func_8000AE7C(u32)
     /* 8000AE8C 00007E8C  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AE90(u32)
+asm void func_8000AE90(u32 mask)
 {
     nofralloc
     /* 8000AE90 00007E90  3C 80 80 22 */	lis r4, 0x8022
@@ -369,7 +369,7 @@ asm void func_8000AE90(u32)
     /* 8000AEA4 00007EA4  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AEA8(u32)
+asm void func_8000AEA8(u32 mask)
 {
     nofralloc
     /* 8000AEA8 00007EA8  3C 80 80 22 */	lis r4, 0x8022
@@ -380,7 +380,7 @@ asm void func_8000AEA8(u32)
     /* 8000AEBC 00007EBC  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AEC0(u32)
+asm u32 func_8000AEC0(u32 mask)
 {
     nofralloc
     /* 8000AEC0 00007EC0  3C 80 80 22 */	lis r4, 0x8022
@@ -390,7 +390,7 @@ asm u32 func_8000AEC0(u32)
     /* 8000AED0 00007ED0  4E 80 00 20 */	blr 
 }
 
-asm u32 func_8000AED4(u32)
+asm u32 func_8000AED4(u32 mask)
 {
     nofralloc
     /* 8000AED4 00007ED4  3C 80 80 22 */	lis r4, 0x8022
@@ -400,7 +400,7 @@ asm u32 func_8000AED4(u32)
     /* 8000AEE4 00007EE4  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AEE8(u32)
+asm void func_8000AEE8(u32 mask)
 {
     nofralloc
     /* 8000AEE8 00007EE8  3C 80 80 22 */	lis r4, 0x8022
@@ -411,7 +411,7 @@ asm void func_8000AEE8(u32)
     /* 8000AEFC 00007EFC  4E 80 00 20 */	blr 
 }
 
-asm void func_8000AF00(u32)
+asm void func_8000AF00(u32 mask)
 {
     nofralloc
     /* 8000AF00 00007F00  3C 80 80 22 */	lis r4, 0x8022
