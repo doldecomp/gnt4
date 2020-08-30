@@ -6,24 +6,26 @@ INIT_O_FILES := 						            \
 CTORS_O_FILES :=                                    \
     $(BUILD_DIR)/asm/ctors.o
 
-DTORS_O_FILES :=                               \
+DTORS_O_FILES :=                                    \
     $(BUILD_DIR)/asm/dtors.o
 
 TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
-	$(BUILD_DIR)/src/msl/rand.o                     \
+	$(BUILD_DIR)/asm/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/src/msl/rand.o                     \
+	$(BUILD_DIR)/asm/text_3.o                       \
 
-RODATA_O_FILES :=                                    \
+RODATA_O_FILES :=                                   \
     $(BUILD_DIR)/asm/rodata.o
 
-DATA_O_FILES :=                                    \
+DATA_O_FILES :=                                     \
     $(BUILD_DIR)/asm/data.o
 
-SDATA_O_FILES :=                                   \
+SDATA_O_FILES :=                                    \
     $(BUILD_DIR)/asm/sdata.o
 
-SDATA2_O_FILES :=                                     \
+SDATA2_O_FILES :=                                   \
     $(BUILD_DIR)/asm/sdata2.o
 
 BSS_O_FILES :=                                      \
