@@ -11,7 +11,7 @@ DTORS_O_FILES :=                                    \
 
 TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
-	$(BUILD_DIR)/asm/unlock.o                       \
+	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
 	$(BUILD_DIR)/src/msl/rand.o                     \
 	$(BUILD_DIR)/asm/text_3.o                       \
