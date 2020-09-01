@@ -185,7 +185,23 @@ u32 func_8000AE10(u32 mask)
     return *(save_data_ptr + 0x4A) & mask;
 }
 
-u32 func_8000AE24(u32 mask)
+/**
+ * Get whether or not a particular option is unlocked.
+ * 
+ * 0x00000001 Watching Mode Unlocked
+ * 0x00000002 Kumite Unlocked
+ * 0x00000004 Damage 4 Unlocked
+ * 0x00000008 Difficult 4 Unlocked
+ * 0x00000010 Sound Test Unlocked (BGM)
+ * 0x00000020 Sound Test Unlocked (Sound Effects)
+ * 0x00000040 Story Backgrounds Unlocked
+ * 0x00000080 Play Data Unlocked
+ * 0x00000400 2P Survival Unlocked
+ * 0x00000800 Wallpaper Option Unlocked
+ * 0x00001000 Handicap Unlocked
+ * 0x00002000 Extra Menu Unlocked
+ */
+u32 getOptionsUnlocked(u32 mask)
 {
     u32* save_data_ptr = (u32*) 0x802231E8;
     return *(save_data_ptr + 0x49) & mask;
@@ -197,7 +213,23 @@ void func_8000AE38(u32 mask)
     *(save_data_ptr + 0x4A) = *(save_data_ptr + 0x4A) | mask;
 }
 
-void func_8000AE50(u32 mask)
+/**
+ * Set whether or not a particular option is unlocked.
+ * 
+ * 0x00000001 Watching Mode Unlocked
+ * 0x00000002 Kumite Unlocked
+ * 0x00000004 Damage 4 Unlocked
+ * 0x00000008 Difficult 4 Unlocked
+ * 0x00000010 Sound Test Unlocked (BGM)
+ * 0x00000020 Sound Test Unlocked (Sound Effects)
+ * 0x00000040 Story Backgrounds Unlocked
+ * 0x00000080 Play Data Unlocked
+ * 0x00000400 2P Survival Unlocked
+ * 0x00000800 Wallpaper Option Unlocked
+ * 0x00001000 Handicap Unlocked
+ * 0x00002000 Extra Menu Unlocked
+ */
+void setOptionsUnlocked(u32 mask)
 {
     u32* save_data_ptr = (u32*) 0x802231E8;
     *(save_data_ptr + 0x49) = *(save_data_ptr + 0x49) | mask;
