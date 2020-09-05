@@ -5,7 +5,7 @@ extern u32* lbl_80276F00;
 /* 0x801CCDC8 - 0x801CCE8C
 
 /*
-u16 randomInt(int maxVal)
+u16 HSD_Randi(int maxVal)
 {
   u32 uVar1;
   lbl_80276F00 = lbl_80276F00 * 214013 + 2531011;
@@ -13,26 +13,26 @@ u16 randomInt(int maxVal)
   return uVar1 >> 0x10;
 }
 
-u16 randomShort(void)
+u16 HSD_Rand(void)
 {
   lbl_80276F00 = lbl_80276F00 * 214013 + 2531011;
   return lbl_80276F00 >> 0x10;
 }
 
-f64 randomFloat(void)
+f64 HSD_Randf(void)
 {
   lbl_80276F00 = lbl_80276F00 * 214013 + 2531011;
   return lbl_80276F00 >> 0x10;
 }
 */
 
-u16 randomShort(void)
+s32 HSD_Rand(void)
 {
   *lbl_80276F00 = *lbl_80276F00 * 214013 + 2531011;
   return *lbl_80276F00 >> 0x10;
 }
 
-asm f64 randomFloat(void)
+asm f32 HSD_Randf(void)
 {
     nofralloc
     /* 801CCDF8 001C9DF8  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -59,7 +59,7 @@ asm f64 randomFloat(void)
     /* 801CCE4C 001C9E4C  4E 80 00 20 */	blr 
 }
 
-asm u16 randomInt(int maxVal)
+asm s32 HSD_Randi(s32 maxVal)
 {
     nofralloc
     /* 801CCE50 001C9E50  80 AD 85 E0 */	lwz	r5, -0x7A20 (r13)

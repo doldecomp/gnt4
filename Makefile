@@ -56,7 +56,7 @@ PYTHON  := python3
 POSTPROC := tools/postprocess.py
 
 # Options
-INCLUDES := -i include -i include/dolphin/ -i src -i src/msl
+INCLUDES := -i include -i include/dolphin/ -i src -i src/sysdolphin
 
 ASFLAGS := -mgekko -I include
 LDFLAGS := -map $(MAP) -fp hard -nodefaults

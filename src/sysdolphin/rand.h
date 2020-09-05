@@ -3,8 +3,8 @@
 
 #include "include/dolphin/types.h"
 
-u16 randomInt(int maxVal);
-u16 randomShort(void);
-f64 randomFloat(void);
+s32 HSD_Randi(s32 maxVal);
+s32 HSD_Rand(void);
+f32 HSD_Randf(void);
 
 #endif
