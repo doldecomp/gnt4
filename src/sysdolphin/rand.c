@@ -59,22 +59,10 @@ asm f32 HSD_Randf(void)
     /* 801CCE4C 001C9E4C  4E 80 00 20 */	blr 
 }
 
-asm s32 HSD_Randi(s32 maxVal)
+s32 HSD_Randi(s32 maxVal)
 {
-    nofralloc
-    /* 801CCE50 001C9E50  80 AD 85 E0 */	lwz	r5, -0x7A20 (r13)
-    /* 801CCE54 001C9E54  3C 80 00 03 */	lis	r4, 0x0003
-    /* 801CCE58 001C9E58  38 04 43 FD */	addi	r0, r4, 17405
-    /* 801CCE5C 001C9E5C  80 85 00 00 */	lwz r4, 0(r5)
-    /* 801CCE60 001C9E60  7C 84 01 D6 */	mullw r4, r4, r0
-    /* 801CCE64 001C9E64  3C 84 00 27 */	addis r4, r4, 0x27
-    /* 801CCE68 001C9E68  38 04 9E C3 */	addi r0, r4, -24893
-    /* 801CCE6C 001C9E6C  90 05 00 00 */	stw r0, 0(r5)
-    /* 801CCE70 001C9E70  80 8D 85 E0 */	lwz	r4, -0x7A20 (r13)
-    /* 801CCE74 001C9E74  80 04 00 00 */	lwz r0, 0(r4)
-    /* 801CCE78 001C9E78  54 00 84 3E */	srwi r0, r0, 0x10
-    /* 801CCE7C 001C9E7C  7C 03 01 D6 */	mullw r0, r3, r0
-    /* 801CCE80 001C9E80  7C 00 86 70 */	srawi r0, r0, 0x10
-    /* 801CCE84 001C9E84  7C 60 01 94 */	addze r3, r0
-    /* 801CCE88 001C9E88  4E 80 00 20 */	blr 
+  s32 temp;
+  *lbl_80276F00 = *lbl_80276F00 * 214013 + 2531011;
+  temp = maxVal * (*lbl_80276F00 >> 0x10);
+  return temp / 0x10000;
 }
