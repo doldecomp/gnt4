@@ -1,5 +1,5 @@
-#ifndef _RAND_H_
-#define _RAND_H_
+#ifndef _RANDOM_H_
+#define _RANDOM_H_
 
 #include "include/dolphin/types.h"
 

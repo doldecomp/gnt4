@@ -1,4 +1,4 @@
-#include "rand.h"
+#include "random.h"
 
 extern u32* RAND_SEED_PTR;
 extern const f32 USHRT_MAX; // 65536.0
