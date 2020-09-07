@@ -25,8 +25,11 @@ DATA_O_FILES :=                                     \
 SDATA_O_FILES :=                                    \
     $(BUILD_DIR)/asm/sdata.o
 
-SDATA2_O_FILES :=                                   \
-    $(BUILD_DIR)/asm/sdata2.o
+SDATA2_1_O_FILES :=                                 \
+    $(BUILD_DIR)/asm/sdata2_1.o
+
+SDATA2_2_O_FILES :=                                 \
+    $(BUILD_DIR)/asm/sdata2_2.o 
 
 BSS_O_FILES :=                                      \
     $(BUILD_DIR)/asm/bss.o
