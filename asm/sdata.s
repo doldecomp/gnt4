@@ -623,8 +623,8 @@ lbl_80276EF8:
 .global lbl_80276EFC
 lbl_80276EFC:
 	.incbin "baserom.dol", 0x21FFBC, 0x4
-.global lbl_80276F00
-lbl_80276F00:
+.global RAND_SEED_PTR
+RAND_SEED_PTR:
 	.incbin "baserom.dol", 0x21FFC0, 0x8
 .global lbl_80276F08
 lbl_80276F08:
