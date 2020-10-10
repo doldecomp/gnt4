@@ -1,4 +1,4 @@
-.section .sbss
+.section .sbss # 0x80276FE0 - 0x80277CA0
 
 .global lbl_80276FE0
 lbl_80276FE0:

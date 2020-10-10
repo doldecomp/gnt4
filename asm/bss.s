@@ -1,4 +1,4 @@
-.section .bss, "wa"  # 0x802229E0 - 0x80274920
+.section .bss, "wa"  # 0x802229E0 - 0x80276920
 .global lbl_802229E0
 lbl_802229E0:
 	.skip 0x38
