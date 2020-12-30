@@ -13,6 +13,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/asm/sysdolphin/tev.o               \
 	$(BUILD_DIR)/asm/sysdolphin/mobj.o              \
 	$(BUILD_DIR)/asm/sysdolphin/aobj.o              \
 	$(BUILD_DIR)/asm/sysdolphin/lobj.o              \
