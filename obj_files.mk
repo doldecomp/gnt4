@@ -38,6 +38,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/sysdolphin/hsdbase_1.o         \
 	$(BUILD_DIR)/src/sysdolphin/random.o            \
 	$(BUILD_DIR)/asm/sysdolphin/hsdbase_2.o         \
+	$(BUILD_DIR)/asm/sysdolphin/texp.o              \
 	$(BUILD_DIR)/asm/sysdolphin/texpdag.o           \
 	$(BUILD_DIR)/asm/sysdolphin/texpopt.o           \
 	$(BUILD_DIR)/asm/sysdolphin/debug.o             \
