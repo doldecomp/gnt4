@@ -15,6 +15,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_2.o                       \
 	$(BUILD_DIR)/src/sysdolphin/random.o            \
 	$(BUILD_DIR)/asm/text_3.o                       \
+	$(BUILD_DIR)/asm/gobjgxlink.o                   \
 	$(BUILD_DIR)/asm/gobjobject.o                   \
 	$(BUILD_DIR)/asm/gobjuserdata.o                 \
 	$(BUILD_DIR)/asm/gobj.o                         \
