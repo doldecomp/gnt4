@@ -13,22 +13,22 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
-	$(BUILD_DIR)/asm/fobj.o                         \
-	$(BUILD_DIR)/asm/pobj.o                         \
-	$(BUILD_DIR)/asm/jobj.o                         \
-	$(BUILD_DIR)/asm/displayfunc.o                  \
-	$(BUILD_DIR)/asm/initialize.o                   \
-	$(BUILD_DIR)/asm/video.o                        \
-	$(BUILD_DIR)/asm/hsdbase_1.o                    \
+	$(BUILD_DIR)/asm/sysdolphin/fobj.o              \
+	$(BUILD_DIR)/asm/sysdolphin/pobj.o              \
+	$(BUILD_DIR)/asm/sysdolphin/jobj.o              \
+	$(BUILD_DIR)/asm/sysdolphin/displayfunc.o       \
+	$(BUILD_DIR)/asm/sysdolphin/initialize.o        \
+	$(BUILD_DIR)/asm/sysdolphin/video.o             \
+	$(BUILD_DIR)/asm/sysdolphin/hsdbase_1.o         \
 	$(BUILD_DIR)/src/sysdolphin/random.o            \
-	$(BUILD_DIR)/asm/hsdbase_2.o                    \
-	$(BUILD_DIR)/asm/code_801d5ed8.o                \
-	$(BUILD_DIR)/asm/gobjproc.o                     \
-	$(BUILD_DIR)/asm/gobjplink.o                    \
-	$(BUILD_DIR)/asm/gobjgxlink.o                   \
-	$(BUILD_DIR)/asm/gobjobject.o                   \
-	$(BUILD_DIR)/asm/gobjuserdata.o                 \
-	$(BUILD_DIR)/asm/gobj.o                         \
+	$(BUILD_DIR)/asm/sysdolphin/hsdbase_2.o         \
+	$(BUILD_DIR)/asm/sysdolphin/code_801d5ed8.o     \
+	$(BUILD_DIR)/asm/sysdolphin/gobjproc.o          \
+	$(BUILD_DIR)/asm/sysdolphin/gobjplink.o         \
+	$(BUILD_DIR)/asm/sysdolphin/gobjgxlink.o        \
+	$(BUILD_DIR)/asm/sysdolphin/gobjobject.o        \
+	$(BUILD_DIR)/asm/sysdolphin/gobjuserdata.o      \
+	$(BUILD_DIR)/asm/sysdolphin/gobj.o              \
 	$(BUILD_DIR)/asm/hvqm4dec.o                     \
 	$(BUILD_DIR)/asm/hvqm4decsnd.o                  \
 	$(BUILD_DIR)/asm/musyx.o                        \
