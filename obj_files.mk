@@ -36,6 +36,8 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/sysdolphin/initialize.o        \
 	$(BUILD_DIR)/asm/sysdolphin/video.o             \
 	$(BUILD_DIR)/asm/sysdolphin/hsdbase_1.o         \
+	$(BUILD_DIR)/asm/sysdolphin/mtx.o               \
+	$(BUILD_DIR)/asm/sysdolphin/util.o              \
 	$(BUILD_DIR)/asm/sysdolphin/objalloc.o          \
 	$(BUILD_DIR)/asm/sysdolphin/robj.o              \
 	$(BUILD_DIR)/asm/sysdolphin/id.o                \
