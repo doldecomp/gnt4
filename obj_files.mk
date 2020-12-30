@@ -13,6 +13,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/asm/jobj.o                         \
 	$(BUILD_DIR)/asm/displayfunc.o                  \
 	$(BUILD_DIR)/asm/initialize.o                   \
 	$(BUILD_DIR)/asm/video.o                        \
