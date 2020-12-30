@@ -66,8 +66,8 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/sysdolphin/gobjobject.o        \
 	$(BUILD_DIR)/asm/sysdolphin/gobjuserdata.o      \
 	$(BUILD_DIR)/asm/sysdolphin/gobj.o              \
-	$(BUILD_DIR)/asm/hvqm4dec.o                     \
-	$(BUILD_DIR)/asm/hvqm4decsnd.o                  \
+	$(BUILD_DIR)/asm/hvqm/hvqm4dec.o                \
+	$(BUILD_DIR)/asm/hvqm/hvqm4decsnd.o             \
 	$(BUILD_DIR)/asm/musyx.o                        \
 
 RODATA_O_FILES :=                                   \
