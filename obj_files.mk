@@ -35,7 +35,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/sysdolphin/displayfunc.o       \
 	$(BUILD_DIR)/asm/sysdolphin/initialize.o        \
 	$(BUILD_DIR)/asm/sysdolphin/video.o             \
-	$(BUILD_DIR)/asm/sysdolphin/hsdbase_1.o         \
+	$(BUILD_DIR)/asm/sysdolphin/controller.o        \
 	$(BUILD_DIR)/asm/sysdolphin/rumble.o            \
 	$(BUILD_DIR)/asm/sysdolphin/spline.o            \
 	$(BUILD_DIR)/asm/sysdolphin/mtx.o               \
