@@ -69,6 +69,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/hvqm/hvqm4dec.o                \
 	$(BUILD_DIR)/asm/hvqm/hvqm4decsnd.o             \
 	$(BUILD_DIR)/asm/musyx/musyx.o                  \
+	$(BUILD_DIR)/asm/musyx/delay_fx.o               \
 
 RODATA_O_FILES :=                                   \
     $(BUILD_DIR)/asm/rodata.o
