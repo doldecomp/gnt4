@@ -13,6 +13,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/asm/sysdolphin/generator.o         \
 	$(BUILD_DIR)/asm/sysdolphin/psdisp.o            \
 	$(BUILD_DIR)/asm/sysdolphin/psdisptev.o         \
 	$(BUILD_DIR)/asm/sysdolphin/psappsrt.o          \
