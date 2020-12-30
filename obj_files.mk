@@ -15,6 +15,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_2.o                       \
 	$(BUILD_DIR)/src/sysdolphin/random.o            \
 	$(BUILD_DIR)/asm/text_3.o                       \
+	$(BUILD_DIR)/asm/hvqm4decsnd.o                       \
 	$(BUILD_DIR)/asm/musyx.o                        \
 
 RODATA_O_FILES :=                                   \
