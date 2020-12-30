@@ -37,7 +37,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/sysdolphin/video.o             \
 	$(BUILD_DIR)/asm/sysdolphin/hsdbase_1.o         \
 	$(BUILD_DIR)/src/sysdolphin/random.o            \
-	$(BUILD_DIR)/asm/sysdolphin/hsdbase_2.o         \
+	$(BUILD_DIR)/asm/sysdolphin/bytecode.o         \
 	$(BUILD_DIR)/asm/sysdolphin/class.o             \
 	$(BUILD_DIR)/asm/sysdolphin/hash.o              \
 	$(BUILD_DIR)/asm/sysdolphin/texp.o              \
