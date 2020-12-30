@@ -14,7 +14,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
 	$(BUILD_DIR)/src/sysdolphin/random.o            \
-	$(BUILD_DIR)/asm/text_3.o                       \
+	$(BUILD_DIR)/asm/hsdbase_2.o                    \
 	$(BUILD_DIR)/asm/code_801d5ed8.o                \
 	$(BUILD_DIR)/asm/gobjproc.o                     \
 	$(BUILD_DIR)/asm/gobjplink.o                    \
