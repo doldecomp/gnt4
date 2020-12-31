@@ -13,6 +13,11 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/main_TRK.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/dolphin_trk_glue.o     \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/targcont.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/target_options.o       \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/mslsupp.o              \
 	$(BUILD_DIR)/asm/PPCEABI/Runtime/__va_arg.o                \
 	$(BUILD_DIR)/asm/PPCEABI/Runtime/global_destructor_chain.o \
 	$(BUILD_DIR)/asm/PPCEABI/Runtime/runtime.o                 \
