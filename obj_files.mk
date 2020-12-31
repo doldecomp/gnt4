@@ -69,6 +69,17 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/hvqm/hvqm4dec.o                \
 	$(BUILD_DIR)/asm/hvqm/hvqm4decsnd.o             \
 	$(BUILD_DIR)/asm/musyx/musyx.o                  \
+	$(BUILD_DIR)/asm/musyx/hw_dspctrl.o             \
+	$(BUILD_DIR)/asm/musyx/hw_volconv.o             \
+	$(BUILD_DIR)/asm/musyx/snd3d.o                  \
+	$(BUILD_DIR)/asm/musyx/snd_init.o               \
+	$(BUILD_DIR)/asm/musyx/snd_math.o               \
+	$(BUILD_DIR)/asm/musyx/snd_midictrl.o           \
+	$(BUILD_DIR)/asm/musyx/snd_service.o            \
+	$(BUILD_DIR)/asm/musyx/HARDWARE.o               \
+	$(BUILD_DIR)/asm/musyx/hw_aramdma.o             \
+	$(BUILD_DIR)/asm/musyx/hw_dolphin.o             \
+	$(BUILD_DIR)/asm/musyx/hw_memory.o              \
 	$(BUILD_DIR)/asm/musyx/reverb_fx.o              \
 	$(BUILD_DIR)/asm/musyx/reverb.o                 \
 	$(BUILD_DIR)/asm/musyx/delay_fx.o               \
