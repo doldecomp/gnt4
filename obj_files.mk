@@ -13,6 +13,22 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_atan.o         \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_copysign.o     \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_cos.o          \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_floor.o        \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_frexp.o        \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_ldexp.o        \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_modf.o         \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_sin.o          \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/s_tan.o          \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_acos.o         \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_asin.o         \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_atan2.o        \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_exp.o          \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_fmod.o         \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_log.o          \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/w_pow.o          \
 	$(BUILD_DIR)/asm/PPCEABI/MSL_C/math_ppc.o       \
 	$(BUILD_DIR)/asm/exi/AmcExi2Stubs.o             \
 	$(BUILD_DIR)/asm/exi/odenotstub.o               \
