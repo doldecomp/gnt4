@@ -13,6 +13,7 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/asm/PPCEABI/MSL_C/math_ppc.o       \
 	$(BUILD_DIR)/asm/exi/AmcExi2Stubs.o             \
 	$(BUILD_DIR)/asm/exi/odenotstub.o               \
 	$(BUILD_DIR)/asm/exi/DebuggerDriver.o           \

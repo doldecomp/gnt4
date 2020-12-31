@@ -1,6 +1,6 @@
 .include "macros.inc"
 
-.section .text  # 0x8000AF18 - 0x80196854
+.section .text  # 0x80196824 - 0x80196854
 
 .global func_80196824
 func_80196824:
