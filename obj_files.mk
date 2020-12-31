@@ -13,6 +13,11 @@ TEXT_O_FILES := 						            \
 	$(BUILD_DIR)/asm/text_1.o                       \
 	$(BUILD_DIR)/src/unlock.o                       \
 	$(BUILD_DIR)/asm/text_2.o                       \
+	$(BUILD_DIR)/asm/exi/AmcExi2Stubs.o             \
+	$(BUILD_DIR)/asm/exi/odenotstub.o               \
+	$(BUILD_DIR)/asm/exi/DebuggerDriver.o           \
+	$(BUILD_DIR)/asm/exi/EXIBios.o                  \
+	$(BUILD_DIR)/asm/exi/EXIUart.o                  \
 	$(BUILD_DIR)/asm/si/SIBios.o                    \
 	$(BUILD_DIR)/asm/si/SISamplingRate.o            \
 	$(BUILD_DIR)/asm/sysdolphin/particle.o          \
