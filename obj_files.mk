@@ -13,6 +13,10 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/mtx/mtx.o                                 \
+	$(BUILD_DIR)/asm/mtx/mtxvec.o                              \
+	$(BUILD_DIR)/asm/mtx/mtx44.o                               \
+	$(BUILD_DIR)/asm/mtx/vec.o                                 \
 	$(BUILD_DIR)/asm/dvd/dvdlow.o                              \
 	$(BUILD_DIR)/asm/dvd/dvdfs.o                               \
 	$(BUILD_DIR)/asm/dvd/dvd.o                                 \
