@@ -16,7 +16,8 @@ TARGET := gnt4
 BUILD_DIR := build/$(TARGET)
 
 SRC_DIRS := src src/msl src/msl/ppc_eabi src/runtime src/sysdolphin
-ASM_DIRS := asm asm/sysdolphin asm/hvqm asm/musyx asm/si asm/exi asm/PPCEABI/MSL_C asm/PPCEABI/Runtime asm/TRK_MINNOW_DOLPHIN asm/gx
+ASM_DIRS := asm asm/sysdolphin asm/hvqm asm/musyx asm/si asm/exi asm/PPCEABI/MSL_C asm/PPCEABI/Runtime \
+            asm/TRK_MINNOW_DOLPHIN asm/gx asm/card
 
 # Inputs
 LDSCRIPT := $(BUILD_DIR)/ldscript.lcf

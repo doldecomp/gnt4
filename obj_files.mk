@@ -13,6 +13,21 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/card/CARDBios.o                           \
+	$(BUILD_DIR)/asm/card/CARDUnlock.o                         \
+	$(BUILD_DIR)/asm/card/CARDRdwr.o                           \
+	$(BUILD_DIR)/asm/card/CARDBlock.o                          \
+	$(BUILD_DIR)/asm/card/CARDDir.o                            \
+	$(BUILD_DIR)/asm/card/CARDCheck.o                          \
+	$(BUILD_DIR)/asm/card/CARDMount.o                          \
+	$(BUILD_DIR)/asm/card/CARDFormat.o                         \
+	$(BUILD_DIR)/asm/card/CARDOpen.o                           \
+	$(BUILD_DIR)/asm/card/CARDCreate.o                         \
+	$(BUILD_DIR)/asm/card/CARDRead.o                           \
+	$(BUILD_DIR)/asm/card/CARDWrite.o                          \
+	$(BUILD_DIR)/asm/card/CARDDelete.o                         \
+	$(BUILD_DIR)/asm/card/CARDStat.o                           \
+	$(BUILD_DIR)/asm/card/CARDNet.o                            \
 	$(BUILD_DIR)/asm/gx/GXInit.o                               \
 	$(BUILD_DIR)/asm/gx/GXFifo.o                               \
 	$(BUILD_DIR)/asm/gx/GXAttr.o                               \
