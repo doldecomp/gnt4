@@ -13,6 +13,9 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/dsp/dsp.o                                 \
+	$(BUILD_DIR)/asm/dsp/dsp_debug.o                           \
+	$(BUILD_DIR)/asm/dsp/dsp_task.o                            \
 	$(BUILD_DIR)/asm/card/CARDBios.o                           \
 	$(BUILD_DIR)/asm/card/CARDUnlock.o                         \
 	$(BUILD_DIR)/asm/card/CARDRdwr.o                           \
