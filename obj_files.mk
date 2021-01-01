@@ -13,6 +13,23 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/mainloop.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/nubevent.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/msg.o                  \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/msgbuf.o               \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/serpoll.o              \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/usr_put.o              \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/dispatch.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/msghndlr.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/support.o              \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/mutex_TRK.o            \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/notify.o               \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/flush_cache.o          \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/mem_TRK.o              \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/targimpl.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/targsupp.o             \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/dolphin_trk.o          \
+	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/mpc_7xx_603e.o         \
 	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/main_TRK.o             \
 	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/dolphin_trk_glue.o     \
 	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/targcont.o             \
