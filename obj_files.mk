@@ -13,6 +13,29 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/os/OS.o                                   \
+	$(BUILD_DIR)/asm/os/OSAlarm.o                              \
+	$(BUILD_DIR)/asm/os/OSAlloc.o                              \
+	$(BUILD_DIR)/asm/os/OSArena.o                              \
+	$(BUILD_DIR)/asm/os/OSAudioSystem.o                        \
+	$(BUILD_DIR)/asm/os/OSCache.o                              \
+	$(BUILD_DIR)/asm/os/OSContext.o                            \
+	$(BUILD_DIR)/asm/os/OSError.o                              \
+	$(BUILD_DIR)/asm/os/OSExec.o                               \
+	$(BUILD_DIR)/asm/os/OSFont.o                               \
+	$(BUILD_DIR)/asm/os/OSInterrupt.o                          \
+	$(BUILD_DIR)/asm/os/OSLink.o                               \
+	$(BUILD_DIR)/asm/os/OSMemory.o                             \
+	$(BUILD_DIR)/asm/os/OSMutex.o                              \
+	$(BUILD_DIR)/asm/os/OSReboot.o                             \
+	$(BUILD_DIR)/asm/os/OSReset.o                              \
+	$(BUILD_DIR)/asm/os/OSResetSW.o                            \
+	$(BUILD_DIR)/asm/os/OSRtc.o                                \
+	$(BUILD_DIR)/asm/os/OSSync.o                               \
+	$(BUILD_DIR)/asm/os/OSThread.o                             \
+	$(BUILD_DIR)/asm/os/OSTime.o                               \
+	$(BUILD_DIR)/asm/os/__start.o                              \
+	$(BUILD_DIR)/asm/os/__ppc_eabi_init.o                      \
 	$(BUILD_DIR)/asm/db/db.o                                   \
 	$(BUILD_DIR)/asm/mtx/mtx.o                                 \
 	$(BUILD_DIR)/asm/mtx/mtxvec.o                              \
