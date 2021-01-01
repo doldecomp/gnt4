@@ -13,6 +13,14 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/dvd/dvdlow.o                              \
+	$(BUILD_DIR)/asm/dvd/dvdfs.o                               \
+	$(BUILD_DIR)/asm/dvd/dvd.o                                 \
+	$(BUILD_DIR)/asm/dvd/dvdqueue.o                            \
+	$(BUILD_DIR)/asm/dvd/dvderror.o                            \
+	$(BUILD_DIR)/asm/dvd/dvdidutils.o                          \
+	$(BUILD_DIR)/asm/dvd/dvdFatal.o                            \
+	$(BUILD_DIR)/asm/dvd/fstload.o                             \
 	$(BUILD_DIR)/asm/vi/vi.o                                   \
 	$(BUILD_DIR)/asm/pad/Pad.o                                 \
 	$(BUILD_DIR)/asm/ai/ai.o                                   \
