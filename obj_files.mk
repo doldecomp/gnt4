@@ -13,6 +13,7 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/db/db.o                                   \
 	$(BUILD_DIR)/asm/mtx/mtx.o                                 \
 	$(BUILD_DIR)/asm/mtx/mtxvec.o                              \
 	$(BUILD_DIR)/asm/mtx/mtx44.o                               \
