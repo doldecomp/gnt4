@@ -13,6 +13,20 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/gx/GXInit.o                               \
+	$(BUILD_DIR)/asm/gx/GXFifo.o                               \
+	$(BUILD_DIR)/asm/gx/GXAttr.o                               \
+	$(BUILD_DIR)/asm/gx/GXMisc.o                               \
+	$(BUILD_DIR)/asm/gx/GXGeometry.o                           \
+	$(BUILD_DIR)/asm/gx/GXFrameBuf.o                           \
+	$(BUILD_DIR)/asm/gx/GXLight.o                              \
+	$(BUILD_DIR)/asm/gx/GXTexture.o                            \
+	$(BUILD_DIR)/asm/gx/GXBump.o                               \
+	$(BUILD_DIR)/asm/gx/GXTev.o                                \
+	$(BUILD_DIR)/asm/gx/GXPixel.o                              \
+	$(BUILD_DIR)/asm/gx/GXDisplayList.o                        \
+	$(BUILD_DIR)/asm/gx/GXTransform.o                          \
+	$(BUILD_DIR)/asm/gx/GXPerf.o                               \
 	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/mainloop.o             \
 	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/nubevent.o             \
 	$(BUILD_DIR)/asm/TRK_MINNOW_DOLPHIN/msg.o                  \
