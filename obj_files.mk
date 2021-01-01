@@ -13,6 +13,7 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
 	$(BUILD_DIR)/asm/text_2.o                                  \
+	$(BUILD_DIR)/asm/base/PPCArch.o                            \
 	$(BUILD_DIR)/asm/os/OS.o                                   \
 	$(BUILD_DIR)/asm/os/OSAlarm.o                              \
 	$(BUILD_DIR)/asm/os/OSAlloc.o                              \
