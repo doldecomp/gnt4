@@ -2,8 +2,8 @@
 
 .section .text  # 0x8019A8AC - 0x8019A9B4
 
-.global func_8019A8AC
-func_8019A8AC:
+.global SISetSamplingRate
+SISetSamplingRate:
 /* 8019A8AC 001978AC  7C 08 02 A6 */	mflr r0
 /* 8019A8B0 001978B0  90 01 00 04 */	stw r0, 4(r1)
 /* 8019A8B4 001978B4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -59,7 +59,7 @@ lbl_8019A954:
 /* 8019A95C 0019795C  7C 64 1A 14 */	add r3, r4, r3
 /* 8019A960 00197960  88 83 00 02 */	lbz r4, 2(r3)
 /* 8019A964 00197964  7C 65 01 D6 */	mullw r3, r5, r0
-/* 8019A968 00197968  4B FF F4 A9 */	bl func_80199E10
+/* 8019A968 00197968  4B FF F4 A9 */	bl SISetXY
 /* 8019A96C 0019796C  7F C3 F3 78 */	mr r3, r30
 /* 8019A970 00197970  4B FC F2 11 */	bl func_80169B80
 /* 8019A974 00197974  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -70,13 +70,13 @@ lbl_8019A954:
 /* 8019A988 00197988  7C 08 03 A6 */	mtlr r0
 /* 8019A98C 0019798C  4E 80 00 20 */	blr 
 
-.global func_8019A990
-func_8019A990:
+.global SIRefreshSamplingRate
+SIRefreshSamplingRate:
 /* 8019A990 00197990  7C 08 02 A6 */	mflr r0
 /* 8019A994 00197994  90 01 00 04 */	stw r0, 4(r1)
 /* 8019A998 00197998  94 21 FF F8 */	stwu r1, -8(r1)
 /* 8019A99C 0019799C  80 6D 8E E8 */	lwz r3, lbl_80277808-_SDA_BASE_(r13)
-/* 8019A9A0 001979A0  4B FF FF 0D */	bl func_8019A8AC
+/* 8019A9A0 001979A0  4B FF FF 0D */	bl SISetSamplingRate
 /* 8019A9A4 001979A4  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8019A9A8 001979A8  38 21 00 08 */	addi r1, r1, 8
 /* 8019A9AC 001979AC  7C 08 03 A6 */	mtlr r0
