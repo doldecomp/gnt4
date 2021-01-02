@@ -2,8 +2,8 @@
 
 .section .text  # 0x801F5BCC - 0x801F62BC
 
-.global func_801F5BCC
-func_801F5BCC:
+.global salCalcVolume
+salCalcVolume:
 /* 801F5BCC 001F2BCC  94 21 FE F0 */	stwu r1, -0x110(r1)
 /* 801F5BD0 001F2BD0  7C 08 02 A6 */	mflr r0
 /* 801F5BD4 001F2BD4  90 01 01 14 */	stw r0, 0x114(r1)

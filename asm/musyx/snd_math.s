@@ -2,8 +2,8 @@
 
 .section .text  # 0x801F7D14 - 0x801FA184
 
-.global func_801F7D14
-func_801F7D14:
+.global salApplyMatrix
+salApplyMatrix:
 /* 801F7D14 001F4D14  C0 63 00 00 */	lfs f3, 0(r3)
 /* 801F7D18 001F4D18  C0 44 00 00 */	lfs f2, 0(r4)
 /* 801F7D1C 001F4D1C  C0 23 00 04 */	lfs f1, 4(r3)
@@ -48,8 +48,8 @@ func_801F7D14:
 /* 801F7DB8 001F4DB8  D0 05 00 08 */	stfs f0, 8(r5)
 /* 801F7DBC 001F4DBC  4E 80 00 20 */	blr 
 
-.global func_801F7DC0
-func_801F7DC0:
+.global salNormalizeVector
+salNormalizeVector:
 /* 801F7DC0 001F4DC0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801F7DC4 001F4DC4  C0 23 00 00 */	lfs f1, 0(r3)
 /* 801F7DC8 001F4DC8  C0 03 00 04 */	lfs f0, 4(r3)

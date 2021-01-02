@@ -2,8 +2,8 @@
 
 .section .text  # 0x801F0904 - 0x801F10C4
 
-.global func_801F0904
-func_801F0904:
+.global adsrConvertTimeCents
+adsrConvertTimeCents:
 /* 801F0904 001ED904  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801F0908 001ED908  7C 08 02 A6 */	mflr r0
 /* 801F090C 001ED90C  6C 63 80 00 */	xoris r3, r3, 0x8000
@@ -27,8 +27,8 @@ func_801F0904:
 /* 801F0954 001ED954  38 21 00 10 */	addi r1, r1, 0x10
 /* 801F0958 001ED958  4E 80 00 20 */	blr 
 
-.global func_801F095C
-func_801F095C:
+.global salChangeADSRState
+salChangeADSRState:
 /* 801F095C 001ED95C  88 83 00 00 */	lbz r4, 0(r3)
 /* 801F0960 001ED960  38 00 00 00 */	li r0, 0
 /* 801F0964 001ED964  2C 04 00 01 */	cmpwi r4, 1
@@ -199,21 +199,21 @@ lbl_801F0BC0:
 /* 801F0BC0 001EDBC0  7C 03 03 78 */	mr r3, r0
 /* 801F0BC4 001EDBC4  4E 80 00 20 */	blr 
 
-.global func_801F0BC8
-func_801F0BC8:
+.global adsrSetup
+adsrSetup:
 /* 801F0BC8 001EDBC8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801F0BCC 001EDBCC  7C 08 02 A6 */	mflr r0
 /* 801F0BD0 001EDBD0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801F0BD4 001EDBD4  38 00 00 00 */	li r0, 0
 /* 801F0BD8 001EDBD8  98 03 00 01 */	stb r0, 1(r3)
-/* 801F0BDC 001EDBDC  4B FF FD 81 */	bl func_801F095C
+/* 801F0BDC 001EDBDC  4B FF FD 81 */	bl salChangeADSRState
 /* 801F0BE0 001EDBE0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801F0BE4 001EDBE4  7C 08 03 A6 */	mtlr r0
 /* 801F0BE8 001EDBE8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801F0BEC 001EDBEC  4E 80 00 20 */	blr 
 
-.global func_801F0BF0
-func_801F0BF0:
+.global adsrStartRelease
+adsrStartRelease:
 /* 801F0BF0 001EDBF0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801F0BF4 001EDBF4  7C 08 02 A6 */	mflr r0
 /* 801F0BF8 001EDBF8  90 01 00 24 */	stw r0, 0x24(r1)
@@ -306,8 +306,8 @@ lbl_801F0D2C:
 /* 801F0D38 001EDD38  38 21 00 20 */	addi r1, r1, 0x20
 /* 801F0D3C 001EDD3C  4E 80 00 20 */	blr 
 
-.global func_801F0D40
-func_801F0D40:
+.global adsrRelease
+adsrRelease:
 /* 801F0D40 001EDD40  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801F0D44 001EDD44  7C 08 02 A6 */	mflr r0
 /* 801F0D48 001EDD48  90 01 00 24 */	stw r0, 0x24(r1)
@@ -408,8 +408,8 @@ lbl_801F0E94:
 /* 801F0EA0 001EDEA0  38 21 00 20 */	addi r1, r1, 0x20
 /* 801F0EA4 001EDEA4  4E 80 00 20 */	blr 
 
-.global func_801F0EA8
-func_801F0EA8:
+.global adsrHandle
+adsrHandle:
 /* 801F0EA8 001EDEA8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801F0EAC 001EDEAC  7C 08 02 A6 */	mflr r0
 /* 801F0EB0 001EDEB0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -447,7 +447,7 @@ lbl_801F0F20:
 /* 801F0F24 001EDF24  34 84 FF FF */	addic. r4, r4, -1
 /* 801F0F28 001EDF28  90 83 00 04 */	stw r4, 4(r3)
 /* 801F0F2C 001EDF2C  40 82 01 00 */	bne lbl_801F102C
-/* 801F0F30 001EDF30  4B FF FA 2D */	bl func_801F095C
+/* 801F0F30 001EDF30  4B FF FA 2D */	bl salChangeADSRState
 /* 801F0F34 001EDF34  7C 60 1B 78 */	mr r0, r3
 /* 801F0F38 001EDF38  48 00 00 F4 */	b lbl_801F102C
 lbl_801F0F3C:
@@ -508,7 +508,7 @@ lbl_801F0FFC:
 /* 801F1000 001EE000  34 84 FF FF */	addic. r4, r4, -1
 /* 801F1004 001EE004  90 83 00 04 */	stw r4, 4(r3)
 /* 801F1008 001EE008  40 82 00 24 */	bne lbl_801F102C
-/* 801F100C 001EE00C  4B FF F9 51 */	bl func_801F095C
+/* 801F100C 001EE00C  4B FF F9 51 */	bl salChangeADSRState
 /* 801F1010 001EE010  7C 60 1B 78 */	mr r0, r3
 /* 801F1014 001EE014  48 00 00 18 */	b lbl_801F102C
 lbl_801F1018:
@@ -524,8 +524,8 @@ lbl_801F102C:
 /* 801F1038 001EE038  38 21 00 10 */	addi r1, r1, 0x10
 /* 801F103C 001EE03C  4E 80 00 20 */	blr 
 
-.global func_801F1040
-func_801F1040:
+.global adsrHandleLowPrecision
+adsrHandleLowPrecision:
 /* 801F1040 001EE040  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801F1044 001EE044  7C 08 02 A6 */	mflr r0
 /* 801F1048 001EE048  90 01 00 24 */	stw r0, 0x24(r1)
@@ -542,7 +542,7 @@ lbl_801F1070:
 /* 801F1070 001EE070  7F 83 E3 78 */	mr r3, r28
 /* 801F1074 001EE074  7F A4 EB 78 */	mr r4, r29
 /* 801F1078 001EE078  7F C5 F3 78 */	mr r5, r30
-/* 801F107C 001EE07C  4B FF FE 2D */	bl func_801F0EA8
+/* 801F107C 001EE07C  4B FF FE 2D */	bl adsrHandle
 /* 801F1080 001EE080  28 03 00 00 */	cmplwi r3, 0
 /* 801F1084 001EE084  41 82 00 0C */	beq lbl_801F1090
 /* 801F1088 001EE088  38 60 00 01 */	li r3, 1

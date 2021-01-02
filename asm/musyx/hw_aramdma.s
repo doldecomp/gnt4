@@ -2,8 +2,8 @@
 
 .section .text  # 0x801FB484 - 0x801FBF80
 
-.global func_801FB484 
-func_801FB484:
+.global aramQueueCallback 
+aramQueueCallback:
 /* 801FB484 001F8484  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801FB488 001F8488  7C 08 02 A6 */	mflr r0
 /* 801FB48C 001F848C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -48,8 +48,8 @@ lbl_801FB4E8:
 /* 801FB51C 001F851C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801FB520 001F8520  4E 80 00 20 */	blr 
 
-.global func_801FB524
-func_801FB524:
+.global aramUploadData
+aramUploadData:
 /* 801FB524 001F8524  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801FB528 001F8528  7C 08 02 A6 */	mflr r0
 /* 801FB52C 001F852C  90 01 00 34 */	stw r0, 0x34(r1)
@@ -77,13 +77,13 @@ lbl_801FB568:
 /* 801FB57C 001F857C  88 9F 02 80 */	lbz r4, 0x280(r31)
 /* 801FB580 001F8580  7C 18 00 D0 */	neg r0, r24
 /* 801FB584 001F8584  7C 00 C3 78 */	or r0, r0, r24
-/* 801FB588 001F8588  3C 60 80 20 */	lis r3, func_801FB484@ha
+/* 801FB588 001F8588  3C 60 80 20 */	lis r3, aramQueueCallback@ha
 /* 801FB58C 001F858C  1C 84 00 28 */	mulli r4, r4, 0x28
 /* 801FB590 001F8590  38 E0 00 2A */	li r7, 0x2a
 /* 801FB594 001F8594  38 A0 00 00 */	li r5, 0
 /* 801FB598 001F8598  54 08 0F FE */	srwi r8, r0, 0x1f
 /* 801FB59C 001F859C  7C DF 22 14 */	add r6, r31, r4
-/* 801FB5A0 001F85A0  38 83 B4 84 */	addi r4, r3, func_801FB484@l
+/* 801FB5A0 001F85A0  38 83 B4 84 */	addi r4, r3, aramQueueCallback@l
 /* 801FB5A4 001F85A4  90 E6 00 04 */	stw r7, 4(r6)
 /* 801FB5A8 001F85A8  88 1F 02 80 */	lbz r0, 0x280(r31)
 /* 801FB5AC 001F85AC  1C 00 00 28 */	mulli r0, r0, 0x28
@@ -174,8 +174,8 @@ lbl_801FB6E8:
 /* 801FB6F8 001F86F8  38 21 00 30 */	addi r1, r1, 0x30
 /* 801FB6FC 001F86FC  4E 80 00 20 */	blr 
 
-.global func_801FB700
-func_801FB700:
+.global aramSyncTransferQueue
+aramSyncTransferQueue:
 /* 801FB700 001F8700  3C 60 80 27 */	lis r3, lbl_80273FA8@ha
 /* 801FB704 001F8704  38 63 3F A8 */	addi r3, r3, lbl_80273FA8@l
 lbl_801FB708:
@@ -184,8 +184,8 @@ lbl_801FB708:
 /* 801FB710 001F8710  40 82 FF F8 */	bne lbl_801FB708
 /* 801FB714 001F8714  4E 80 00 20 */	blr 
 
-.global func_801FB718
-func_801FB718:
+.global aramInit
+aramInit:
 /* 801FB718 001F8718  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801FB71C 001F871C  7C 08 02 A6 */	mflr r0
 /* 801FB720 001F8720  90 01 00 24 */	stw r0, 0x24(r1)
@@ -195,7 +195,7 @@ func_801FB718:
 /* 801FB730 001F8730  4B F7 BA 51 */	bl func_80177180
 /* 801FB734 001F8734  7C 7E 1B 78 */	mr r30, r3
 /* 801FB738 001F8738  38 60 05 00 */	li r3, 0x500
-/* 801FB73C 001F873C  48 00 0D 39 */	bl func_801FC474
+/* 801FB73C 001F873C  48 00 0D 39 */	bl salMallocPhysical
 /* 801FB740 001F8740  7C 7C 1B 78 */	mr r28, r3
 /* 801FB744 001F8744  38 00 00 10 */	li r0, 0x10
 /* 801FB748 001F8748  7F 84 E3 78 */	mr r4, r28
@@ -263,12 +263,12 @@ lbl_801FB82C:
 /* 801FB838 001F8838  28 00 00 10 */	cmplwi r0, 0x10
 /* 801FB83C 001F883C  40 80 01 60 */	bge lbl_801FB99C
 /* 801FB840 001F8840  88 9F 02 80 */	lbz r4, 0x280(r31)
-/* 801FB844 001F8844  3C 60 80 20 */	lis r3, func_801FB484@ha
+/* 801FB844 001F8844  3C 60 80 20 */	lis r3, aramQueueCallback@ha
 /* 801FB848 001F8848  38 E0 00 2A */	li r7, 0x2a
 /* 801FB84C 001F884C  38 00 00 00 */	li r0, 0
 /* 801FB850 001F8850  1C C4 00 28 */	mulli r6, r4, 0x28
 /* 801FB854 001F8854  38 A0 05 00 */	li r5, 0x500
-/* 801FB858 001F8858  38 83 B4 84 */	addi r4, r3, func_801FB484@l
+/* 801FB858 001F8858  38 83 B4 84 */	addi r4, r3, aramQueueCallback@l
 /* 801FB85C 001F885C  7C 7F 32 14 */	add r3, r31, r6
 /* 801FB860 001F8860  90 E3 00 04 */	stw r7, 4(r3)
 /* 801FB864 001F8864  88 7F 02 80 */	lbz r3, 0x280(r31)
@@ -357,7 +357,7 @@ lbl_801FB9A4:
 /* 801FB9A8 001F89A8  28 00 00 00 */	cmplwi r0, 0
 /* 801FB9AC 001F89AC  40 82 FF F8 */	bne lbl_801FB9A4
 /* 801FB9B0 001F89B0  7F 83 E3 78 */	mr r3, r28
-/* 801FB9B4 001F89B4  48 00 0A F1 */	bl func_801FC4A4
+/* 801FB9B4 001F89B4  48 00 0A F1 */	bl salFree
 /* 801FB9B8 001F89B8  7C 1E DA 14 */	add r0, r30, r27
 /* 801FB9BC 001F89BC  90 0D 93 40 */	stw r0, lbl_80277C60-_SDA_BASE_(r13)
 /* 801FB9C0 001F89C0  4B F7 B7 C9 */	bl func_80177188
@@ -369,7 +369,7 @@ lbl_801FB9A4:
 lbl_801FB9D8:
 /* 801FB9D8 001F89D8  38 00 00 00 */	li r0, 0
 /* 801FB9DC 001F89DC  90 0D 93 38 */	stw r0, lbl_80277C58-_SDA_BASE_(r13)
-/* 801FB9E0 001F89E0  48 00 04 A5 */	bl func_801FBE84
+/* 801FB9E0 001F89E0  48 00 04 A5 */	bl InitStreamBuffers
 /* 801FB9E4 001F89E4  39 61 00 20 */	addi r11, r1, 0x20
 /* 801FB9E8 001F89E8  4B F9 28 E1 */	bl func_8018E2C8
 /* 801FB9EC 001F89EC  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -377,8 +377,8 @@ lbl_801FB9D8:
 /* 801FB9F4 001F89F4  38 21 00 20 */	addi r1, r1, 0x20
 /* 801FB9F8 001F89F8  4E 80 00 20 */	blr 
 
-.global func_801FB9FC
-func_801FB9FC:
+.global aramGetZeroBuffer
+aramGetZeroBuffer:
 /* 801FB9FC 001F89FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FBA00 001F8A00  7C 08 02 A6 */	mflr r0
 /* 801FBA04 001F8A04  90 01 00 14 */	stw r0, 0x14(r1)
@@ -388,8 +388,8 @@ func_801FB9FC:
 /* 801FBA14 001F8A14  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FBA18 001F8A18  4E 80 00 20 */	blr 
 
-.global func_801FBA1C
-func_801FBA1C:
+.global aramGetFirstUserAddress
+aramGetFirstUserAddress:
 /* 801FBA1C 001F8A1C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FBA20 001F8A20  7C 08 02 A6 */	mflr r0
 /* 801FBA24 001F8A24  90 01 00 14 */	stw r0, 0x14(r1)
@@ -400,13 +400,13 @@ func_801FBA1C:
 /* 801FBA38 001F8A38  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FBA3C 001F8A3C  4E 80 00 20 */	blr 
 
-.global func_801FBA40
-func_801FBA40:
+.global aramGetUserBytes
+aramGetUserBytes:
 /* 801FBA40 001F8A40  38 63 FB 00 */	addi r3, r3, -1280
 /* 801FBA44 001F8A44  4E 80 00 20 */	blr 
 
-.global func_801FBA48
-func_801FBA48:
+.global aramStoreData
+aramStoreData:
 /* 801FBA48 001F8A48  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801FBA4C 001F8A4C  7C 08 02 A6 */	mflr r0
 /* 801FBA50 001F8A50  90 01 00 34 */	stw r0, 0x34(r1)
@@ -454,11 +454,11 @@ lbl_801FBAE0:
 /* 801FBAEC 001F8AEC  28 00 00 10 */	cmplwi r0, 0x10
 /* 801FBAF0 001F8AF0  40 80 01 5C */	bge lbl_801FBC4C
 /* 801FBAF4 001F8AF4  88 9D 02 80 */	lbz r4, 0x280(r29)
-/* 801FBAF8 001F8AF8  3C 60 80 20 */	lis r3, func_801FB484@ha
+/* 801FBAF8 001F8AF8  3C 60 80 20 */	lis r3, aramQueueCallback@ha
 /* 801FBAFC 001F8AFC  38 C0 00 2A */	li r6, 0x2a
 /* 801FBB00 001F8B00  38 00 00 00 */	li r0, 0
 /* 801FBB04 001F8B04  1C A4 00 28 */	mulli r5, r4, 0x28
-/* 801FBB08 001F8B08  38 83 B4 84 */	addi r4, r3, func_801FB484@l
+/* 801FBB08 001F8B08  38 83 B4 84 */	addi r4, r3, aramQueueCallback@l
 /* 801FBB0C 001F8B0C  7C 7D 2A 14 */	add r3, r29, r5
 /* 801FBB10 001F8B10  90 C3 00 04 */	stw r6, 4(r3)
 /* 801FBB14 001F8B14  88 7D 02 80 */	lbz r3, 0x280(r29)
@@ -549,8 +549,8 @@ lbl_801FBC54:
 /* 801FBC60 001F8C60  90 18 00 08 */	stw r0, 8(r24)
 /* 801FBC64 001F8C64  48 00 01 F0 */	b lbl_801FBE54
 lbl_801FBC68:
-/* 801FBC68 001F8C68  3C 60 80 20 */	lis r3, func_801FB484@ha
-/* 801FBC6C 001F8C6C  3B E3 B4 84 */	addi r31, r3, func_801FB484@l
+/* 801FBC68 001F8C68  3C 60 80 20 */	lis r3, aramQueueCallback@ha
+/* 801FBC6C 001F8C6C  3B E3 B4 84 */	addi r31, r3, aramQueueCallback@l
 /* 801FBC70 001F8C70  48 00 01 C8 */	b lbl_801FBE38
 lbl_801FBC74:
 /* 801FBC74 001F8C74  88 16 02 81 */	lbz r0, 0x281(r22)
@@ -687,8 +687,8 @@ lbl_801FBE54:
 /* 801FBE64 001F8E64  38 21 00 30 */	addi r1, r1, 0x30
 /* 801FBE68 001F8E68  4E 80 00 20 */	blr 
 
-.global func_801FBE6C
-func_801FBE6C:
+.global aramRemoveData
+aramRemoveData:
 /* 801FBE6C 001F8E6C  38 64 00 1F */	addi r3, r4, 0x1f
 /* 801FBE70 001F8E70  80 05 00 08 */	lwz r0, 8(r5)
 /* 801FBE74 001F8E74  54 63 00 34 */	rlwinm r3, r3, 0, 0, 0x1a
@@ -696,8 +696,8 @@ func_801FBE6C:
 /* 801FBE7C 001F8E7C  90 05 00 08 */	stw r0, 8(r5)
 /* 801FBE80 001F8E80  4E 80 00 20 */	blr 
 
-.global func_801FBE84
-func_801FBE84:
+.global InitStreamBuffers
+InitStreamBuffers:
 /* 801FBE84 001F8E84  3C 60 80 27 */	lis r3, lbl_802744B0@ha
 /* 801FBE88 001F8E88  38 80 00 00 */	li r4, 0
 /* 801FBE8C 001F8E8C  38 63 44 B0 */	addi r3, r3, lbl_802744B0@l
@@ -751,8 +751,8 @@ lbl_801FBF24:
 /* 801FBF40 001F8F40  90 0D 93 3C */	stw r0, lbl_80277C5C-_SDA_BASE_(r13)
 /* 801FBF44 001F8F44  4E 80 00 20 */	blr 
 
-.global func_801FBF48
-func_801FBF48:
+.global aramGetStreamBufferAddress
+aramGetStreamBufferAddress:
 /* 801FBF48 001F8F48  28 04 00 00 */	cmplwi r4, 0
 /* 801FBF4C 001F8F4C  41 82 00 1C */	beq lbl_801FBF68
 /* 801FBF50 001F8F50  3C A0 80 27 */	lis r5, lbl_802744B0@ha

@@ -2,8 +2,8 @@
 
 .section .text  # 0x801F07E4 - 0x801F0904
 
-.global func_801F07E4
-func_801F07E4:
+.global sndPitchUpOne
+sndPitchUpOne:
 /* 801F07E4 001ED7E4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801F07E8 001ED7E8  54 63 04 3E */	clrlwi r3, r3, 0x10
 /* 801F07EC 001ED7EC  3C 00 43 30 */	lis r0, 0x4330
@@ -20,8 +20,8 @@ func_801F07E4:
 /* 801F0818 001ED818  38 21 00 20 */	addi r1, r1, 0x20
 /* 801F081C 001ED81C  4E 80 00 20 */	blr 
 
-.global func_801F0820
-func_801F0820:
+.global sndGetPitch
+sndGetPitch:
 /* 801F0820 001ED820  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801F0824 001ED824  7C 08 02 A6 */	mflr r0
 /* 801F0828 001ED828  90 01 00 24 */	stw r0, 0x24(r1)

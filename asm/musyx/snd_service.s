@@ -2,8 +2,8 @@
 
 .section .text  # 0x801FA184 - 0x801FA458
 
-.global func_801FA184
-func_801FA184:
+.global sndRand
+sndRand:
 /* 801FA184 001F7184  3C 60 A8 35 */	lis r3, 0xA8351D63@ha
 /* 801FA188 001F7188  80 8D 86 98 */	lwz r4, lbl_80276FB8-_SDA_BASE_(r13)
 /* 801FA18C 001F718C  38 03 1D 63 */	addi r0, r3, 0xA8351D63@l
@@ -12,8 +12,8 @@ func_801FA184:
 /* 801FA198 001F7198  54 03 D4 3E */	rlwinm r3, r0, 0x1a, 0x10, 0x1f
 /* 801FA19C 001F719C  4E 80 00 20 */	blr 
 
-.global func_801FA1A0
-func_801FA1A0:
+.global sndSin
+sndSin:
 /* 801FA1A0 001F71A0  54 60 05 3E */	clrlwi r0, r3, 0x14
 /* 801FA1A4 001F71A4  28 00 04 00 */	cmplwi r0, 0x400
 /* 801FA1A8 001F71A8  40 80 00 18 */	bge lbl_801FA1C0
@@ -53,8 +53,8 @@ lbl_801FA208:
 /* 801FA224 001F7224  7C 03 07 34 */	extsh r3, r0
 /* 801FA228 001F7228  4E 80 00 20 */	blr 
 
-.global func_801FA22C
-func_801FA22C:
+.global sndBSearch
+sndBSearch:
 /* 801FA22C 001F722C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801FA230 001F7230  7C 08 02 A6 */	mflr r0
 /* 801FA234 001F7234  90 01 00 34 */	stw r0, 0x34(r1)
@@ -103,8 +103,8 @@ lbl_801FA2B8:
 /* 801FA2C8 001F72C8  38 21 00 30 */	addi r1, r1, 0x30
 /* 801FA2CC 001F72CC  4E 80 00 20 */	blr 
 
-.global func_801FA2D0
-func_801FA2D0:
+.global sndSqrt
+sndSqrt:
 /* 801FA2D0 001F72D0  3C 60 80 20 */	lis r3, lbl_80205B10@ha
 /* 801FA2D4 001F72D4  C0 63 5B 10 */	lfs f3, lbl_80205B10@l(r3)
 /* 801FA2D8 001F72D8  C0 03 5B 08 */	lfs f0, 0x5b08(r3)
@@ -127,8 +127,8 @@ func_801FA2D0:
 /* 801FA31C 001F731C  FC 21 00 F2 */	fmul f1, f1, f3
 /* 801FA320 001F7320  4E 80 00 20 */	blr 
 
-.global func_801FA324
-func_801FA324:
+.global sndCos
+sndCos:
 /* 801FA324 001F7324  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FA328 001F7328  3C 60 80 20 */	lis r3, lbl_80205B14@ha
 /* 801FA32C 001F732C  38 80 00 0C */	li r4, 0xc
@@ -186,22 +186,22 @@ lbl_801FA3F0:
 /* 801FA3F0 001F73F0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FA3F4 001F73F4  4E 80 00 20 */	blr 
 
-.global func_801FA3F8
-func_801FA3F8:
+.global sndConvertMs
+sndConvertMs:
 /* 801FA3F8 001F73F8  80 03 00 00 */	lwz r0, 0(r3)
 /* 801FA3FC 001F73FC  54 00 40 2E */	slwi r0, r0, 8
 /* 801FA400 001F7400  90 03 00 00 */	stw r0, 0(r3)
 /* 801FA404 001F7404  4E 80 00 20 */	blr 
 
-.global func_801FA408
-func_801FA408:
+.global sndConvertTicks
+sndConvertTicks:
 /* 801FA408 001F7408  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FA40C 001F740C  7C 08 02 A6 */	mflr r0
 /* 801FA410 001F7410  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801FA414 001F7414  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801FA418 001F7418  7C 7F 1B 78 */	mr r31, r3
 /* 801FA41C 001F741C  7C 83 23 78 */	mr r3, r4
-/* 801FA420 001F7420  4B FE 94 C5 */	bl func_801E38E4
+/* 801FA420 001F7420  4B FE 94 C5 */	bl synthGetTicksPerSecond
 /* 801FA424 001F7424  80 1F 00 00 */	lwz r0, 0(r31)
 /* 801FA428 001F7428  54 00 80 1E */	slwi r0, r0, 0x10
 /* 801FA42C 001F742C  7C 00 1B 96 */	divwu r0, r0, r3
@@ -214,7 +214,7 @@ func_801FA408:
 /* 801FA448 001F7448  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FA44C 001F744C  4E 80 00 20 */	blr 
 
-.global func_801FA450
-func_801FA450:
+.global sndConvert2Ms
+sndConvert2Ms:
 /* 801FA450 001F7450  54 63 C2 3E */	srwi r3, r3, 8
 /* 801FA454 001F7454  4E 80 00 20 */	blr 

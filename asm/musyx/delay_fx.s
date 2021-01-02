@@ -2,8 +2,8 @@
 
 .section .text  # 0x801FD43C - 0x801FD800
 
-.global func_801FD43C
-func_801FD43C:
+.global sndAuxCallbackDelay
+sndAuxCallbackDelay:
 /* 801FD43C 001FA43C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FD440 001FA440  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 801FD444 001FA444  2C 00 00 01 */	cmpwi r0, 1
@@ -98,14 +98,14 @@ lbl_801FD598:
 /* 801FD59C 001FA59C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FD5A0 001FA5A0  4E 80 00 20 */	blr 
 
-.global func_801FD5A4
-func_801FD5A4:
+.global sndAuxCallbackUpdateSettingsDelay
+sndAuxCallbackUpdateSettingsDelay:
 /* 801FD5A4 001FA5A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FD5A8 001FA5A8  7C 08 02 A6 */	mflr r0
 /* 801FD5AC 001FA5AC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801FD5B0 001FA5B0  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801FD5B4 001FA5B4  7C 7F 1B 78 */	mr r31, r3
-/* 801FD5B8 001FA5B8  48 00 01 E5 */	bl func_801FD79C
+/* 801FD5B8 001FA5B8  48 00 01 E5 */	bl sndAuxCallbackShutdownDelay
 /* 801FD5BC 001FA5BC  80 DF 00 3C */	lwz r6, 0x3c(r31)
 /* 801FD5C0 001FA5C0  3C 80 CC CD */	lis r4, 0xCCCCCCCD@ha
 /* 801FD5C4 001FA5C4  3C A0 51 EC */	lis r5, 0x51EB851F@ha
@@ -167,15 +167,15 @@ func_801FD5A4:
 /* 801FD6A4 001FA6A4  90 1F 00 2C */	stw r0, 0x2c(r31)
 /* 801FD6A8 001FA6A8  80 1F 00 00 */	lwz r0, 0(r31)
 /* 801FD6AC 001FA6AC  1C 60 02 80 */	mulli r3, r0, 0x280
-/* 801FD6B0 001FA6B0  4B FF ED 99 */	bl func_801FC448
+/* 801FD6B0 001FA6B0  4B FF ED 99 */	bl salMalloc
 /* 801FD6B4 001FA6B4  90 7F 00 30 */	stw r3, 0x30(r31)
 /* 801FD6B8 001FA6B8  80 1F 00 04 */	lwz r0, 4(r31)
 /* 801FD6BC 001FA6BC  1C 60 02 80 */	mulli r3, r0, 0x280
-/* 801FD6C0 001FA6C0  4B FF ED 89 */	bl func_801FC448
+/* 801FD6C0 001FA6C0  4B FF ED 89 */	bl salMalloc
 /* 801FD6C4 001FA6C4  90 7F 00 34 */	stw r3, 0x34(r31)
 /* 801FD6C8 001FA6C8  80 1F 00 08 */	lwz r0, 8(r31)
 /* 801FD6CC 001FA6CC  1C 60 02 80 */	mulli r3, r0, 0x280
-/* 801FD6D0 001FA6D0  4B FF ED 79 */	bl func_801FC448
+/* 801FD6D0 001FA6D0  4B FF ED 79 */	bl salMalloc
 /* 801FD6D4 001FA6D4  90 7F 00 38 */	stw r3, 0x38(r31)
 /* 801FD6D8 001FA6D8  38 80 00 00 */	li r4, 0
 /* 801FD6DC 001FA6DC  38 60 00 00 */	li r3, 0
@@ -223,21 +223,21 @@ lbl_801FD74C:
 /* 801FD76C 001FA76C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FD770 001FA770  4E 80 00 20 */	blr 
 
-.global func_801FD774
-func_801FD774:
+.global sndAuxCallbackPrepareDelay
+sndAuxCallbackPrepareDelay:
 /* 801FD774 001FA774  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FD778 001FA778  7C 08 02 A6 */	mflr r0
 /* 801FD77C 001FA77C  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801FD780 001FA780  38 00 00 00 */	li r0, 0
 /* 801FD784 001FA784  90 03 00 30 */	stw r0, 0x30(r3)
-/* 801FD788 001FA788  4B FF FE 1D */	bl func_801FD5A4
+/* 801FD788 001FA788  4B FF FE 1D */	bl sndAuxCallbackUpdateSettingsDelay
 /* 801FD78C 001FA78C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801FD790 001FA790  7C 08 03 A6 */	mtlr r0
 /* 801FD794 001FA794  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FD798 001FA798  4E 80 00 20 */	blr 
 
-.global func_801FD79C
-func_801FD79C:
+.global sndAuxCallbackShutdownDelay
+sndAuxCallbackShutdownDelay:
 /* 801FD79C 001FA79C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FD7A0 001FA7A0  7C 08 02 A6 */	mflr r0
 /* 801FD7A4 001FA7A4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -246,11 +246,11 @@ func_801FD79C:
 /* 801FD7B0 001FA7B0  80 63 00 30 */	lwz r3, 0x30(r3)
 /* 801FD7B4 001FA7B4  28 03 00 00 */	cmplwi r3, 0
 /* 801FD7B8 001FA7B8  41 82 00 18 */	beq lbl_801FD7D0
-/* 801FD7BC 001FA7BC  4B FF EC E9 */	bl func_801FC4A4
+/* 801FD7BC 001FA7BC  4B FF EC E9 */	bl salFree
 /* 801FD7C0 001FA7C0  80 7F 00 34 */	lwz r3, 0x34(r31)
-/* 801FD7C4 001FA7C4  4B FF EC E1 */	bl func_801FC4A4
+/* 801FD7C4 001FA7C4  4B FF EC E1 */	bl salFree
 /* 801FD7C8 001FA7C8  80 7F 00 38 */	lwz r3, 0x38(r31)
-/* 801FD7CC 001FA7CC  4B FF EC D9 */	bl func_801FC4A4
+/* 801FD7CC 001FA7CC  4B FF EC D9 */	bl salFree
 lbl_801FD7D0:
 /* 801FD7D0 001FA7D0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801FD7D4 001FA7D4  38 60 00 01 */	li r3, 1

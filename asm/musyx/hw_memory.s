@@ -2,8 +2,8 @@
 
 .section .text  # 0x801FC448 - 0x801FC4D4
 
-.global func_801FC448
-func_801FC448:
+.global salMalloc
+salMalloc:
 /* 801FC448 001F9448  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FC44C 001F944C  7C 08 02 A6 */	mflr r0
 /* 801FC450 001F9450  3C 80 80 27 */	lis r4, lbl_80273F98@ha
@@ -16,8 +16,8 @@ func_801FC448:
 /* 801FC46C 001F946C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FC470 001F9470  4E 80 00 20 */	blr 
 
-.global func_801FC474
-func_801FC474:
+.global salMallocPhysical
+salMallocPhysical:
 /* 801FC474 001F9474  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FC478 001F9478  7C 08 02 A6 */	mflr r0
 /* 801FC47C 001F947C  3C 80 80 27 */	lis r4, lbl_80273F98@ha
@@ -31,8 +31,8 @@ func_801FC474:
 /* 801FC49C 001F949C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FC4A0 001F94A0  4E 80 00 20 */	blr 
 
-.global func_801FC4A4
-func_801FC4A4:
+.global salFree
+salFree:
 /* 801FC4A4 001F94A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FC4A8 001F94A8  7C 08 02 A6 */	mflr r0
 /* 801FC4AC 001F94AC  3C 80 80 27 */	lis r4, lbl_80273F98@ha

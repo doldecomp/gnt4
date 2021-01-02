@@ -2,8 +2,8 @@
 
 .section .text  # 0x801FC4D4 - 0x801FC5C8
 
-.global func_801FC4D4
-func_801FC4D4:
+.global sndAuxCallbackReverbHI
+sndAuxCallbackReverbHI:
 /* 801FC4D4 001F94D4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FC4D8 001F94D8  7C 08 02 A6 */	mflr r0
 /* 801FC4DC 001F94DC  7C 87 23 78 */	mr r7, r4
@@ -23,15 +23,15 @@ lbl_801FC500:
 /* 801FC510 001F9510  7C A6 2B 78 */	mr r6, r5
 /* 801FC514 001F9514  80 87 00 04 */	lwz r4, 4(r7)
 /* 801FC518 001F9518  80 A7 00 08 */	lwz r5, 8(r7)
-/* 801FC51C 001F951C  48 00 0E 41 */	bl func_801FD35C
+/* 801FC51C 001F951C  48 00 0E 41 */	bl ReverbHICallback
 lbl_801FC520:
 /* 801FC520 001F9520  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801FC524 001F9524  7C 08 03 A6 */	mtlr r0
 /* 801FC528 001F9528  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FC52C 001F952C  4E 80 00 20 */	blr 
 
-.global func_801FC530
-func_801FC530:
+.global sndAuxCallbackUpdateSettingsReverbHI
+sndAuxCallbackUpdateSettingsReverbHI:
 /* 801FC530 001F9530  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FC534 001F9534  7C 08 02 A6 */	mflr r0
 /* 801FC538 001F9538  90 01 00 14 */	stw r0, 0x14(r1)
@@ -45,7 +45,7 @@ func_801FC530:
 /* 801FC558 001F9558  C0 83 01 D4 */	lfs f4, 0x1d4(r3)
 /* 801FC55C 001F955C  C0 A3 01 D8 */	lfs f5, 0x1d8(r3)
 /* 801FC560 001F9560  C0 C3 01 DC */	lfs f6, 0x1dc(r3)
-/* 801FC564 001F9564  48 00 05 85 */	bl func_801FCAE8
+/* 801FC564 001F9564  48 00 05 85 */	bl ReverbHIModify
 /* 801FC568 001F9568  38 00 00 00 */	li r0, 0
 /* 801FC56C 001F956C  38 60 00 01 */	li r3, 1
 /* 801FC570 001F9570  98 1F 01 C4 */	stb r0, 0x1c4(r31)
@@ -55,8 +55,8 @@ func_801FC530:
 /* 801FC580 001F9580  38 21 00 10 */	addi r1, r1, 0x10
 /* 801FC584 001F9584  4E 80 00 20 */	blr 
 
-.global func_801FC588
-func_801FC588:
+.global sndAuxCallbackPrepareReverbHI
+sndAuxCallbackPrepareReverbHI:
 /* 801FC588 001F9588  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801FC58C 001F958C  7C 08 02 A6 */	mflr r0
 /* 801FC590 001F9590  90 01 00 14 */	stw r0, 0x14(r1)
@@ -68,7 +68,7 @@ func_801FC588:
 /* 801FC5A8 001F95A8  C0 83 01 D4 */	lfs f4, 0x1d4(r3)
 /* 801FC5AC 001F95AC  C0 A3 01 D8 */	lfs f5, 0x1d8(r3)
 /* 801FC5B0 001F95B0  C0 C3 01 DC */	lfs f6, 0x1dc(r3)
-/* 801FC5B4 001F95B4  48 00 00 15 */	bl func_801FC5C8
+/* 801FC5B4 001F95B4  48 00 00 15 */	bl ReverbHICreate
 /* 801FC5B8 001F95B8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801FC5BC 001F95BC  7C 08 03 A6 */	mtlr r0
 /* 801FC5C0 001F95C0  38 21 00 10 */	addi r1, r1, 0x10
