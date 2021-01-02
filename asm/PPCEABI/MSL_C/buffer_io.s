@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018FCF0 - 0x8018FDE8
 
-.global func_8018FCF0
-func_8018FCF0:
+.global __flush_buffer
+__flush_buffer:
 /* 8018FCF0 0018CCF0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018FCF4 0018CCF4  7C 08 02 A6 */	mflr r0
 /* 8018FCF8 0018CCF8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -58,8 +58,8 @@ lbl_8018FD9C:
 /* 8018FDAC 0018CDAC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018FDB0 0018CDB0  4E 80 00 20 */	blr 
 
-.global func_8018FDB4
-func_8018FDB4:
+.global __prep_buffer
+__prep_buffer:
 /* 8018FDB4 0018CDB4  80 03 00 1C */	lwz r0, 0x1c(r3)
 /* 8018FDB8 0018CDB8  90 03 00 24 */	stw r0, 0x24(r3)
 /* 8018FDBC 0018CDBC  80 03 00 20 */	lwz r0, 0x20(r3)

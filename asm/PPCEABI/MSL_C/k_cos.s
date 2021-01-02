@@ -2,8 +2,8 @@
 
 .section .text  # 0x80194B98 - 0x80194C8C
 
-.global func_80194B98
-func_80194B98:
+.global __kernel_cos
+__kernel_cos:
 /* 80194B98 00191B98  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80194B9C 00191B9C  3C 00 3E 40 */	lis r0, 0x3e40
 /* 80194BA0 00191BA0  D8 21 00 08 */	stfd f1, 8(r1)

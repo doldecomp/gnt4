@@ -2,8 +2,8 @@
 
 .section .text  # 0x80192F0C - 0x80192F94
 
-.global func_80192F0C
-func_80192F0C:
+.global fwide
+fwide:
 /* 80192F0C 0018FF0C  28 03 00 00 */	cmplwi r3, 0
 /* 80192F10 0018FF10  41 82 00 10 */	beq lbl_80192F20
 /* 80192F14 0018FF14  A0 03 00 04 */	lhz r0, 4(r3)

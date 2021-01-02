@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018FDE8 - 0x8018FE0C
 
-.global func_8018FDE8
-func_8018FDE8:
+.global tolower
+tolower:
 /* 8018FDE8 0018CDE8  2C 03 FF FF */	cmpwi r3, -1
 /* 8018FDEC 0018CDEC  40 82 00 0C */	bne lbl_8018FDF8
 /* 8018FDF0 0018CDF0  38 60 FF FF */	li r3, -1

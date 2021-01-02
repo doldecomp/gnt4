@@ -2,8 +2,8 @@
 
 .section .text  # 0x80195F94 - 0x80195FBC
 
-.global func_80195F94
-func_80195F94:
+.global copysign
+copysign:
 /* 80195F94 00192F94  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80195F98 00192F98  D8 21 00 08 */	stfd f1, 8(r1)
 /* 80195F9C 00192F9C  D8 41 00 10 */	stfd f2, 0x10(r1)

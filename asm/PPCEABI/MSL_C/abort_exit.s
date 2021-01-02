@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018E99C - 0x8018EA68
 
-.global func_8018E99C
-func_8018E99C:
+.global exit
+exit:
 /* 8018E99C 0018B99C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018E9A0 0018B9A0  7C 08 02 A6 */	mflr r0
 /* 8018E9A4 0018B9A4  90 01 00 14 */	stw r0, 0x14(r1)

@@ -2,8 +2,8 @@
 
 .section .text  # 0x80196754 - 0x80196824
 
-.global func_80196754
-func_80196754:
+.global sqrt
+sqrt:
 /* 80196754 00193754  C0 02 C0 D8 */	lfs f0, lbl_8027BD78-_SDA2_BASE_(r2)
 /* 80196758 00193758  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8019675C 0019375C  FC 01 00 40 */	.byte 0xFC, 0x01, 0x00, 0x40  /* unknown instruction */
@@ -31,36 +31,36 @@ lbl_801967B0:
 /* 801967B0 001937B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801967B4 001937B4  4E 80 00 20 */	blr 
 
-.global func_801967B8
-func_801967B8:
+.global tanf
+tanf:
 /* 801967B8 001937B8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801967BC 001937BC  7C 08 02 A6 */	mflr r0
 /* 801967C0 001937C0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 801967C4 001937C4  4B FF FE 39 */	bl func_801965FC
+/* 801967C4 001937C4  4B FF FE 39 */	bl tan
 /* 801967C8 001937C8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801967CC 001937CC  FC 20 08 18 */	frsp f1, f1
 /* 801967D0 001937D0  7C 08 03 A6 */	mtlr r0
 /* 801967D4 001937D4  38 21 00 10 */	addi r1, r1, 0x10
 /* 801967D8 001937D8  4E 80 00 20 */	blr 
 
-.global func_801967DC
-func_801967DC:
+.global sinf
+sinf:
 /* 801967DC 001937DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801967E0 001937E0  7C 08 02 A6 */	mflr r0
 /* 801967E4 001937E4  90 01 00 14 */	stw r0, 0x14(r1)
-/* 801967E8 001937E8  4B FF FD 3D */	bl func_80196524
+/* 801967E8 001937E8  4B FF FD 3D */	bl sin
 /* 801967EC 001937EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801967F0 001937F0  FC 20 08 18 */	frsp f1, f1
 /* 801967F4 001937F4  7C 08 03 A6 */	mtlr r0
 /* 801967F8 001937F8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801967FC 001937FC  4E 80 00 20 */	blr 
 
-.global func_80196800
-func_80196800:
+.global cosf
+cosf:
 /* 80196800 00193800  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80196804 00193804  7C 08 02 A6 */	mflr r0
 /* 80196808 00193808  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8019680C 0019380C  4B FF F7 B1 */	bl func_80195FBC
+/* 8019680C 0019380C  4B FF F7 B1 */	bl cos
 /* 80196810 00193810  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 80196814 00193814  FC 20 08 18 */	frsp f1, f1
 /* 80196818 00193818  7C 08 03 A6 */	mtlr r0

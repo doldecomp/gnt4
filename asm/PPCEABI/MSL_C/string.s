@@ -2,8 +2,8 @@
 
 .section .text  # 0x80192B04 - 0x80192E48
 
-.global func_80192B04
-func_80192B04:
+.global strstr
+strstr:
 /* 80192B04 0018FB04  28 04 00 00 */	cmplwi r4, 0
 /* 80192B08 0018FB08  38 A3 FF FF */	addi r5, r3, -1
 /* 80192B0C 0018FB0C  4D 82 00 20 */	beqlr 
@@ -35,8 +35,8 @@ lbl_80192B58:
 /* 80192B64 0018FB64  38 60 00 00 */	li r3, 0
 /* 80192B68 0018FB68  4E 80 00 20 */	blr 
 
-.global func_80192B6C
-func_80192B6C:
+.global strchr
+strchr:
 /* 80192B6C 0018FB6C  38 63 FF FF */	addi r3, r3, -1
 /* 80192B70 0018FB70  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 80192B74 0018FB74  48 00 00 0C */	b lbl_80192B80
@@ -52,8 +52,8 @@ lbl_80192B80:
 /* 80192B94 0018FB94  38 60 00 00 */	li r3, 0
 /* 80192B98 0018FB98  4E 80 00 20 */	blr 
 
-.global func_80192B9C
-func_80192B9C:
+.global strncmp
+strncmp:
 /* 80192B9C 0018FB9C  38 63 FF FF */	addi r3, r3, -1
 /* 80192BA0 0018FBA0  38 84 FF FF */	addi r4, r4, -1
 /* 80192BA4 0018FBA4  38 C5 00 01 */	addi r6, r5, 1
@@ -75,8 +75,8 @@ lbl_80192BD4:
 /* 80192BD4 0018FBD4  38 60 00 00 */	li r3, 0
 /* 80192BD8 0018FBD8  4E 80 00 20 */	blr 
 
-.global func_80192BDC
-func_80192BDC:
+.global strcmp
+strcmp:
 /* 80192BDC 0018FBDC  88 A3 00 00 */	lbz r5, 0(r3)
 /* 80192BE0 0018FBE0  88 04 00 00 */	lbz r0, 0(r4)
 /* 80192BE4 0018FBE4  7C 00 28 51 */	subf. r0, r0, r5
@@ -165,8 +165,8 @@ lbl_80192CF4:
 /* 80192CFC 0018FCFC  38 60 00 00 */	li r3, 0
 /* 80192D00 0018FD00  4E 80 00 20 */	blr 
 
-.global func_80192D04
-func_80192D04:
+.global strcat
+strcat:
 /* 80192D04 0018FD04  38 84 FF FF */	addi r4, r4, -1
 /* 80192D08 0018FD08  38 A3 FF FF */	addi r5, r3, -1
 lbl_80192D0C:
@@ -181,8 +181,8 @@ lbl_80192D1C:
 /* 80192D28 0018FD28  40 82 FF F4 */	bne lbl_80192D1C
 /* 80192D2C 0018FD2C  4E 80 00 20 */	blr 
 
-.global func_80192D30
-func_80192D30:
+.global strncpy
+strncpy:
 /* 80192D30 0018FD30  38 84 FF FF */	addi r4, r4, -1
 /* 80192D34 0018FD34  38 C3 FF FF */	addi r6, r3, -1
 /* 80192D38 0018FD38  38 A5 00 01 */	addi r5, r5, 1
@@ -205,8 +205,8 @@ lbl_80192D68:
 /* 80192D6C 0018FD6C  40 82 FF D4 */	bne lbl_80192D40
 /* 80192D70 0018FD70  4E 80 00 20 */	blr 
 
-.global func_80192D74
-func_80192D74:
+.global strcpy
+strcpy:
 /* 80192D74 0018FD74  54 60 07 BE */	clrlwi r0, r3, 0x1e
 /* 80192D78 0018FD78  54 85 07 BE */	clrlwi r5, r4, 0x1e
 /* 80192D7C 0018FD7C  7C 00 28 40 */	cmplw r0, r5
@@ -260,8 +260,8 @@ lbl_80192E18:
 /* 80192E24 0018FE24  40 82 FF F4 */	bne lbl_80192E18
 /* 80192E28 0018FE28  4E 80 00 20 */	blr 
 
-.global func_80192E2C
-func_80192E2C:
+.global strlen
+strlen:
 /* 80192E2C 0018FE2C  38 83 FF FF */	addi r4, r3, -1
 /* 80192E30 0018FE30  38 60 FF FF */	li r3, -1
 lbl_80192E34:

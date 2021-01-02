@@ -2,8 +2,8 @@
 
 .section .text  # 0x80192F94 - 0x801932A4
 
-.global func_80192F94
-func_80192F94:
+.global __ieee754_acos
+__ieee754_acos:
 /* 80192F94 0018FF94  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80192F98 0018FF98  3C 00 3F F0 */	lis r0, 0x3ff0
 /* 80192F9C 0018FF9C  D8 21 00 08 */	stfd f1, 8(r1)

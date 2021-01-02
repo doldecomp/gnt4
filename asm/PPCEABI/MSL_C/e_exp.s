@@ -2,8 +2,8 @@
 
 .section .text  # 0x80193798 - 0x801939B4
 
-.global func_80193798
-func_80193798:
+.global __ieee754_exp
+__ieee754_exp:
 /* 80193798 00190798  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8019379C 0019079C  3C 60 40 86 */	lis r3, 0x40862E42@ha
 /* 801937A0 001907A0  3C 80 80 20 */	lis r4, lbl_80205538@ha

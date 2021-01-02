@@ -17,7 +17,7 @@ adsrConvertTimeCents:
 /* 801F092C 001ED92C  C8 01 00 08 */	lfd f0, 8(r1)
 /* 801F0930 001ED930  EC 00 10 28 */	fsubs f0, f0, f2
 /* 801F0934 001ED934  EC 43 00 32 */	fmuls f2, f3, f0
-/* 801F0938 001ED938  4B FA 5D FD */	bl func_80196734
+/* 801F0938 001ED938  4B FA 5D FD */	bl pow
 /* 801F093C 001ED93C  FC 20 08 18 */	frsp f1, f1
 /* 801F0940 001ED940  C0 02 C7 8C */	lfs f0, lbl_8027C42C-_SDA2_BASE_(r2)
 /* 801F0944 001ED944  EC 20 00 72 */	fmuls f1, f0, f1

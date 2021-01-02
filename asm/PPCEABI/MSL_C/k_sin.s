@@ -2,8 +2,8 @@
 
 .section .text  # 0x80195AE0 - 0x80195D94
 
-.global func_80195AE0
-func_80195AE0:
+.global __kernel_sin
+__kernel_sin:
 /* 80195AE0 00192AE0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80195AE4 00192AE4  3C 00 3E 40 */	lis r0, 0x3e40
 /* 80195AE8 00192AE8  D8 21 00 08 */	stfd f1, 8(r1)

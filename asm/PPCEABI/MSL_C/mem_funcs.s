@@ -2,8 +2,8 @@
 
 .section .text  # 0x801908B0 - 0x80190B90
 
-.global func_801908B0
-func_801908B0:
+.global __copy_longs_rev_unaligned
+__copy_longs_rev_unaligned:
 /* 801908B0 0018D8B0  7D 63 2A 14 */	add r11, r3, r5
 /* 801908B4 0018D8B4  7D 44 2A 14 */	add r10, r4, r5
 /* 801908B8 0018D8B8  55 63 07 BF */	clrlwi. r3, r11, 0x1e
@@ -54,8 +54,8 @@ lbl_8019094C:
 /* 80190958 0018D958  40 82 FF F4 */	bne lbl_8019094C
 /* 8019095C 0018D95C  4E 80 00 20 */	blr 
 
-.global func_80190960
-func_80190960:
+.global __copy_longs_unaligned
+__copy_longs_unaligned:
 /* 80190960 0018D960  7C 03 00 D0 */	neg r0, r3
 /* 80190964 0018D964  39 04 FF FF */	addi r8, r4, -1
 /* 80190968 0018D968  54 06 07 BF */	clrlwi. r6, r0, 0x1e
@@ -111,8 +111,8 @@ lbl_80190A10:
 /* 80190A1C 0018DA1C  40 82 FF F4 */	bne lbl_80190A10
 /* 80190A20 0018DA20  4E 80 00 20 */	blr 
 
-.global func_80190A24
-func_80190A24:
+.global __copy_longs_rev_aligned
+__copy_longs_rev_aligned:
 /* 80190A24 0018DA24  7C C3 2A 14 */	add r6, r3, r5
 /* 80190A28 0018DA28  7C 84 2A 14 */	add r4, r4, r5
 /* 80190A2C 0018DA2C  54 C3 07 BF */	clrlwi. r3, r6, 0x1e
@@ -164,8 +164,8 @@ lbl_80190ABC:
 /* 80190AC8 0018DAC8  40 82 FF F4 */	bne lbl_80190ABC
 /* 80190ACC 0018DACC  4E 80 00 20 */	blr 
 
-.global func_80190AD0
-func_80190AD0:
+.global __copy_longs_aligned
+__copy_longs_aligned:
 /* 80190AD0 0018DAD0  7C 03 00 D0 */	neg r0, r3
 /* 80190AD4 0018DAD4  38 E4 FF FF */	addi r7, r4, -1
 /* 80190AD8 0018DAD8  54 06 07 BF */	clrlwi. r6, r0, 0x1e

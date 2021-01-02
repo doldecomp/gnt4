@@ -2,8 +2,8 @@
 
 .section .text  # 0x80193CF0 - 0x80193F6C
 
-.global func_80193CF0
-func_80193CF0:
+.global __ieee754_log
+__ieee754_log:
 /* 80193CF0 00190CF0  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80193CF4 00190CF4  3C 00 00 10 */	lis r0, 0x10
 /* 80193CF8 00190CF8  39 00 00 00 */	li r8, 0

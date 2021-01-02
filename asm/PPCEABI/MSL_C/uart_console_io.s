@@ -2,8 +2,8 @@
 
 .section .text  # 0x80192E48 - 0x80192F0C
 
-.global func_80192E48
-func_80192E48:
+.global __write_console
+__write_console:
 /* 80192E48 0018FE48  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80192E4C 0018FE4C  7C 08 02 A6 */	mflr r0
 /* 80192E50 0018FE50  90 01 00 24 */	stw r0, 0x24(r1)

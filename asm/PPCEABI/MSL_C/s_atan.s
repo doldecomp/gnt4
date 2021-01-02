@@ -2,8 +2,8 @@
 
 .section .text  # 0x80195D94 - 0x80195F94
 
-.global func_80195D94
-func_80195D94:
+.global atan
+atan:
 /* 80195D94 00192D94  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80195D98 00192D98  3C 60 80 20 */	lis r3, lbl_802057E8@ha
 /* 80195D9C 00192D9C  3C 00 44 10 */	lis r0, 0x4410

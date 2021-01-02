@@ -2,8 +2,8 @@
 
 .section .text  # 0x801932A4 - 0x80193508
 
-.global func_801932A4
-func_801932A4:
+.global __ieee754_asin
+__ieee754_asin:
 /* 801932A4 001902A4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801932A8 001902A8  3C 00 3F F0 */	lis r0, 0x3ff0
 /* 801932AC 001902AC  D8 21 00 08 */	stfd f1, 8(r1)

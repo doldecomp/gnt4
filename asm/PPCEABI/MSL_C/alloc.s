@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018EA68 - 0x8018EFD0
 
-.global func_8018EA68
-func_8018EA68:
+.global free
+free:
 /* 8018EA68 0018BA68  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018EA6C 0018BA6C  7C 08 02 A6 */	mflr r0
 /* 8018EA70 0018BA70  90 01 00 14 */	stw r0, 0x14(r1)
@@ -39,14 +39,14 @@ lbl_8018EAD8:
 /* 8018EADC 0018BADC  41 81 00 14 */	bgt lbl_8018EAF0
 /* 8018EAE0 0018BAE0  7F E3 FB 78 */	mr r3, r31
 /* 8018EAE4 0018BAE4  7F C4 F3 78 */	mr r4, r30
-/* 8018EAE8 0018BAE8  48 00 00 B5 */	bl func_8018EB9C
+/* 8018EAE8 0018BAE8  48 00 00 B5 */	bl __pool_free
 /* 8018EAEC 0018BAEC  48 00 00 98 */	b lbl_8018EB84
 lbl_8018EAF0:
 /* 8018EAF0 0018BAF0  80 1E FF FC */	lwz r0, -4(r30)
 /* 8018EAF4 0018BAF4  38 9E FF F8 */	addi r4, r30, -8
 /* 8018EAF8 0018BAF8  54 1E 00 3C */	rlwinm r30, r0, 0, 0, 0x1e
 /* 8018EAFC 0018BAFC  7F C3 F3 78 */	mr r3, r30
-/* 8018EB00 0018BB00  48 00 03 55 */	bl func_8018EE54
+/* 8018EB00 0018BB00  48 00 03 55 */	bl deallocate_from_var_pools
 /* 8018EB04 0018BB04  80 7E 00 10 */	lwz r3, 0x10(r30)
 /* 8018EB08 0018BB08  38 A0 00 00 */	li r5, 0
 /* 8018EB0C 0018BB0C  54 60 07 BD */	rlwinm. r0, r3, 0, 0x1e, 0x1e
@@ -91,8 +91,8 @@ lbl_8018EB84:
 /* 8018EB94 0018BB94  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018EB98 0018BB98  4E 80 00 20 */	blr 
 
-.global func_8018EB9C
-func_8018EB9C:
+.global __pool_free
+__pool_free:
 /* 8018EB9C 0018BB9C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018EBA0 0018BBA0  7C 08 02 A6 */	mflr r0
 /* 8018EBA4 0018BBA4  3C C0 80 20 */	lis r6, lbl_80205418@ha
@@ -189,7 +189,7 @@ lbl_8018ECEC:
 /* 8018ECF0 0018BCF0  38 83 FF F8 */	addi r4, r3, -8
 /* 8018ECF4 0018BCF4  54 1E 00 3C */	rlwinm r30, r0, 0, 0, 0x1e
 /* 8018ECF8 0018BCF8  7F C3 F3 78 */	mr r3, r30
-/* 8018ECFC 0018BCFC  48 00 01 59 */	bl func_8018EE54
+/* 8018ECFC 0018BCFC  48 00 01 59 */	bl deallocate_from_var_pools
 /* 8018ED00 0018BD00  80 7E 00 10 */	lwz r3, 0x10(r30)
 /* 8018ED04 0018BD04  38 A0 00 00 */	li r5, 0
 /* 8018ED08 0018BD08  54 60 07 BD */	rlwinm. r0, r3, 0, 0x1e, 0x1e
@@ -234,8 +234,8 @@ lbl_8018ED80:
 /* 8018ED90 0018BD90  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018ED94 0018BD94  4E 80 00 20 */	blr 
 
-.global func_8018ED98
-func_8018ED98:
+.global deallocate_from_fixed_pools
+deallocate_from_fixed_pools:
 /* 8018ED98 0018BD98  80 C3 00 00 */	lwz r6, 0(r3)
 /* 8018ED9C 0018BD9C  54 C8 00 38 */	rlwinm r8, r6, 0, 0, 0x1c
 /* 8018EDA0 0018BDA0  7C A3 42 14 */	add r5, r3, r8
@@ -289,8 +289,8 @@ lbl_8018EE38:
 /* 8018EE4C 0018BE4C  90 03 00 0C */	stw r0, 0xc(r3)
 /* 8018EE50 0018BE50  4E 80 00 20 */	blr 
 
-.global func_8018EE54
-func_8018EE54:
+.global deallocate_from_var_pools
+deallocate_from_var_pools:
 /* 8018EE54 0018BE54  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018EE58 0018BE58  7C 08 02 A6 */	mflr r0
 /* 8018EE5C 0018BE5C  38 A0 FF FD */	li r5, -3
@@ -373,7 +373,7 @@ lbl_8018EF7C:
 /* 8018EF7C 0018BF7C  90 9F 00 00 */	stw r4, 0(r31)
 /* 8018EF80 0018BF80  7F E4 FB 78 */	mr r4, r31
 /* 8018EF84 0018BF84  80 7F 00 00 */	lwz r3, 0(r31)
-/* 8018EF88 0018BF88  4B FF FE 11 */	bl func_8018ED98
+/* 8018EF88 0018BF88  4B FF FE 11 */	bl deallocate_from_fixed_pools
 /* 8018EF8C 0018BF8C  48 00 00 10 */	b lbl_8018EF9C
 lbl_8018EF90:
 /* 8018EF90 0018BF90  90 9F 00 00 */	stw r4, 0(r31)

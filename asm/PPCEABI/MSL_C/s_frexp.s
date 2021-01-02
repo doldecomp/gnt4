@@ -2,8 +2,8 @@
 
 .section .text  # 0x801961D8 - 0x80196264
 
-.global func_801961D8
-func_801961D8:
+.global frexp
+frexp:
 /* 801961D8 001931D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801961DC 001931DC  38 80 00 00 */	li r4, 0
 /* 801961E0 001931E0  3C 00 7F F0 */	lis r0, 0x7ff0

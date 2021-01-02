@@ -2,8 +2,8 @@
 
 .section .text  # 0x801939B4 - 0x80193CF0
 
-.global func_801939B4
-func_801939B4:
+.global __ieee754_fmod
+__ieee754_fmod:
 /* 801939B4 001909B4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801939B8 001909B8  D8 41 00 10 */	stfd f2, 0x10(r1)
 /* 801939BC 001909BC  D8 21 00 08 */	stfd f1, 8(r1)

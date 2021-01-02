@@ -2,8 +2,8 @@
 
 .section .text  # 0x80195B80 - 0x80195D94
 
-.global func_80195B80
-func_80195B80:
+.global __kernel_tan
+__kernel_tan:
 /* 80195B80 00192B80  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80195B84 00192B84  DB E1 00 30 */	stfd f31, 0x30(r1)
 /* 80195B88 00192B88  F3 E1 00 38 */	psq_st p31, 56(r1), 0, qr0

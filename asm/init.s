@@ -131,7 +131,7 @@ lbl_8000329C:
 /* 800032A0 000002A0  7D C3 73 78 */	mr r3, r14
 /* 800032A4 000002A4  7D E4 7B 78 */	mr r4, r15
 /* 800032A8 000002A8  48 00 96 D1 */	bl func_8000C978
-/* 800032AC 000002AC  48 18 B6 F0 */	b func_8018E99C
+/* 800032AC 000002AC  48 18 B6 F0 */	b exit
 
 .global __init_registers
 __init_registers:
