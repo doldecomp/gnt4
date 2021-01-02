@@ -2,8 +2,8 @@
 
 .section .text  # 0x801D8F38 - 0x801D902C
 
-.global func_801D8F38
-func_801D8F38:
+.global zz_801d8f38_
+zz_801d8f38_:
 /* 801D8F38 001D5F38  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801D8F3C 001D5F3C  7C 08 02 A6 */	mflr r0
 /* 801D8F40 001D5F40  90 01 00 24 */	stw r0, 0x24(r1)
@@ -23,7 +23,7 @@ func_801D8F38:
 /* 801D8F78 001D5F78  38 63 BB 20 */	addi r3, r3, lbl_8021BB20@l
 /* 801D8F7C 001D5F7C  38 80 00 28 */	li r4, 0x28
 /* 801D8F80 001D5F80  38 A5 BB 30 */	addi r5, r5, lbl_8021BB30@l
-/* 801D8F84 001D5F84  4B FF CE 61 */	bl func_801D5DE4
+/* 801D8F84 001D5F84  4B FF CE 61 */	bl __assert
 lbl_801D8F88:
 /* 801D8F88 001D5F88  9B BC 00 07 */	stb r29, 7(r28)
 /* 801D8F8C 001D5F8C  93 FC 00 2C */	stw r31, 0x2c(r28)
@@ -37,8 +37,8 @@ lbl_801D8F88:
 /* 801D8FAC 001D5FAC  38 21 00 20 */	addi r1, r1, 0x20
 /* 801D8FB0 001D5FB0  4E 80 00 20 */	blr 
 
-.global func_801D8FB4
-func_801D8FB4:
+.global zz_801d8fb4_
+zz_801d8fb4_:
 /* 801D8FB4 001D5FB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D8FB8 001D5FB8  7C 08 02 A6 */	mflr r0
 /* 801D8FBC 001D5FBC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -55,7 +55,7 @@ func_801D8FB4:
 /* 801D8FE8 001D5FE8  38 63 BB 20 */	addi r3, r3, lbl_8021BB20@l
 /* 801D8FEC 001D5FEC  38 80 00 63 */	li r4, 0x63
 /* 801D8FF0 001D5FF0  38 A5 BB 60 */	addi r5, r5, lbl_8021BB60@l
-/* 801D8FF4 001D5FF4  4B FF CD F1 */	bl func_801D5DE4
+/* 801D8FF4 001D5FF4  4B FF CD F1 */	bl __assert
 lbl_801D8FF8:
 /* 801D8FF8 001D5FF8  81 9F 00 30 */	lwz r12, 0x30(r31)
 /* 801D8FFC 001D5FFC  80 7F 00 2C */	lwz r3, 0x2c(r31)

@@ -2,8 +2,8 @@
 
 .section .text  # 0x801C47BC - 0x801C4F18
 
-.global func_801C47BC
-func_801C47BC:
+.global HSD_PadRumbleOffH
+HSD_PadRumbleOffH:
 /* 801C47BC 001C17BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C47C0 001C17C0  7C 08 02 A6 */	mflr r0
 /* 801C47C4 001C17C4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -24,8 +24,8 @@ func_801C47BC:
 /* 801C4800 001C1800  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C4804 001C1804  4E 80 00 20 */	blr 
 
-.global func_801C4808
-func_801C4808:
+.global HSD_PadRumbleRemove
+HSD_PadRumbleRemove:
 /* 801C4808 001C1808  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C480C 001C180C  7C 08 02 A6 */	mflr r0
 /* 801C4810 001C1810  90 01 00 14 */	stw r0, 0x14(r1)
@@ -68,8 +68,8 @@ lbl_801C487C:
 /* 801C4894 001C1894  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C4898 001C1898  4E 80 00 20 */	blr 
 
-.global func_801C489C
-func_801C489C:
+.global HSD_PadRumbleRemoveAll
+HSD_PadRumbleRemoveAll:
 /* 801C489C 001C189C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801C48A0 001C18A0  7C 08 02 A6 */	mflr r0
 /* 801C48A4 001C18A4  3C 80 80 25 */	lis r4, lbl_8024C7C0@ha
@@ -123,8 +123,8 @@ lbl_801C4920:
 /* 801C4950 001C1950  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C4954 001C1954  4E 80 00 20 */	blr 
 
-.global func_801C4958
-func_801C4958:
+.global HSD_PadRumbleAdd
+HSD_PadRumbleAdd:
 /* 801C4958 001C1958  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801C495C 001C195C  7C 08 02 A6 */	mflr r0
 /* 801C4960 001C1960  90 01 00 34 */	stw r0, 0x34(r1)
@@ -192,8 +192,8 @@ lbl_801C4A30:
 /* 801C4A48 001C1A48  38 21 00 30 */	addi r1, r1, 0x30
 /* 801C4A4C 001C1A4C  4E 80 00 20 */	blr 
 
-.global func_801C4A50
-func_801C4A50:
+.global HSD_PadRumbleSetMaxList
+HSD_PadRumbleSetMaxList:
 /* 801C4A50 001C1A50  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C4A54 001C1A54  7C 08 02 A6 */	mflr r0
 /* 801C4A58 001C1A58  90 01 00 14 */	stw r0, 0x14(r1)
@@ -210,8 +210,8 @@ func_801C4A50:
 /* 801C4A84 001C1A84  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C4A88 001C1A88  4E 80 00 20 */	blr 
 
-.global func_801C4A8C
-func_801C4A8C:
+.global HSD_PadRumbleInterpret1
+HSD_PadRumbleInterpret1:
 /* 801C4A8C 001C1A8C  88 03 00 08 */	lbz r0, 8(r3)
 /* 801C4A90 001C1A90  28 00 00 01 */	cmplwi r0, 1
 /* 801C4A94 001C1A94  40 82 01 38 */	bne lbl_801C4BCC
@@ -325,8 +325,8 @@ lbl_801C4C14:
 /* 801C4C14 001C1C14  38 60 00 00 */	li r3, 0
 /* 801C4C18 001C1C18  4E 80 00 20 */	blr 
 
-.global func_801C4C1C
-func_801C4C1C:
+.global HSD_PadRumbleInterpret
+HSD_PadRumbleInterpret:
 /* 801C4C1C 001C1C1C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801C4C20 001C1C20  7C 08 02 A6 */	mflr r0
 /* 801C4C24 001C1C24  90 01 00 24 */	stw r0, 0x24(r1)
@@ -347,7 +347,7 @@ lbl_801C4C58:
 /* 801C4C58 001C1C58  83 9D 00 00 */	lwz r28, 0(r29)
 /* 801C4C5C 001C1C5C  7F A3 EB 78 */	mr r3, r29
 /* 801C4C60 001C1C60  38 9E 00 01 */	addi r4, r30, 1
-/* 801C4C64 001C1C64  4B FF FE 29 */	bl func_801C4A8C
+/* 801C4C64 001C1C64  4B FF FE 29 */	bl HSD_PadRumbleInterpret1
 /* 801C4C68 001C1C68  2C 03 00 00 */	cmpwi r3, 0
 /* 801C4C6C 001C1C6C  41 82 00 3C */	beq lbl_801C4CA8
 /* 801C4C70 001C1C70  38 7E 00 08 */	addi r3, r30, 8
@@ -414,8 +414,8 @@ lbl_801C4D1C:
 /* 801C4D3C 001C1D3C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C4D40 001C1D40  4E 80 00 20 */	blr 
 
-.global func_801C4D44
-func_801C4D44:
+.global HSD_PadRumbleInit
+HSD_PadRumbleInit:
 /* 801C4D44 001C1D44  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801C4D48 001C1D48  3C A0 80 25 */	lis r5, lbl_8024C7C0@ha
 /* 801C4D4C 001C1D4C  54 66 04 3F */	clrlwi. r6, r3, 0x10

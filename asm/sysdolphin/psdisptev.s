@@ -2,8 +2,8 @@
 
 .section .text  # 0x801A61A0 - 0x801A69B4
 
-.global func_801A61A0
-func_801A61A0:
+.global psSetupTevCommon
+psSetupTevCommon:
 /* 801A61A0 001A31A0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A61A4 001A31A4  7C 08 02 A6 */	mflr r0
 /* 801A61A8 001A31A8  38 60 00 00 */	li r3, 0
@@ -81,14 +81,14 @@ func_801A61A0:
 /* 801A62C8 001A32C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A62CC 001A32CC  4E 80 00 20 */	blr 
 
-.global func_801A62D0
-func_801A62D0:
+.global psSetupTevInvalidState
+psSetupTevInvalidState:
 /* 801A62D0 001A32D0  38 00 FF FF */	li r0, -1
 /* 801A62D4 001A32D4  90 0D 8F 70 */	stw r0, lbl_80277890-_SDA_BASE_(r13)
 /* 801A62D8 001A32D8  4E 80 00 20 */	blr 
 
-.global func_801A62DC
-func_801A62DC:
+.global psSetupTev
+psSetupTev:
 /* 801A62DC 001A32DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A62E0 001A32E0  7C 08 02 A6 */	mflr r0
 /* 801A62E4 001A32E4  3C 80 80 10 */	lis r4, lbl_80100480@ha

@@ -2,8 +2,8 @@
 
 .section .text  # 0x801A754C - 0x801A7A9C
 
-.global func_801A754C
-func_801A754C:
+.global AudioMalloc
+AudioMalloc:
 /* 801A754C 001A454C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A7550 001A4550  7C 08 02 A6 */	mflr r0
 /* 801A7554 001A4554  90 01 00 14 */	stw r0, 0x14(r1)
@@ -20,7 +20,7 @@ func_801A754C:
 /* 801A7580 001A4580  38 6D 82 B8 */	addi r3, r13, lbl_80276BD8-_SDA_BASE_
 /* 801A7584 001A4584  38 80 00 33 */	li r4, 0x33
 /* 801A7588 001A4588  38 AD 82 C0 */	addi r5, r13, lbl_80276BE0-_SDA_BASE_
-/* 801A758C 001A458C  48 02 E8 59 */	bl func_801D5DE4
+/* 801A758C 001A458C  48 02 E8 59 */	bl __assert
 lbl_801A7590:
 /* 801A7590 001A4590  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801A7594 001A4594  7F E3 FB 78 */	mr r3, r31
@@ -29,8 +29,8 @@ lbl_801A7590:
 /* 801A75A0 001A45A0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A75A4 001A45A4  4E 80 00 20 */	blr 
 
-.global func_801A75A8
-func_801A75A8:
+.global AudioFree
+AudioFree:
 /* 801A75A8 001A45A8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A75AC 001A45AC  7C 08 02 A6 */	mflr r0
 /* 801A75B0 001A45B0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -42,8 +42,8 @@ func_801A75A8:
 /* 801A75C8 001A45C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A75CC 001A45CC  4E 80 00 20 */	blr 
 
-.global func_801A75D0
-func_801A75D0:
+.global AudioInitMalloc
+AudioInitMalloc:
 /* 801A75D0 001A45D0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A75D4 001A45D4  7C 08 02 A6 */	mflr r0
 /* 801A75D8 001A45D8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -58,8 +58,8 @@ func_801A75D0:
 /* 801A75FC 001A45FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A7600 001A4600  4E 80 00 20 */	blr 
 
-.global func_801A7604
-func_801A7604:
+.global AudioInit
+AudioInit:
 /* 801A7604 001A4604  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A7608 001A4608  7C 08 02 A6 */	mflr r0
 /* 801A760C 001A460C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -99,7 +99,7 @@ func_801A7604:
 /* 801A7694 001A4694  38 6D 82 B8 */	addi r3, r13, lbl_80276BD8-_SDA_BASE_
 /* 801A7698 001A4698  38 80 00 33 */	li r4, 0x33
 /* 801A769C 001A469C  38 AD 82 C0 */	addi r5, r13, lbl_80276BE0-_SDA_BASE_
-/* 801A76A0 001A46A0  48 02 E7 45 */	bl func_801D5DE4
+/* 801A76A0 001A46A0  48 02 E7 45 */	bl __assert
 lbl_801A76A4:
 /* 801A76A4 001A46A4  93 CD 8F 94 */	stw r30, lbl_802778B4-_SDA_BASE_(r13)
 /* 801A76A8 001A46A8  38 00 00 00 */	li r0, 0
@@ -232,8 +232,8 @@ lbl_801A77E8:
 /* 801A7890 001A4890  38 21 00 20 */	addi r1, r1, 0x20
 /* 801A7894 001A4894  4E 80 00 20 */	blr 
 
-.global func_801A7898
-func_801A7898:
+.global zz_801a7898_
+zz_801a7898_:
 /* 801A7898 001A4898  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A789C 001A489C  7C 08 02 A6 */	mflr r0
 /* 801A78A0 001A48A0  90 01 00 24 */	stw r0, 0x24(r1)
@@ -288,8 +288,8 @@ lbl_801A792C:
 /* 801A7948 001A4948  38 21 00 20 */	addi r1, r1, 0x20
 /* 801A794C 001A494C  4E 80 00 20 */	blr 
 
-.global func_801A7950
-func_801A7950:
+.global zz_801a7950_
+zz_801a7950_:
 /* 801A7950 001A4950  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A7954 001A4954  7C 08 02 A6 */	mflr r0
 /* 801A7958 001A4958  90 01 00 14 */	stw r0, 0x14(r1)
@@ -338,8 +338,8 @@ lbl_801A79D0:
 /* 801A79E8 001A49E8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A79EC 001A49EC  4E 80 00 20 */	blr 
 
-.global func_801A79F0
-func_801A79F0:
+.global zz_801a79f0_
+zz_801a79f0_:
 /* 801A79F0 001A49F0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A79F4 001A49F4  7C 08 02 A6 */	mflr r0
 /* 801A79F8 001A49F8  7C 85 23 78 */	mr r5, r4
@@ -351,21 +351,21 @@ func_801A79F0:
 /* 801A7A10 001A4A10  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A7A14 001A4A14  4E 80 00 20 */	blr 
 
-.global func_801A7A18
-func_801A7A18:
+.global zz_801a7a18_
+zz_801a7a18_:
 /* 801A7A18 001A4A18  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A7A1C 001A4A1C  7C 08 02 A6 */	mflr r0
 /* 801A7A20 001A4A20  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801A7A24 001A4A24  98 6D 82 C8 */	stb r3, lbl_80276BE8-_SDA_BASE_(r13)
 /* 801A7A28 001A4A28  7C 83 23 78 */	mr r3, r4
-/* 801A7A2C 001A4A2C  48 00 00 15 */	bl func_801A7A40
+/* 801A7A2C 001A4A2C  48 00 00 15 */	bl AudioSetVolume
 /* 801A7A30 001A4A30  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801A7A34 001A4A34  7C 08 03 A6 */	mtlr r0
 /* 801A7A38 001A4A38  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A7A3C 001A4A3C  4E 80 00 20 */	blr 
 
-.global func_801A7A40
-func_801A7A40:
+.global AudioSetVolume
+AudioSetVolume:
 /* 801A7A40 001A4A40  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A7A44 001A4A44  7C 08 02 A6 */	mflr r0
 /* 801A7A48 001A4A48  C8 42 C2 38 */	lfd f2, lbl_8027BED8-_SDA2_BASE_(r2)

@@ -2,8 +2,8 @@
 
 .section .text  # 0x801C71B0 - 0x801C737C
 
-.global func_801C71B0
-func_801C71B0:
+.global HSD_MulColor
+HSD_MulColor:
 /* 801C71B0 001C41B0  88 E3 00 00 */	lbz r7, 0(r3)
 /* 801C71B4 001C41B4  3C C0 80 81 */	lis r6, 0x80808081@ha
 /* 801C71B8 001C41B8  88 04 00 00 */	lbz r0, 0(r4)
@@ -32,8 +32,8 @@ func_801C71B0:
 /* 801C7214 001C4214  98 05 00 03 */	stb r0, 3(r5)
 /* 801C7218 001C4218  4E 80 00 20 */	blr 
 
-.global func_801C721C
-func_801C721C:
+.global HSD_GetNbBits
+HSD_GetNbBits:
 /* 801C721C 001C421C  38 00 00 04 */	li r0, 4
 /* 801C7220 001C4220  38 A0 00 00 */	li r5, 0
 /* 801C7224 001C4224  38 C0 00 00 */	li r6, 0
@@ -92,8 +92,8 @@ lbl_801C72CC:
 /* 801C72D4 001C42D4  7C A3 2B 78 */	mr r3, r5
 /* 801C72D8 001C42D8  4E 80 00 20 */	blr 
 
-.global func_801C72DC
-func_801C72DC:
+.global HSD_Index2PosNrmMtx
+HSD_Index2PosNrmMtx:
 /* 801C72DC 001C42DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C72E0 001C42E0  7C 08 02 A6 */	mflr r0
 /* 801C72E4 001C42E4  28 03 00 09 */	cmplwi r3, 9
@@ -129,7 +129,7 @@ lbl_801C7358:
 /* 801C7358 001C4358  38 6D 84 E0 */	addi r3, r13, lbl_80276E00-_SDA_BASE_
 /* 801C735C 001C435C  38 80 00 84 */	li r4, 0x84
 /* 801C7360 001C4360  38 AD 84 E8 */	addi r5, r13, lbl_80276E08-_SDA_BASE_
-/* 801C7364 001C4364  48 00 EA 81 */	bl func_801D5DE4
+/* 801C7364 001C4364  48 00 EA 81 */	bl __assert
 /* 801C7368 001C4368  38 60 00 00 */	li r3, 0
 lbl_801C736C:
 /* 801C736C 001C436C  80 01 00 14 */	lwz r0, 0x14(r1)

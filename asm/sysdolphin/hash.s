@@ -2,8 +2,8 @@
 
 .section .text  # 0x801CF07C - 0x801CF17C
 
-.global func_801CF07C
-func_801CF07C:
+.global HSD_HashSearch
+HSD_HashSearch:
 /* 801CF07C 001CC07C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801CF080 001CC080  7C 08 02 A6 */	mflr r0
 /* 801CF084 001CC084  90 01 00 24 */	stw r0, 0x24(r1)
@@ -26,7 +26,7 @@ func_801CF07C:
 /* 801CF0C8 001CC0C8  38 6D 86 08 */	addi r3, r13, lbl_80276F28-_SDA_BASE_
 /* 801CF0CC 001CC0CC  38 A4 B2 B8 */	addi r5, r4, lbl_8021B2B8@l
 /* 801CF0D0 001CC0D0  38 80 00 71 */	li r4, 0x71
-/* 801CF0D4 001CC0D4  48 00 6D 11 */	bl func_801D5DE4
+/* 801CF0D4 001CC0D4  48 00 6D 11 */	bl __assert
 lbl_801CF0D8:
 /* 801CF0D8 001CC0D8  80 7C 00 04 */	lwz r3, 4(r28)
 /* 801CF0DC 001CC0DC  57 E0 10 3A */	slwi r0, r31, 2

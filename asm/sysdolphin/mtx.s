@@ -2,8 +2,8 @@
 
 .section .text  # 0x801C5958 - 0x801C71B0
 
-.global func_801C5958
-func_801C5958:
+.global HSD_MtxInverseConcat
+HSD_MtxInverseConcat:
 /* 801C5958 001C2958  94 21 FF 30 */	stwu r1, -0xd0(r1)
 /* 801C595C 001C295C  7C 08 02 A6 */	mflr r0
 /* 801C5960 001C2960  90 01 00 D4 */	stw r0, 0xd4(r1)
@@ -278,8 +278,8 @@ lbl_801C5D30:
 /* 801C5D80 001C2D80  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 801C5D84 001C2D84  4E 80 00 20 */	blr 
 
-.global func_801C5D88
-func_801C5D88:
+.global HSD_MtxGetRotation
+HSD_MtxGetRotation:
 /* 801C5D88 001C2D88  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801C5D8C 001C2D8C  7C 08 02 A6 */	mflr r0
 /* 801C5D90 001C2D90  90 01 00 44 */	stw r0, 0x44(r1)
@@ -499,8 +499,8 @@ lbl_801C6080:
 /* 801C60A0 001C30A0  38 21 00 40 */	addi r1, r1, 0x40
 /* 801C60A4 001C30A4  4E 80 00 20 */	blr 
 
-.global func_801C60A8
-func_801C60A8:
+.global HSD_MtxGetRotationMtx
+HSD_MtxGetRotationMtx:
 /* 801C60A8 001C30A8  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801C60AC 001C30AC  7C 08 02 A6 */	mflr r0
 /* 801C60B0 001C30B0  90 01 00 44 */	stw r0, 0x44(r1)
@@ -719,8 +719,8 @@ lbl_801C636C:
 /* 801C63D8 001C33D8  38 21 00 40 */	addi r1, r1, 0x40
 /* 801C63DC 001C33DC  4E 80 00 20 */	blr 
 
-.global func_801C63E0
-func_801C63E0:
+.global HSD_MtxGetTranslate
+HSD_MtxGetTranslate:
 /* 801C63E0 001C33E0  C0 03 00 0C */	lfs f0, 0xc(r3)
 /* 801C63E4 001C33E4  D0 04 00 00 */	stfs f0, 0(r4)
 /* 801C63E8 001C33E8  C0 03 00 1C */	lfs f0, 0x1c(r3)
@@ -729,8 +729,8 @@ func_801C63E0:
 /* 801C63F4 001C33F4  D0 04 00 08 */	stfs f0, 8(r4)
 /* 801C63F8 001C33F8  4E 80 00 20 */	blr 
 
-.global func_801C63FC
-func_801C63FC:
+.global HSD_MtxGetScale
+HSD_MtxGetScale:
 /* 801C63FC 001C33FC  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 801C6400 001C3400  7C 08 02 A6 */	mflr r0
 /* 801C6404 001C3404  90 01 00 64 */	stw r0, 0x64(r1)
@@ -1053,8 +1053,8 @@ lbl_801C68BC:
 /* 801C68CC 001C38CC  38 21 00 60 */	addi r1, r1, 0x60
 /* 801C68D0 001C38D0  4E 80 00 20 */	blr 
 
-.global func_801C68D4
-func_801C68D4:
+.global HSD_MkRotationMtx
+HSD_MkRotationMtx:
 /* 801C68D4 001C38D4  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 801C68D8 001C38D8  7C 08 02 A6 */	mflr r0
 /* 801C68DC 001C38DC  90 01 00 64 */	stw r0, 0x64(r1)
@@ -1135,8 +1135,8 @@ func_801C68D4:
 /* 801C6A08 001C3A08  38 21 00 60 */	addi r1, r1, 0x60
 /* 801C6A0C 001C3A0C  4E 80 00 20 */	blr 
 
-.global func_801C6A10
-func_801C6A10:
+.global HSD_MtxSRT
+HSD_MtxSRT:
 /* 801C6A10 001C3A10  94 21 FF 30 */	stwu r1, -0xd0(r1)
 /* 801C6A14 001C3A14  7C 08 02 A6 */	mflr r0
 /* 801C6A18 001C3A18  90 01 00 D4 */	stw r0, 0xd4(r1)
@@ -1327,8 +1327,8 @@ lbl_801C6BDC:
 /* 801C6CE0 001C3CE0  38 21 00 D0 */	addi r1, r1, 0xd0
 /* 801C6CE4 001C3CE4  4E 80 00 20 */	blr 
 
-.global func_801C6CE8
-func_801C6CE8:
+.global HSD_MtxSRTQuat
+HSD_MtxSRTQuat:
 /* 801C6CE8 001C3CE8  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801C6CEC 001C3CEC  7C 08 02 A6 */	mflr r0
 /* 801C6CF0 001C3CF0  90 01 00 54 */	stw r0, 0x54(r1)
@@ -1444,8 +1444,8 @@ lbl_801C6E4C:
 /* 801C6E8C 001C3E8C  38 21 00 50 */	addi r1, r1, 0x50
 /* 801C6E90 001C3E90  4E 80 00 20 */	blr 
 
-.global func_801C6E94
-func_801C6E94:
+.global HSD_MtxScaledAdd
+HSD_MtxScaledAdd:
 /* 801C6E94 001C3E94  C0 43 00 00 */	lfs f2, 0(r3)
 /* 801C6E98 001C3E98  C0 04 00 00 */	lfs f0, 0(r4)
 /* 801C6E9C 001C3E9C  EC 01 00 BA */	fmadds f0, f1, f2, f0
@@ -1496,8 +1496,8 @@ func_801C6E94:
 /* 801C6F50 001C3F50  D0 05 00 2C */	stfs f0, 0x2c(r5)
 /* 801C6F54 001C3F54  4E 80 00 20 */	blr 
 
-.global func_801C6F58
-func_801C6F58:
+.global HSD_VecGetOrthogonal
+HSD_VecGetOrthogonal:
 /* 801C6F58 001C3F58  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801C6F5C 001C3F5C  7C 08 02 A6 */	mflr r0
 /* 801C6F60 001C3F60  7C 85 23 78 */	mr r5, r4
@@ -1559,21 +1559,21 @@ lbl_801C7028:
 /* 801C7030 001C4030  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C7034 001C4034  4E 80 00 20 */	blr 
 
-.global func_801C7038
-func_801C7038:
+.global HSD_VecAlloc
+HSD_VecAlloc:
 /* 801C7038 001C4038  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C703C 001C403C  7C 08 02 A6 */	mflr r0
 /* 801C7040 001C4040  3C 60 80 25 */	lis r3, lbl_8024CA48@ha
 /* 801C7044 001C4044  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801C7048 001C4048  38 63 CA 48 */	addi r3, r3, lbl_8024CA48@l
 /* 801C704C 001C404C  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 801C7050 001C4050  48 00 05 C9 */	bl func_801C7618
+/* 801C7050 001C4050  48 00 05 C9 */	bl HSD_ObjAlloc
 /* 801C7054 001C4054  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801C7058 001C4058  40 82 00 14 */	bne lbl_801C706C
 /* 801C705C 001C405C  38 6D 84 D0 */	addi r3, r13, lbl_80276DF0-_SDA_BASE_
 /* 801C7060 001C4060  38 80 03 8C */	li r4, 0x38c
 /* 801C7064 001C4064  38 AD 84 D8 */	addi r5, r13, lbl_80276DF8-_SDA_BASE_
-/* 801C7068 001C4068  48 00 ED 7D */	bl func_801D5DE4
+/* 801C7068 001C4068  48 00 ED 7D */	bl __assert
 lbl_801C706C:
 /* 801C706C 001C406C  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C7070 001C4070  7F E3 FB 78 */	mr r3, r31
@@ -1582,8 +1582,8 @@ lbl_801C706C:
 /* 801C707C 001C407C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C7080 001C4080  4E 80 00 20 */	blr 
 
-.global func_801C7084
-func_801C7084:
+.global HSD_VecFree
+HSD_VecFree:
 /* 801C7084 001C4084  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C7088 001C4088  7C 08 02 A6 */	mflr r0
 /* 801C708C 001C408C  28 03 00 00 */	cmplwi r3, 0
@@ -1592,28 +1592,28 @@ func_801C7084:
 /* 801C7098 001C4098  3C A0 80 25 */	lis r5, lbl_8024CA48@ha
 /* 801C709C 001C409C  7C 64 1B 78 */	mr r4, r3
 /* 801C70A0 001C40A0  38 65 CA 48 */	addi r3, r5, lbl_8024CA48@l
-/* 801C70A4 001C40A4  48 00 06 C5 */	bl func_801C7768
+/* 801C70A4 001C40A4  48 00 06 C5 */	bl HSD_ObjFree
 lbl_801C70A8:
 /* 801C70A8 001C40A8  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C70AC 001C40AC  7C 08 03 A6 */	mtlr r0
 /* 801C70B0 001C40B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C70B4 001C40B4  4E 80 00 20 */	blr 
 
-.global func_801C70B8
-func_801C70B8:
+.global HSD_MtxAlloc
+HSD_MtxAlloc:
 /* 801C70B8 001C40B8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C70BC 001C40BC  7C 08 02 A6 */	mflr r0
 /* 801C70C0 001C40C0  3C 60 80 25 */	lis r3, lbl_8024CA74@ha
 /* 801C70C4 001C40C4  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801C70C8 001C40C8  38 63 CA 74 */	addi r3, r3, lbl_8024CA74@l
 /* 801C70CC 001C40CC  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 801C70D0 001C40D0  48 00 05 49 */	bl func_801C7618
+/* 801C70D0 001C40D0  48 00 05 49 */	bl HSD_ObjAlloc
 /* 801C70D4 001C40D4  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801C70D8 001C40D8  40 82 00 14 */	bne lbl_801C70EC
 /* 801C70DC 001C40DC  38 6D 84 D0 */	addi r3, r13, lbl_80276DF0-_SDA_BASE_
 /* 801C70E0 001C40E0  38 80 03 AB */	li r4, 0x3ab
 /* 801C70E4 001C40E4  38 AD 84 DC */	addi r5, r13, lbl_80276DFC-_SDA_BASE_
-/* 801C70E8 001C40E8  48 00 EC FD */	bl func_801D5DE4
+/* 801C70E8 001C40E8  48 00 EC FD */	bl __assert
 lbl_801C70EC:
 /* 801C70EC 001C40EC  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C70F0 001C40F0  7F E3 FB 78 */	mr r3, r31
@@ -1622,8 +1622,8 @@ lbl_801C70EC:
 /* 801C70FC 001C40FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C7100 001C4100  4E 80 00 20 */	blr 
 
-.global func_801C7104
-func_801C7104:
+.global HSD_MtxFree
+HSD_MtxFree:
 /* 801C7104 001C4104  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C7108 001C4108  7C 08 02 A6 */	mflr r0
 /* 801C710C 001C410C  28 03 00 00 */	cmplwi r3, 0
@@ -1632,21 +1632,21 @@ func_801C7104:
 /* 801C7118 001C4118  3C A0 80 25 */	lis r5, lbl_8024CA74@ha
 /* 801C711C 001C411C  7C 64 1B 78 */	mr r4, r3
 /* 801C7120 001C4120  38 65 CA 74 */	addi r3, r5, lbl_8024CA74@l
-/* 801C7124 001C4124  48 00 06 45 */	bl func_801C7768
+/* 801C7124 001C4124  48 00 06 45 */	bl HSD_ObjFree
 lbl_801C7128:
 /* 801C7128 001C4128  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C712C 001C412C  7C 08 03 A6 */	mtlr r0
 /* 801C7130 001C4130  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C7134 001C4134  4E 80 00 20 */	blr 
 
-.global func_801C7138
-func_801C7138:
+.global HSD_VecGetAllocData
+HSD_VecGetAllocData:
 /* 801C7138 001C4138  3C 60 80 25 */	lis r3, lbl_8024CA48@ha
 /* 801C713C 001C413C  38 63 CA 48 */	addi r3, r3, lbl_8024CA48@l
 /* 801C7140 001C4140  4E 80 00 20 */	blr 
 
-.global func_801C7144
-func_801C7144:
+.global HSD_VecInitAllocData
+HSD_VecInitAllocData:
 /* 801C7144 001C4144  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C7148 001C4148  7C 08 02 A6 */	mflr r0
 /* 801C714C 001C414C  3C 60 80 25 */	lis r3, lbl_8024CA48@ha
@@ -1654,20 +1654,20 @@ func_801C7144:
 /* 801C7154 001C4154  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801C7158 001C4158  38 63 CA 48 */	addi r3, r3, lbl_8024CA48@l
 /* 801C715C 001C415C  38 A0 00 04 */	li r5, 4
-/* 801C7160 001C4160  48 00 06 31 */	bl func_801C7790
+/* 801C7160 001C4160  48 00 06 31 */	bl HSD_ObjAllocInit
 /* 801C7164 001C4164  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C7168 001C4168  7C 08 03 A6 */	mtlr r0
 /* 801C716C 001C416C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C7170 001C4170  4E 80 00 20 */	blr 
 
-.global func_801C7174
-func_801C7174:
+.global HSD_MtxGetAllocData
+HSD_MtxGetAllocData:
 /* 801C7174 001C4174  3C 60 80 25 */	lis r3, lbl_8024CA74@ha
 /* 801C7178 001C4178  38 63 CA 74 */	addi r3, r3, lbl_8024CA74@l
 /* 801C717C 001C417C  4E 80 00 20 */	blr 
 
-.global func_801C7180
-func_801C7180:
+.global HSD_MtxInitAllocData
+HSD_MtxInitAllocData:
 /* 801C7180 001C4180  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C7184 001C4184  7C 08 02 A6 */	mflr r0
 /* 801C7188 001C4188  3C 60 80 25 */	lis r3, lbl_8024CA74@ha
@@ -1675,7 +1675,7 @@ func_801C7180:
 /* 801C7190 001C4190  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801C7194 001C4194  38 63 CA 74 */	addi r3, r3, lbl_8024CA74@l
 /* 801C7198 001C4198  38 A0 00 04 */	li r5, 4
-/* 801C719C 001C419C  48 00 05 F5 */	bl func_801C7790
+/* 801C719C 001C419C  48 00 05 F5 */	bl HSD_ObjAllocInit
 /* 801C71A0 001C41A0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C71A4 001C41A4  7C 08 03 A6 */	mtlr r0
 /* 801C71A8 001C41A8  38 21 00 10 */	addi r1, r1, 0x10

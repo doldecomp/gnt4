@@ -2,8 +2,8 @@
 
 .section .text  # 0x801C4F18 - 0x801C5958
 
-.global func_801C4F18
-func_801C4F18:
+.global splGetHelmite
+splGetHelmite:
 /* 801C4F18 001C1F18  ED 62 00 B2 */	fmuls f11, f2, f2
 /* 801C4F1C 001C1F1C  C0 02 C4 7C */	lfs f0, lbl_8027C11C-_SDA2_BASE_(r2)
 /* 801C4F20 001C1F20  ED 41 00 72 */	fmuls f10, f1, f1
@@ -29,8 +29,8 @@ func_801C4F18:
 /* 801C4F70 001C1F70  EC 26 02 7A */	fmadds f1, f6, f9, f0
 /* 801C4F74 001C1F74  4E 80 00 20 */	blr 
 
-.global func_801C4F78
-func_801C4F78:
+.global splGetSplinePoint
+splGetSplinePoint:
 /* 801C4F78 001C1F78  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801C4F7C 001C1F7C  DB E1 00 20 */	stfd f31, 0x20(r1)
 /* 801C4F80 001C1F80  F3 E1 00 28 */	psq_st p31, 40(r1), 0, qr0
@@ -337,8 +337,8 @@ lbl_801C53F8:
 /* 801C5400 001C2400  38 21 00 30 */	addi r1, r1, 0x30
 /* 801C5404 001C2404  4E 80 00 20 */	blr 
 
-.global func_801C5408
-func_801C5408:
+.global splArcLength
+splArcLength:
 /* 801C5408 001C2408  EC 62 08 28 */	fsubs f3, f2, f1
 /* 801C540C 001C240C  C0 02 C4 B8 */	lfs f0, lbl_8027C158-_SDA2_BASE_(r2)
 /* 801C5410 001C2410  38 00 00 07 */	li r0, 7
@@ -545,8 +545,8 @@ lbl_801C56F4:
 /* 801C5708 001C2708  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C570C 001C270C  4E 80 00 20 */	blr 
 
-.global func_801C5710
-func_801C5710:
+.global splArcLengthGetParameter
+splArcLengthGetParameter:
 /* 801C5710 001C2710  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 801C5714 001C2714  7C 08 02 A6 */	mflr r0
 /* 801C5718 001C2718  90 01 00 A4 */	stw r0, 0xa4(r1)
@@ -624,7 +624,7 @@ lbl_801C5814:
 /* 801C5820 001C2820  7C 60 FA 14 */	add r3, r0, r31
 /* 801C5824 001C2824  EF 40 07 72 */	fmuls f26, f0, f29
 /* 801C5828 001C2828  FC 40 D0 90 */	fmr f2, f26
-/* 801C582C 001C282C  4B FF FB DD */	bl func_801C5408
+/* 801C582C 001C282C  4B FF FB DD */	bl splArcLength
 /* 801C5830 001C2830  EC 1F 08 2A */	fadds f0, f31, f1
 /* 801C5834 001C2834  FC 19 00 40 */	.byte 0xFC, 0x19, 0x00, 0x40  /* unknown instruction */
 /* 801C5838 001C2838  40 80 00 0C */	bge lbl_801C5844
@@ -688,8 +688,8 @@ lbl_801C58BC:
 /* 801C5908 001C2908  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 801C590C 001C290C  4E 80 00 20 */	blr 
 
-.global func_801C5910
-func_801C5910:
+.global splArcLengthPoint
+splArcLengthPoint:
 /* 801C5910 001C2910  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C5914 001C2914  7C 08 02 A6 */	mflr r0
 /* 801C5918 001C2918  90 01 00 14 */	stw r0, 0x14(r1)
@@ -698,10 +698,10 @@ func_801C5910:
 /* 801C5924 001C2924  93 C1 00 08 */	stw r30, 8(r1)
 /* 801C5928 001C2928  7C 7E 1B 78 */	mr r30, r3
 /* 801C592C 001C292C  7F E3 FB 78 */	mr r3, r31
-/* 801C5930 001C2930  4B FF FD E1 */	bl func_801C5710
+/* 801C5930 001C2930  4B FF FD E1 */	bl splArcLengthGetParameter
 /* 801C5934 001C2934  7F C3 F3 78 */	mr r3, r30
 /* 801C5938 001C2938  7F E4 FB 78 */	mr r4, r31
-/* 801C593C 001C293C  4B FF F6 3D */	bl func_801C4F78
+/* 801C593C 001C293C  4B FF F6 3D */	bl splGetSplinePoint
 /* 801C5940 001C2940  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801C5944 001C2944  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801C5948 001C2948  83 C1 00 08 */	lwz r30, 8(r1)

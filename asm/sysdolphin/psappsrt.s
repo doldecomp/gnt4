@@ -2,8 +2,8 @@
 
 .section .text  # 0x801A69B4 - 0x801A6E3C
 
-.global func_801A69B4
-func_801A69B4:
+.global psInitAppSRT
+psInitAppSRT:
 /* 801A69B4 001A39B4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A69B8 001A39B8  7C 08 02 A6 */	mflr r0
 /* 801A69BC 001A39BC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -22,7 +22,7 @@ func_801A69B4:
 /* 801A69F0 001A39F0  48 00 00 38 */	b lbl_801A6A28
 lbl_801A69F4:
 /* 801A69F4 001A39F4  7F C3 F3 78 */	mr r3, r30
-/* 801A69F8 001A39F8  48 02 49 45 */	bl func_801CB33C
+/* 801A69F8 001A39F8  48 02 49 45 */	bl HSD_Alloc
 /* 801A69FC 001A39FC  7C 7F 1B 79 */	or. r31, r3, r3
 /* 801A6A00 001A3A00  40 82 00 0C */	bne lbl_801A6A0C
 /* 801A6A04 001A3A04  7F A3 EB 78 */	mr r3, r29
@@ -49,8 +49,8 @@ lbl_801A6A34:
 /* 801A6A4C 001A3A4C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801A6A50 001A3A50  4E 80 00 20 */	blr 
 
-.global func_801A6A54
-func_801A6A54:
+.global psRemoveAppSRT
+psRemoveAppSRT:
 /* 801A6A54 001A3A54  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A6A58 001A3A58  7C 08 02 A6 */	mflr r0
 /* 801A6A5C 001A3A5C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -59,7 +59,7 @@ func_801A6A54:
 /* 801A6A68 001A3A68  48 00 00 10 */	b lbl_801A6A78
 lbl_801A6A6C:
 /* 801A6A6C 001A3A6C  83 E3 00 00 */	lwz r31, 0(r3)
-/* 801A6A70 001A3A70  48 02 48 9D */	bl func_801CB30C
+/* 801A6A70 001A3A70  48 02 48 9D */	bl HSD_Free
 /* 801A6A74 001A3A74  7F E3 FB 78 */	mr r3, r31
 lbl_801A6A78:
 /* 801A6A78 001A3A78  28 03 00 00 */	cmplwi r3, 0
@@ -72,8 +72,8 @@ lbl_801A6A78:
 /* 801A6A94 001A3A94  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A6A98 001A3A98  4E 80 00 20 */	blr 
 
-.global func_801A6A9C
-func_801A6A9C:
+.global psAddGeneratorAppSRT
+psAddGeneratorAppSRT:
 /* 801A6A9C 001A3A9C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A6AA0 001A3AA0  7C 08 02 A6 */	mflr r0
 /* 801A6AA4 001A3AA4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -87,7 +87,7 @@ func_801A6A9C:
 /* 801A6AC4 001A3AC4  28 00 00 00 */	cmplwi r0, 0
 /* 801A6AC8 001A3AC8  40 82 00 24 */	bne lbl_801A6AEC
 /* 801A6ACC 001A3ACC  A0 6D 8F 78 */	lhz r3, lbl_80277898-_SDA_BASE_(r13)
-/* 801A6AD0 001A3AD0  48 02 48 6D */	bl func_801CB33C
+/* 801A6AD0 001A3AD0  48 02 48 6D */	bl HSD_Alloc
 /* 801A6AD4 001A3AD4  28 03 00 00 */	cmplwi r3, 0
 /* 801A6AD8 001A3AD8  90 6D 8F 7C */	stw r3, lbl_8027789C-_SDA_BASE_(r13)
 /* 801A6ADC 001A3ADC  41 82 00 10 */	beq lbl_801A6AEC
@@ -139,8 +139,8 @@ lbl_801A6B74:
 /* 801A6B8C 001A3B8C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801A6B90 001A3B90  4E 80 00 20 */	blr 
 
-.global func_801A6B94
-func_801A6B94:
+.global psAttachParticleAppSRT
+psAttachParticleAppSRT:
 /* 801A6B94 001A3B94  28 04 00 00 */	cmplwi r4, 0
 /* 801A6B98 001A3B98  41 82 00 18 */	beq lbl_801A6BB0
 /* 801A6B9C 001A3B9C  28 03 00 00 */	cmplwi r3, 0
@@ -159,8 +159,8 @@ lbl_801A6BB8:
 /* 801A6BC8 001A3BC8  54 03 04 3E */	clrlwi r3, r0, 0x10
 /* 801A6BCC 001A3BCC  4E 80 00 20 */	blr 
 
-.global func_801A6BD0
-func_801A6BD0:
+.global psAttachGeneratorAppSRT
+psAttachGeneratorAppSRT:
 /* 801A6BD0 001A3BD0  28 04 00 00 */	cmplwi r4, 0
 /* 801A6BD4 001A3BD4  41 82 00 18 */	beq lbl_801A6BEC
 /* 801A6BD8 001A3BD8  28 03 00 00 */	cmplwi r3, 0
@@ -179,8 +179,8 @@ lbl_801A6BF4:
 /* 801A6C04 001A3C04  54 03 04 3E */	clrlwi r3, r0, 0x10
 /* 801A6C08 001A3C08  4E 80 00 20 */	blr 
 
-.global func_801A6C0C
-func_801A6C0C:
+.global psChangeParticleAppSRT
+psChangeParticleAppSRT:
 /* 801A6C0C 001A3C0C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A6C10 001A3C10  7C 08 02 A6 */	mflr r0
 /* 801A6C14 001A3C14  90 01 00 14 */	stw r0, 0x14(r1)
@@ -198,7 +198,7 @@ lbl_801A6C3C:
 /* 801A6C3C 001A3C3C  80 1E 00 90 */	lwz r0, 0x90(r30)
 /* 801A6C40 001A3C40  28 00 00 00 */	cmplwi r0, 0
 /* 801A6C44 001A3C44  41 82 00 08 */	beq lbl_801A6C4C
-/* 801A6C48 001A3C48  48 00 00 9D */	bl func_801A6CE4
+/* 801A6C48 001A3C48  48 00 00 9D */	bl psRemoveParticleAppSRT
 lbl_801A6C4C:
 /* 801A6C4C 001A3C4C  93 FE 00 90 */	stw r31, 0x90(r30)
 /* 801A6C50 001A3C50  A0 7F 00 32 */	lhz r3, 0x32(r31)
@@ -213,8 +213,8 @@ lbl_801A6C60:
 /* 801A6C70 001A3C70  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A6C74 001A3C74  4E 80 00 20 */	blr 
 
-.global func_801A6C78
-func_801A6C78:
+.global psChangeGeneratorAppSRT
+psChangeGeneratorAppSRT:
 /* 801A6C78 001A3C78  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801A6C7C 001A3C7C  7C 08 02 A6 */	mflr r0
 /* 801A6C80 001A3C80  90 01 00 14 */	stw r0, 0x14(r1)
@@ -232,7 +232,7 @@ lbl_801A6CA8:
 /* 801A6CA8 001A3CA8  80 1E 00 54 */	lwz r0, 0x54(r30)
 /* 801A6CAC 001A3CAC  28 00 00 00 */	cmplwi r0, 0
 /* 801A6CB0 001A3CB0  41 82 00 08 */	beq lbl_801A6CB8
-/* 801A6CB4 001A3CB4  48 00 00 D1 */	bl func_801A6D84
+/* 801A6CB4 001A3CB4  48 00 00 D1 */	bl psRemoveGeneratorAppSRT
 lbl_801A6CB8:
 /* 801A6CB8 001A3CB8  93 FE 00 54 */	stw r31, 0x54(r30)
 /* 801A6CBC 001A3CBC  A0 7F 00 32 */	lhz r3, 0x32(r31)
@@ -247,8 +247,8 @@ lbl_801A6CCC:
 /* 801A6CDC 001A3CDC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801A6CE0 001A3CE0  4E 80 00 20 */	blr 
 
-.global func_801A6CE4
-func_801A6CE4:
+.global psRemoveParticleAppSRT
+psRemoveParticleAppSRT:
 /* 801A6CE4 001A3CE4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A6CE8 001A3CE8  7C 08 02 A6 */	mflr r0
 /* 801A6CEC 001A3CEC  90 01 00 24 */	stw r0, 0x24(r1)
@@ -294,8 +294,8 @@ lbl_801A6D68:
 /* 801A6D7C 001A3D7C  38 21 00 20 */	addi r1, r1, 0x20
 /* 801A6D80 001A3D80  4E 80 00 20 */	blr 
 
-.global func_801A6D84
-func_801A6D84:
+.global psRemoveGeneratorAppSRT
+psRemoveGeneratorAppSRT:
 /* 801A6D84 001A3D84  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801A6D88 001A3D88  7C 08 02 A6 */	mflr r0
 /* 801A6D8C 001A3D8C  90 01 00 24 */	stw r0, 0x24(r1)

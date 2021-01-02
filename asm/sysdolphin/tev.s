@@ -2,8 +2,8 @@
 
 .section .text  # 0x801ABF0C - 0x801ACC50
 
-.global func_801ABF0C
-func_801ABF0C:
+.global HSD_RenderInitAllocData
+HSD_RenderInitAllocData:
 /* 801ABF0C 001A8F0C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801ABF10 001A8F10  7C 08 02 A6 */	mflr r0
 /* 801ABF14 001A8F14  3C 60 80 25 */	lis r3, lbl_8024B048@ha
@@ -13,32 +13,41 @@ func_801ABF0C:
 /* 801ABF24 001A8F24  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 801ABF28 001A8F28  3B E3 B0 48 */	addi r31, r3, lbl_8024B048@l
 /* 801ABF2C 001A8F2C  38 7F 00 00 */	addi r3, r31, 0
-/* 801ABF30 001A8F30  48 01 B8 61 */	bl func_801C7790
+/* 801ABF30 001A8F30  48 01 B8 61 */	bl HSD_ObjAllocInit
 /* 801ABF34 001A8F34  38 7F 00 2C */	addi r3, r31, 0x2c
 /* 801ABF38 001A8F38  38 80 00 14 */	li r4, 0x14
 /* 801ABF3C 001A8F3C  38 A0 00 04 */	li r5, 4
-/* 801ABF40 001A8F40  48 01 B8 51 */	bl func_801C7790
+/* 801ABF40 001A8F40  48 01 B8 51 */	bl HSD_ObjAllocInit
 /* 801ABF44 001A8F44  38 7F 00 58 */	addi r3, r31, 0x58
 /* 801ABF48 001A8F48  38 80 00 30 */	li r4, 0x30
 /* 801ABF4C 001A8F4C  38 A0 00 04 */	li r5, 4
-/* 801ABF50 001A8F50  48 01 B8 41 */	bl func_801C7790
+/* 801ABF50 001A8F50  48 01 B8 41 */	bl HSD_ObjAllocInit
 /* 801ABF54 001A8F54  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ABF58 001A8F58  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801ABF5C 001A8F5C  7C 08 03 A6 */	mtlr r0
 /* 801ABF60 001A8F60  38 21 00 10 */	addi r1, r1, 0x10
 /* 801ABF64 001A8F64  4E 80 00 20 */	blr 
+
+.global HSD_RenderGetAllocData
+HSD_RenderGetAllocData:
 /* 801ABF68 001A8F68  3C 60 80 25 */	lis r3, lbl_8024B048@ha
 /* 801ABF6C 001A8F6C  38 63 B0 48 */	addi r3, r3, lbl_8024B048@l
 /* 801ABF70 001A8F70  4E 80 00 20 */	blr 
+
+.global HSD_TevRegGetAllocData
+HSD_TevRegGetAllocData:
 /* 801ABF74 001A8F74  3C 60 80 25 */	lis r3, lbl_8024B074@ha
 /* 801ABF78 001A8F78  38 63 B0 74 */	addi r3, r3, lbl_8024B074@l
 /* 801ABF7C 001A8F7C  4E 80 00 20 */	blr 
+
+.global HSD_ChanGetAllocData
+HSD_ChanGetAllocData:
 /* 801ABF80 001A8F80  3C 60 80 25 */	lis r3, lbl_8024B0A0@ha
 /* 801ABF84 001A8F84  38 63 B0 A0 */	addi r3, r3, lbl_8024B0A0@l
 /* 801ABF88 001A8F88  4E 80 00 20 */	blr 
 
-.global func_801ABF8C
-func_801ABF8C:
+.global HSD_SetupChannel
+HSD_SetupChannel:
 /* 801ABF8C 001A8F8C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801ABF90 001A8F90  7C 08 02 A6 */	mflr r0
 /* 801ABF94 001A8F94  90 01 00 34 */	stw r0, 0x34(r1)
@@ -291,8 +300,8 @@ lbl_801AC310:
 /* 801AC328 001A9328  38 21 00 30 */	addi r1, r1, 0x30
 /* 801AC32C 001A932C  4E 80 00 20 */	blr 
 
-.global func_801AC330
-func_801AC330:
+.global HSD_DisableChannelLighting
+HSD_DisableChannelLighting:
 /* 801AC330 001A9330  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC334 001A9334  7C 08 02 A6 */	mflr r0
 /* 801AC338 001A9338  2C 03 00 06 */	cmpwi r3, 6
@@ -360,8 +369,8 @@ lbl_801AC418:
 /* 801AC420 001A9420  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC424 001A9424  4E 80 00 20 */	blr 
 
-.global func_801AC428
-func_801AC428:
+.global HSD_StateSetNumChans
+HSD_StateSetNumChans:
 /* 801AC428 001A9428  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC42C 001A942C  7C 08 02 A6 */	mflr r0
 /* 801AC430 001A9430  90 01 00 14 */	stw r0, 0x14(r1)
@@ -380,8 +389,8 @@ lbl_801AC454:
 /* 801AC460 001A9460  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC464 001A9464  4E 80 00 20 */	blr 
 
-.global func_801AC468
-func_801AC468:
+.global HSD_SetupChannelAll
+HSD_SetupChannelAll:
 /* 801AC468 001A9468  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC46C 001A946C  7C 08 02 A6 */	mflr r0
 /* 801AC470 001A9470  90 01 00 14 */	stw r0, 0x14(r1)
@@ -392,13 +401,13 @@ func_801AC468:
 /* 801AC484 001A9484  48 00 00 24 */	b lbl_801AC4A8
 lbl_801AC488:
 /* 801AC488 001A9488  80 7E 00 04 */	lwz r3, 4(r30)
-/* 801AC48C 001A948C  48 00 03 5D */	bl func_801AC7E8
+/* 801AC48C 001A948C  48 00 03 5D */	bl HSD_Channel2Num
 /* 801AC490 001A9490  7C 03 F8 00 */	cmpw r3, r31
 /* 801AC494 001A9494  40 81 00 08 */	ble lbl_801AC49C
 /* 801AC498 001A9498  7C 7F 1B 78 */	mr r31, r3
 lbl_801AC49C:
 /* 801AC49C 001A949C  7F C3 F3 78 */	mr r3, r30
-/* 801AC4A0 001A94A0  4B FF FA ED */	bl func_801ABF8C
+/* 801AC4A0 001A94A0  4B FF FA ED */	bl HSD_SetupChannel
 /* 801AC4A4 001A94A4  83 DE 00 00 */	lwz r30, 0(r30)
 lbl_801AC4A8:
 /* 801AC4A8 001A94A8  28 1E 00 00 */	cmplwi r30, 0
@@ -418,12 +427,12 @@ lbl_801AC4CC:
 /* 801AC4DC 001A94DC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC4E0 001A94E0  4E 80 00 20 */	blr 
 
-.global func_801AC4E4
-func_801AC4E4:
+.global HSD_StateRegisterTexGen
+HSD_StateRegisterTexGen:
 /* 801AC4E4 001A94E4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC4E8 001A94E8  7C 08 02 A6 */	mflr r0
 /* 801AC4EC 001A94EC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 801AC4F0 001A94F0  48 00 06 09 */	bl func_801ACAF8
+/* 801AC4F0 001A94F0  48 00 06 09 */	bl HSD_TexCoordID2Num
 /* 801AC4F4 001A94F4  80 0D 8F F0 */	lwz r0, lbl_80277910-_SDA_BASE_(r13)
 /* 801AC4F8 001A94F8  7C 03 00 00 */	cmpw r3, r0
 /* 801AC4FC 001A94FC  40 81 00 08 */	ble lbl_801AC504
@@ -434,8 +443,8 @@ lbl_801AC504:
 /* 801AC50C 001A950C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC510 001A9510  4E 80 00 20 */	blr 
 
-.global func_801AC514
-func_801AC514:
+.global HSD_StateSetNumTexGens
+HSD_StateSetNumTexGens:
 /* 801AC514 001A9514  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC518 001A9518  7C 08 02 A6 */	mflr r0
 /* 801AC51C 001A951C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -449,33 +458,33 @@ func_801AC514:
 /* 801AC53C 001A953C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC540 001A9540  4E 80 00 20 */	blr 
 
-.global func_801AC544
-func_801AC544:
+.global HSD_StateInitTev
+HSD_StateInitTev:
 /* 801AC544 001A9544  38 00 00 00 */	li r0, 0
 /* 801AC548 001A9548  90 0D 90 08 */	stw r0, lbl_80277928-_SDA_BASE_(r13)
 /* 801AC54C 001A954C  4E 80 00 20 */	blr 
 
-.global func_801AC550
-func_801AC550:
+.global HSD_StateGetNumTevStages
+HSD_StateGetNumTevStages:
 /* 801AC550 001A9550  80 6D 90 08 */	lwz r3, lbl_80277928-_SDA_BASE_(r13)
 /* 801AC554 001A9554  4E 80 00 20 */	blr 
 
-.global func_801AC558
-func_801AC558:
+.global HSD_StateAssignTev
+HSD_StateAssignTev:
 /* 801AC558 001A9558  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC55C 001A955C  7C 08 02 A6 */	mflr r0
 /* 801AC560 001A9560  90 01 00 14 */	stw r0, 0x14(r1)
 /* 801AC564 001A9564  80 6D 90 08 */	lwz r3, lbl_80277928-_SDA_BASE_(r13)
 /* 801AC568 001A9568  38 03 00 01 */	addi r0, r3, 1
 /* 801AC56C 001A956C  90 0D 90 08 */	stw r0, lbl_80277928-_SDA_BASE_(r13)
-/* 801AC570 001A9570  48 00 03 29 */	bl func_801AC898
+/* 801AC570 001A9570  48 00 03 29 */	bl HSD_Index2TevStage
 /* 801AC574 001A9574  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801AC578 001A9578  7C 08 03 A6 */	mtlr r0
 /* 801AC57C 001A957C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC580 001A9580  4E 80 00 20 */	blr 
 
-.global func_801AC584
-func_801AC584:
+.global HSD_StateSetNumTevStages
+HSD_StateSetNumTevStages:
 /* 801AC584 001A9584  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC588 001A9588  7C 08 02 A6 */	mflr r0
 /* 801AC58C 001A958C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -489,8 +498,8 @@ func_801AC584:
 /* 801AC5AC 001A95AC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC5B0 001A95B0  4E 80 00 20 */	blr 
 
-.global func_801AC5B4
-func_801AC5B4:
+.global HSD_SetupTevStage
+HSD_SetupTevStage:
 /* 801AC5B4 001A95B4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC5B8 001A95B8  7C 08 02 A6 */	mflr r0
 /* 801AC5BC 001A95BC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -556,8 +565,8 @@ lbl_801AC698:
 /* 801AC6A4 001A96A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC6A8 001A96A8  4E 80 00 20 */	blr 
 
-.global func_801AC6AC
-func_801AC6AC:
+.global HSD_SetupTevStageAll
+HSD_SetupTevStageAll:
 /* 801AC6AC 001A96AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC6B0 001A96B0  7C 08 02 A6 */	mflr r0
 /* 801AC6B4 001A96B4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -568,7 +577,7 @@ func_801AC6AC:
 /* 801AC6C8 001A96C8  48 00 00 EC */	b lbl_801AC7B4
 lbl_801AC6CC:
 /* 801AC6CC 001A96CC  80 7E 00 08 */	lwz r3, 8(r30)
-/* 801AC6D0 001A96D0  48 00 02 99 */	bl func_801AC968
+/* 801AC6D0 001A96D0  48 00 02 99 */	bl HSD_TevStage2Num
 /* 801AC6D4 001A96D4  7C 03 F8 00 */	cmpw r3, r31
 /* 801AC6D8 001A96D8  40 81 00 08 */	ble lbl_801AC6E0
 /* 801AC6DC 001A96DC  7C 7F 1B 78 */	mr r31, r3
@@ -643,8 +652,8 @@ lbl_801AC7B4:
 /* 801AC7E0 001A97E0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC7E4 001A97E4  4E 80 00 20 */	blr 
 
-.global func_801AC7E8
-func_801AC7E8:
+.global HSD_Channel2Num
+HSD_Channel2Num:
 /* 801AC7E8 001A97E8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC7EC 001A97EC  7C 08 02 A6 */	mflr r0
 /* 801AC7F0 001A97F0  2C 03 00 04 */	cmpwi r3, 4
@@ -693,7 +702,7 @@ lbl_801AC874:
 /* 801AC874 001A9874  38 6D 83 28 */	addi r3, r13, lbl_80276C48-_SDA_BASE_
 /* 801AC878 001A9878  38 80 02 D2 */	li r4, 0x2d2
 /* 801AC87C 001A987C  38 AD 83 30 */	addi r5, r13, lbl_80276C50-_SDA_BASE_
-/* 801AC880 001A9880  48 02 95 65 */	bl func_801D5DE4
+/* 801AC880 001A9880  48 02 95 65 */	bl __assert
 /* 801AC884 001A9884  38 60 00 00 */	li r3, 0
 lbl_801AC888:
 /* 801AC888 001A9888  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -701,8 +710,8 @@ lbl_801AC888:
 /* 801AC890 001A9890  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC894 001A9894  4E 80 00 20 */	blr 
 
-.global func_801AC898
-func_801AC898:
+.global HSD_Index2TevStage
+HSD_Index2TevStage:
 /* 801AC898 001A9898  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC89C 001A989C  7C 08 02 A6 */	mflr r0
 /* 801AC8A0 001A98A0  28 03 00 0F */	cmplwi r3, 0xf
@@ -750,7 +759,7 @@ lbl_801AC944:
 /* 801AC944 001A9944  38 6D 83 28 */	addi r3, r13, lbl_80276C48-_SDA_BASE_
 /* 801AC948 001A9948  38 80 03 07 */	li r4, 0x307
 /* 801AC94C 001A994C  38 AD 83 30 */	addi r5, r13, lbl_80276C50-_SDA_BASE_
-/* 801AC950 001A9950  48 02 94 95 */	bl func_801D5DE4
+/* 801AC950 001A9950  48 02 94 95 */	bl __assert
 /* 801AC954 001A9954  38 60 00 0F */	li r3, 0xf
 lbl_801AC958:
 /* 801AC958 001A9958  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -758,8 +767,8 @@ lbl_801AC958:
 /* 801AC960 001A9960  38 21 00 10 */	addi r1, r1, 0x10
 /* 801AC964 001A9964  4E 80 00 20 */	blr 
 
-.global func_801AC968
-func_801AC968:
+.global HSD_TevStage2Num
+HSD_TevStage2Num:
 /* 801AC968 001A9968  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801AC96C 001A996C  7C 08 02 A6 */	mflr r0
 /* 801AC970 001A9970  28 03 00 0F */	cmplwi r3, 0xf
@@ -807,7 +816,7 @@ lbl_801ACA14:
 /* 801ACA14 001A9A14  38 6D 83 28 */	addi r3, r13, lbl_80276C48-_SDA_BASE_
 /* 801ACA18 001A9A18  38 80 03 5B */	li r4, 0x35b
 /* 801ACA1C 001A9A1C  38 AD 83 30 */	addi r5, r13, lbl_80276C50-_SDA_BASE_
-/* 801ACA20 001A9A20  48 02 93 C5 */	bl func_801D5DE4
+/* 801ACA20 001A9A20  48 02 93 C5 */	bl __assert
 /* 801ACA24 001A9A24  38 60 00 00 */	li r3, 0
 lbl_801ACA28:
 /* 801ACA28 001A9A28  80 01 00 14 */	lwz r0, 0x14(r1)
@@ -815,8 +824,8 @@ lbl_801ACA28:
 /* 801ACA30 001A9A30  38 21 00 10 */	addi r1, r1, 0x10
 /* 801ACA34 001A9A34  4E 80 00 20 */	blr 
 
-.global func_801ACA38
-func_801ACA38:
+.global HSD_SetTevRegAll
+HSD_SetTevRegAll:
 /* 801ACA38 001A9A38  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801ACA3C 001A9A3C  7C 08 02 A6 */	mflr r0
 /* 801ACA40 001A9A40  3C 60 80 22 */	lis r3, lbl_80219160@ha
@@ -875,8 +884,8 @@ lbl_801ACAD0:
 /* 801ACAF0 001A9AF0  38 21 00 20 */	addi r1, r1, 0x20
 /* 801ACAF4 001A9AF4  4E 80 00 20 */	blr 
 
-.global func_801ACAF8
-func_801ACAF8:
+.global HSD_TexCoordID2Num
+HSD_TexCoordID2Num:
 /* 801ACAF8 001A9AF8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801ACAFC 001A9AFC  7C 08 02 A6 */	mflr r0
 /* 801ACB00 001A9B00  2C 03 00 05 */	cmpwi r3, 5
@@ -933,13 +942,16 @@ lbl_801ACB9C:
 /* 801ACB9C 001A9B9C  38 6D 83 28 */	addi r3, r13, lbl_80276C48-_SDA_BASE_
 /* 801ACBA0 001A9BA0  38 80 04 34 */	li r4, 0x434
 /* 801ACBA4 001A9BA4  38 AD 83 30 */	addi r5, r13, lbl_80276C50-_SDA_BASE_
-/* 801ACBA8 001A9BA8  48 02 92 3D */	bl func_801D5DE4
+/* 801ACBA8 001A9BA8  48 02 92 3D */	bl __assert
 /* 801ACBAC 001A9BAC  38 60 00 00 */	li r3, 0
 lbl_801ACBB0:
 /* 801ACBB0 001A9BB0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801ACBB4 001A9BB4  7C 08 03 A6 */	mtlr r0
 /* 801ACBB8 001A9BB8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801ACBBC 001A9BBC  4E 80 00 20 */	blr 
+
+.global _HSD_StateInvalidateColorChannel
+_HSD_StateInvalidateColorChannel:
 /* 801ACBC0 001A9BC0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801ACBC4 001A9BC4  7C 08 02 A6 */	mflr r0
 /* 801ACBC8 001A9BC8  3C 60 80 22 */	lis r3, lbl_80219190@ha
@@ -962,9 +974,15 @@ lbl_801ACBB0:
 /* 801ACC0C 001A9C0C  7C 08 03 A6 */	mtlr r0
 /* 801ACC10 001A9C10  38 21 00 10 */	addi r1, r1, 0x10
 /* 801ACC14 001A9C14  4E 80 00 20 */	blr 
+
+.global _HSD_StateInvalidateTevStage
+_HSD_StateInvalidateTevStage:
 /* 801ACC18 001A9C18  38 00 00 00 */	li r0, 0
 /* 801ACC1C 001A9C1C  90 0D 90 08 */	stw r0, lbl_80277928-_SDA_BASE_(r13)
 /* 801ACC20 001A9C20  4E 80 00 20 */	blr 
+
+.global _HSD_StateInvalidateTevRegister
+_HSD_StateInvalidateTevRegister:
 /* 801ACC24 001A9C24  3C 60 80 22 */	lis r3, lbl_80219160@ha
 /* 801ACC28 001A9C28  38 00 00 00 */	li r0, 0
 /* 801ACC2C 001A9C2C  38 63 91 60 */	addi r3, r3, lbl_80219160@l
@@ -973,6 +991,9 @@ lbl_801ACBB0:
 /* 801ACC38 001A9C38  90 03 00 20 */	stw r0, 0x20(r3)
 /* 801ACC3C 001A9C3C  90 03 00 2C */	stw r0, 0x2c(r3)
 /* 801ACC40 001A9C40  4E 80 00 20 */	blr 
+
+.global _HSD_StateInvalidateTexCoordGen
+_HSD_StateInvalidateTexCoordGen:
 /* 801ACC44 001A9C44  38 00 00 00 */	li r0, 0
 /* 801ACC48 001A9C48  90 0D 8F F0 */	stw r0, lbl_80277910-_SDA_BASE_(r13)
 /* 801ACC4C 001A9C4C  4E 80 00 20 */	blr 

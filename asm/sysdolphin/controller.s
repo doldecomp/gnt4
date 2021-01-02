@@ -2,8 +2,8 @@
 
 .section .text  # 0x801C2DB8 - 0x801C47BC
 
-.global func_801C2DB8
-func_801C2DB8:
+.global HSD_PadGetRawQueueCount
+HSD_PadGetRawQueueCount:
 /* 801C2DB8 001BFDB8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C2DBC 001BFDBC  7C 08 02 A6 */	mflr r0
 /* 801C2DC0 001BFDC0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -20,15 +20,15 @@ func_801C2DB8:
 /* 801C2DEC 001BFDEC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C2DF0 001BFDF0  4E 80 00 20 */	blr 
 
-.global func_801C2DF4
-func_801C2DF4:
+.global HSD_PadRenewRawStatus
+HSD_PadRenewRawStatus:
 /* 801C2DF4 001BFDF4  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801C2DF8 001BFDF8  7C 08 02 A6 */	mflr r0
 /* 801C2DFC 001BFDFC  3C 60 80 25 */	lis r3, lbl_8024C7C0@ha
 /* 801C2E00 001BFE00  90 01 00 54 */	stw r0, 0x54(r1)
 /* 801C2E04 001BFE04  93 E1 00 4C */	stw r31, 0x4c(r1)
 /* 801C2E08 001BFE08  3B E3 C7 C0 */	addi r31, r3, lbl_8024C7C0@l
-/* 801C2E0C 001BFE0C  48 00 1E 11 */	bl func_801C4C1C
+/* 801C2E0C 001BFE0C  48 00 1E 11 */	bl HSD_PadRumbleInterpret
 /* 801C2E10 001BFE10  38 61 00 08 */	addi r3, r1, 8
 /* 801C2E14 001BFE14  4B FB 2A 7D */	bl func_80175890
 /* 801C2E18 001BFE18  3C 80 80 25 */	lis r4, lbl_8024C7C0@ha
@@ -208,8 +208,8 @@ lbl_801C308C:
 /* 801C3098 001C0098  38 21 00 50 */	addi r1, r1, 0x50
 /* 801C309C 001C009C  4E 80 00 20 */	blr 
 
-.global func_801C30A0
-func_801C30A0:
+.global HSD_PadFlushQueue
+HSD_PadFlushQueue:
 /* 801C30A0 001C00A0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801C30A4 001C00A4  7C 08 02 A6 */	mflr r0
 /* 801C30A8 001C00A8  3C 80 80 25 */	lis r4, lbl_8024C7C0@ha
@@ -299,8 +299,8 @@ lbl_801C31C4:
 /* 801C31D8 001C01D8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801C31DC 001C01DC  4E 80 00 20 */	blr 
 
-.global func_801C31E0
-func_801C31E0:
+.global HSD_PadClamp
+HSD_PadClamp:
 /* 801C31E0 001C01E0  3C 80 80 25 */	lis r4, lbl_8024C7C0@ha
 /* 801C31E4 001C01E4  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 801C31E8 001C01E8  38 84 C7 C0 */	addi r4, r4, lbl_8024C7C0@l
@@ -816,8 +816,8 @@ lbl_801C398C:
 /* 801C398C 001C098C  38 21 00 70 */	addi r1, r1, 0x70
 /* 801C3990 001C0990  4E 80 00 20 */	blr 
 
-.global func_801C3994
-func_801C3994:
+.global HSD_PadADConvert
+HSD_PadADConvert:
 /* 801C3994 001C0994  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801C3998 001C0998  7C 08 02 A6 */	mflr r0
 /* 801C399C 001C099C  90 01 00 54 */	stw r0, 0x54(r1)
@@ -1160,8 +1160,8 @@ lbl_801C3E7C:
 /* 801C3E94 001C0E94  38 21 00 50 */	addi r1, r1, 0x50
 /* 801C3E98 001C0E98  4E 80 00 20 */	blr 
 
-.global func_801C3E9C
-func_801C3E9C:
+.global HSD_PadRenewMasterStatus
+HSD_PadRenewMasterStatus:
 /* 801C3E9C 001C0E9C  94 21 FF 50 */	stwu r1, -0xb0(r1)
 /* 801C3EA0 001C0EA0  7C 08 02 A6 */	mflr r0
 /* 801C3EA4 001C0EA4  90 01 00 B4 */	stw r0, 0xb4(r1)
@@ -1229,9 +1229,9 @@ lbl_801C3F24:
 /* 801C3F98 001C0F98  98 1C 00 1E */	stb r0, 0x1e(r28)
 /* 801C3F9C 001C0F9C  88 1B 00 09 */	lbz r0, 9(r27)
 /* 801C3FA0 001C0FA0  98 1C 00 1F */	stb r0, 0x1f(r28)
-/* 801C3FA4 001C0FA4  4B FF F2 3D */	bl func_801C31E0
+/* 801C3FA4 001C0FA4  4B FF F2 3D */	bl HSD_PadClamp
 /* 801C3FA8 001C0FA8  7F 83 E3 78 */	mr r3, r28
-/* 801C3FAC 001C0FAC  4B FF F9 E9 */	bl func_801C3994
+/* 801C3FAC 001C0FAC  4B FF F9 E9 */	bl HSD_PadADConvert
 /* 801C3FB0 001C0FB0  88 1C 00 18 */	lbz r0, 0x18(r28)
 /* 801C3FB4 001C0FB4  3C A0 43 30 */	lis r5, 0x4330
 /* 801C3FB8 001C0FB8  88 7F 00 26 */	lbz r3, 0x26(r31)
@@ -1465,8 +1465,8 @@ lbl_801C42F8:
 /* 801C4310 001C1310  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 801C4314 001C1314  4E 80 00 20 */	blr 
 
-.global func_801C4318
-func_801C4318:
+.global HSD_PadRenewCopyStatus
+HSD_PadRenewCopyStatus:
 /* 801C4318 001C1318  3C 60 80 25 */	lis r3, lbl_8024C7C0@ha
 /* 801C431C 001C131C  38 00 00 04 */	li r0, 4
 /* 801C4320 001C1320  38 A3 C7 C0 */	addi r5, r3, lbl_8024C7C0@l
@@ -1578,8 +1578,8 @@ lbl_801C44A8:
 /* 801C44B0 001C14B0  42 00 FE 84 */	bdnz lbl_801C4334
 /* 801C44B4 001C14B4  4E 80 00 20 */	blr 
 
-.global func_801C44B8
-func_801C44B8:
+.global HSD_PadReset
+HSD_PadReset:
 /* 801C44B8 001C14B8  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801C44BC 001C14BC  7C 08 02 A6 */	mflr r0
 /* 801C44C0 001C14C0  3C 60 80 25 */	lis r3, lbl_8024C7C0@ha
@@ -1590,11 +1590,11 @@ func_801C44B8:
 /* 801C44D4 001C14D4  93 A1 00 14 */	stw r29, 0x14(r1)
 /* 801C44D8 001C14D8  4B FA 56 81 */	bl func_80169B58
 /* 801C44DC 001C14DC  7C 7E 1B 78 */	mr r30, r3
-/* 801C44E0 001C14E0  48 00 03 BD */	bl func_801C489C
+/* 801C44E0 001C14E0  48 00 03 BD */	bl HSD_PadRumbleRemoveAll
 /* 801C44E4 001C14E4  3B A0 00 00 */	li r29, 0
 lbl_801C44E8:
 /* 801C44E8 001C14E8  57 A3 06 3E */	clrlwi r3, r29, 0x18
-/* 801C44EC 001C14EC  48 00 02 D1 */	bl func_801C47BC
+/* 801C44EC 001C14EC  48 00 02 D1 */	bl HSD_PadRumbleOffH
 /* 801C44F0 001C14F0  3B BD 00 01 */	addi r29, r29, 1
 /* 801C44F4 001C14F4  2C 1D 00 04 */	cmpwi r29, 4
 /* 801C44F8 001C14F8  41 80 FF F0 */	blt lbl_801C44E8
@@ -1620,8 +1620,8 @@ lbl_801C44E8:
 /* 801C4548 001C1548  38 21 00 20 */	addi r1, r1, 0x20
 /* 801C454C 001C154C  4E 80 00 20 */	blr 
 
-.global func_801C4550
-func_801C4550:
+.global HSD_PadInit
+HSD_PadInit:
 /* 801C4550 001C1550  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 801C4554 001C1554  7C 08 02 A6 */	mflr r0
 /* 801C4558 001C1558  90 01 00 74 */	stw r0, 0x74(r1)
@@ -1662,7 +1662,7 @@ func_801C4550:
 /* 801C45E4 001C15E4  91 3F 00 28 */	stw r9, 0x28(r31)
 /* 801C45E8 001C15E8  91 1F 00 2C */	stw r8, 0x2c(r31)
 /* 801C45EC 001C15EC  90 1F 00 30 */	stw r0, 0x30(r31)
-/* 801C45F0 001C15F0  48 00 07 55 */	bl func_801C4D44
+/* 801C45F0 001C15F0  48 00 07 55 */	bl HSD_PadRumbleInit
 /* 801C45F4 001C15F4  3C 60 80 22 */	lis r3, lbl_8021A730@ha
 /* 801C45F8 001C15F8  38 00 00 08 */	li r0, 8
 /* 801C45FC 001C15FC  38 63 A7 30 */	addi r3, r3, lbl_8021A730@l

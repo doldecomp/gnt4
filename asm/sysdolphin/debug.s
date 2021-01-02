@@ -2,8 +2,8 @@
 
 .section .text  # 0x801D5D4C - 0x801D5ED8
 
-.global func_801D5D4C
-func_801D5D4C:
+.global HSD_SaveContext
+HSD_SaveContext:
 /* 801D5D4C 001D2D4C  7C 70 43 A6 */	mtspr 0x110, r3
 /* 801D5D50 001D2D50  3C 60 80 25 */	lis r3, lbl_8024D558@ha
 /* 801D5D54 001D2D54  38 63 D5 58 */	addi r3, r3, lbl_8024D558@l
@@ -43,8 +43,8 @@ func_801D5D4C:
 /* 801D5DDC 001D2DDC  B0 83 01 A2 */	sth r4, 0x1a2(r3)
 /* 801D5DE0 001D2DE0  4B F9 19 8C */	b lbl_8016776C
 
-.global func_801D5DE4
-func_801D5DE4:
+.global __assert
+__assert:
 /* 801D5DE4 001D2DE4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801D5DE8 001D2DE8  7C 08 02 A6 */	mflr r0
 /* 801D5DEC 001D2DEC  3C C0 80 22 */	lis r6, lbl_8021B6F0@ha
@@ -61,7 +61,7 @@ func_801D5DE4:
 /* 801D5E18 001D2E18  7F C3 F3 78 */	mr r3, r30
 /* 801D5E1C 001D2E1C  7F E4 FB 78 */	mr r4, r31
 /* 801D5E20 001D2E20  38 AD 86 48 */	addi r5, r13, lbl_80276F68-_SDA_BASE_
-/* 801D5E24 001D2E24  48 00 00 1D */	bl func_801D5E40
+/* 801D5E24 001D2E24  48 00 00 1D */	bl HSD_Panic
 /* 801D5E28 001D2E28  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 801D5E2C 001D2E2C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 801D5E30 001D2E30  83 C1 00 08 */	lwz r30, 8(r1)
@@ -69,8 +69,8 @@ func_801D5DE4:
 /* 801D5E38 001D2E38  38 21 00 10 */	addi r1, r1, 0x10
 /* 801D5E3C 001D2E3C  4E 80 00 20 */	blr 
 
-.global func_801D5E40
-func_801D5E40:
+.global HSD_Panic
+HSD_Panic:
 /* 801D5E40 001D2E40  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801D5E44 001D2E44  7C 08 02 A6 */	mflr r0
 /* 801D5E48 001D2E48  90 01 00 24 */	stw r0, 0x24(r1)
@@ -83,7 +83,7 @@ func_801D5E40:
 /* 801D5E64 001D2E64  80 0D 91 18 */	lwz r0, lbl_80277A38-_SDA_BASE_(r13)
 /* 801D5E68 001D2E68  28 00 00 00 */	cmplwi r0, 0
 /* 801D5E6C 001D2E6C  41 82 00 3C */	beq lbl_801D5EA8
-/* 801D5E70 001D2E70  4B FF FE DD */	bl func_801D5D4C
+/* 801D5E70 001D2E70  4B FF FE DD */	bl HSD_SaveContext
 /* 801D5E74 001D2E74  3C 60 80 22 */	lis r3, lbl_8021B708@ha
 /* 801D5E78 001D2E78  7F E4 FB 78 */	mr r4, r31
 /* 801D5E7C 001D2E7C  38 63 B7 08 */	addi r3, r3, lbl_8021B708@l

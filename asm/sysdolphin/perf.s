@@ -2,8 +2,8 @@
 
 .section .text  # 0x801CACB4 - 0x801CAF00
 
-.global func_801CACB4
-func_801CACB4:
+.global HSD_PerfInitStat
+HSD_PerfInitStat:
 /* 801CACB4 001C7CB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CACB8 001C7CB8  7C 08 02 A6 */	mflr r0
 /* 801CACBC 001C7CBC  3C 80 80 22 */	lis r4, lbl_8021AB80@ha
@@ -31,8 +31,8 @@ lbl_801CACE0:
 /* 801CAD10 001C7D10  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CAD14 001C7D14  4E 80 00 20 */	blr 
 
-.global func_801CAD18
-func_801CAD18:
+.global HSD_PerfSetStartTime
+HSD_PerfSetStartTime:
 /* 801CAD18 001C7D18  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CAD1C 001C7D1C  7C 08 02 A6 */	mflr r0
 /* 801CAD20 001C7D20  90 01 00 14 */	stw r0, 0x14(r1)
@@ -44,8 +44,8 @@ func_801CAD18:
 /* 801CAD38 001C7D38  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CAD3C 001C7D3C  4E 80 00 20 */	blr 
 
-.global func_801CAD40
-func_801CAD40:
+.global HSD_PerfSetCPUTime
+HSD_PerfSetCPUTime:
 /* 801CAD40 001C7D40  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CAD44 001C7D44  7C 08 02 A6 */	mflr r0
 /* 801CAD48 001C7D48  90 01 00 14 */	stw r0, 0x14(r1)
@@ -76,8 +76,8 @@ func_801CAD40:
 /* 801CADAC 001C7DAC  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CADB0 001C7DB0  4E 80 00 20 */	blr 
 
-.global func_801CADB4
-func_801CADB4:
+.global HSD_PerfSetDrawTime
+HSD_PerfSetDrawTime:
 /* 801CADB4 001C7DB4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CADB8 001C7DB8  7C 08 02 A6 */	mflr r0
 /* 801CADBC 001C7DBC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -109,8 +109,8 @@ func_801CADB4:
 /* 801CAE24 001C7E24  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CAE28 001C7E28  4E 80 00 20 */	blr 
 
-.global func_801CAE2C
-func_801CAE2C:
+.global HSD_PerfSetTotalTime
+HSD_PerfSetTotalTime:
 /* 801CAE2C 001C7E2C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CAE30 001C7E30  7C 08 02 A6 */	mflr r0
 /* 801CAE34 001C7E34  90 01 00 14 */	stw r0, 0x14(r1)
@@ -142,8 +142,8 @@ func_801CAE2C:
 /* 801CAE9C 001C7E9C  38 21 00 10 */	addi r1, r1, 0x10
 /* 801CAEA0 001C7EA0  4E 80 00 20 */	blr 
 
-.global func_801CAEA4
-func_801CAEA4:
+.global HSD_PerfCountEnvelopeBlending
+HSD_PerfCountEnvelopeBlending:
 /* 801CAEA4 001C7EA4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801CAEA8 001C7EA8  7C 08 02 A6 */	mflr r0
 /* 801CAEAC 001C7EAC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -154,7 +154,7 @@ func_801CAEA4:
 /* 801CAEC0 001C7EC0  38 6D 85 80 */	addi r3, r13, lbl_80276EA0-_SDA_BASE_
 /* 801CAEC4 001C7EC4  38 80 00 A4 */	li r4, 0xa4
 /* 801CAEC8 001C7EC8  38 AD 85 88 */	addi r5, r13, lbl_80276EA8-_SDA_BASE_
-/* 801CAECC 001C7ECC  48 00 AF 19 */	bl func_801D5DE4
+/* 801CAECC 001C7ECC  48 00 AF 19 */	bl __assert
 lbl_801CAED0:
 /* 801CAED0 001C7ED0  3C 60 80 22 */	lis r3, lbl_8021AC10@ha
 /* 801CAED4 001C7ED4  57 E0 10 3A */	slwi r0, r31, 2
