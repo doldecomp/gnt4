@@ -2,8 +2,8 @@
 
 .section .text  # 0x8016E0A0 - 0x8016E2A4
 
-.global func_8016E0A0
-func_8016E0A0:
+.global C_MTXFrustum
+C_MTXFrustum:
 /* 8016E0A0 0016B0A0  ED 24 18 28 */	fsubs f9, f4, f3
 /* 8016E0A4 0016B0A4  C1 42 BA 50 */	lfs f10, lbl_8027B6F0-_SDA2_BASE_(r2)
 /* 8016E0A8 0016B0A8  EC 01 10 28 */	fsubs f0, f1, f2
@@ -44,8 +44,8 @@ func_8016E0A0:
 /* 8016E134 0016B134  D0 83 00 3C */	stfs f4, 0x3c(r3)
 /* 8016E138 0016B138  4E 80 00 20 */	blr 
 
-.global func_8016E13C
-func_8016E13C:
+.global C_MTXPerspective
+C_MTXPerspective:
 /* 8016E13C 0016B13C  7C 08 02 A6 */	mflr r0
 /* 8016E140 0016B140  90 01 00 04 */	stw r0, 4(r1)
 /* 8016E144 0016B144  94 21 FF C0 */	stwu r1, -0x40(r1)
@@ -99,8 +99,8 @@ func_8016E13C:
 /* 8016E204 0016B204  7C 08 03 A6 */	mtlr r0
 /* 8016E208 0016B208  4E 80 00 20 */	blr 
 
-.global func_8016E20C
-func_8016E20C:
+.global C_MTXOrtho
+C_MTXOrtho:
 /* 8016E20C 0016B20C  ED 04 18 28 */	fsubs f8, f4, f3
 /* 8016E210 0016B210  C1 22 BA 50 */	lfs f9, lbl_8027B6F0-_SDA2_BASE_(r2)
 /* 8016E214 0016B214  EC 01 10 28 */	fsubs f0, f1, f2

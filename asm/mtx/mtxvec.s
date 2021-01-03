@@ -2,8 +2,8 @@
 
 .section .text  # 0x8016DFF8 - 0x8016E0A0
 
-.global func_8016DFF8
-func_8016DFF8:
+.global PSMTXMultVec
+PSMTXMultVec:
 /* 8016DFF8 0016AFF8  E0 04 00 00 */	psq_l p0, 0(r4), 0, qr0
 /* 8016DFFC 0016AFFC  E0 43 00 00 */	psq_l p2, 0(r3), 0, qr0
 /* 8016E000 0016B000  E0 24 80 08 */	psq_l p1, 8(r4), 1, qr0
@@ -26,8 +26,8 @@ func_8016DFF8:
 /* 8016E044 0016B044  F0 C5 80 08 */	psq_st p6, 8(r5), 1, qr0
 /* 8016E048 0016B048  4E 80 00 20 */	blr 
 
-.global func_8016E04C
-func_8016E04C:
+.global PSMTXMultVecSR
+PSMTXMultVecSR:
 /* 8016E04C 0016B04C  E0 03 00 00 */	psq_l p0, 0(r3), 0, qr0
 /* 8016E050 0016B050  E0 C4 00 00 */	psq_l p6, 0(r4), 0, qr0
 /* 8016E054 0016B054  E0 43 00 10 */	psq_l p2, 16(r3), 0, qr0
