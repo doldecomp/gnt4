@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018D94C - 0x8018DDF8
 
-.global func_8018D94C
-func_8018D94C:
+.global TRKLoadContext
+TRKLoadContext:
 /* 8018D94C 0018A94C  80 03 00 00 */	lwz r0, 0(r3)
 /* 8018D950 0018A950  80 23 00 04 */	lwz r1, 4(r3)
 /* 8018D954 0018A954  80 43 00 08 */	lwz r2, 8(r3)
@@ -39,14 +39,14 @@ lbl_8018D978:
 /* 8018D9C4 0018A9C4  80 5F 01 98 */	lwz r2, 0x198(r31)
 /* 8018D9C8 0018A9C8  80 9F 01 9C */	lwz r4, 0x19c(r31)
 /* 8018D9CC 0018A9CC  83 FF 00 7C */	lwz r31, 0x7c(r31)
-/* 8018D9D0 0018A9D0  4B FF E2 10 */	b func_8018BBE0
+/* 8018D9D0 0018A9D0  4B FF E2 10 */	b TRKInterruptHandler
 
-.global func_8018D9D4
-func_8018D9D4:
+.global TRKUARTInterruptHandler
+TRKUARTInterruptHandler:
 /* 8018D9D4 0018A9D4  4E 80 00 20 */	blr 
 
-.global func_8018D9D8
-func_8018D9D8:
+.global TRK_board_display
+TRK_board_display:
 /* 8018D9D8 0018A9D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018D9DC 0018A9DC  7C 08 02 A6 */	mflr r0
 /* 8018D9E0 0018A9E0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -57,8 +57,8 @@ func_8018D9D8:
 /* 8018D9F4 0018A9F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018D9F8 0018A9F8  4E 80 00 20 */	blr 
 
-.global func_8018D9FC
-func_8018D9FC:
+.global UnreserveEXI2Port
+UnreserveEXI2Port:
 /* 8018D9FC 0018A9FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DA00 0018AA00  7C 08 02 A6 */	mflr r0
 /* 8018DA04 0018AA04  3C 60 80 21 */	lis r3, lbl_80217BF0@ha
@@ -72,8 +72,8 @@ func_8018D9FC:
 /* 8018DA24 0018AA24  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018DA28 0018AA28  4E 80 00 20 */	blr 
 
-.global func_8018DA2C
-func_8018DA2C:
+.global ReserveEXI2Port
+ReserveEXI2Port:
 /* 8018DA2C 0018AA2C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DA30 0018AA30  7C 08 02 A6 */	mflr r0
 /* 8018DA34 0018AA34  3C 60 80 21 */	lis r3, lbl_80217BF0@ha
@@ -87,8 +87,8 @@ func_8018DA2C:
 /* 8018DA54 0018AA54  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018DA58 0018AA58  4E 80 00 20 */	blr 
 
-.global func_8018DA5C
-func_8018DA5C:
+.global TRKReadUARTPoll
+TRKReadUARTPoll:
 /* 8018DA5C 0018AA5C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8018DA60 0018AA60  7C 08 02 A6 */	mflr r0
 /* 8018DA64 0018AA64  3C 80 80 24 */	lis r4, lbl_80247D48@ha
@@ -153,8 +153,8 @@ lbl_8018DB2C:
 /* 8018DB44 0018AB44  38 21 00 20 */	addi r1, r1, 0x20
 /* 8018DB48 0018AB48  4E 80 00 20 */	blr 
 
-.global func_8018DB4C
-func_8018DB4C:
+.global WriteUART1
+WriteUART1:
 /* 8018DB4C 0018AB4C  3C A0 80 24 */	lis r5, lbl_80247D48@ha
 /* 8018DB50 0018AB50  3C 80 80 25 */	lis r4, lbl_80248E64@ha
 /* 8018DB54 0018AB54  38 C5 7D 48 */	addi r6, r5, lbl_80247D48@l
@@ -166,8 +166,8 @@ func_8018DB4C:
 /* 8018DB6C 0018AB6C  90 06 00 00 */	stw r0, 0(r6)
 /* 8018DB70 0018AB70  4E 80 00 20 */	blr 
 
-.global func_8018DB74
-func_8018DB74:
+.global WriteUARTFlush
+WriteUARTFlush:
 /* 8018DB74 0018AB74  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DB78 0018AB78  7C 08 02 A6 */	mflr r0
 /* 8018DB7C 0018AB7C  3C 60 80 24 */	lis r3, lbl_80247D48@ha
@@ -231,8 +231,8 @@ lbl_8018DC44:
 /* 8018DC4C 0018AC4C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018DC50 0018AC50  4E 80 00 20 */	blr 
 
-.global func_8018DC54
-func_8018DC54:
+.global EnableEXI2Interrupts
+EnableEXI2Interrupts:
 /* 8018DC54 0018AC54  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DC58 0018AC58  7C 08 02 A6 */	mflr r0
 /* 8018DC5C 0018AC5C  3C 60 80 21 */	lis r3, lbl_80217BF0@ha
@@ -246,14 +246,14 @@ func_8018DC54:
 /* 8018DC7C 0018AC7C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018DC80 0018AC80  4E 80 00 20 */	blr 
 
-.global func_8018DC84
-func_8018DC84:
+.global TRKInitializeIntDrivenUART
+TRKInitializeIntDrivenUART:
 /* 8018DC84 0018AC84  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DC88 0018AC88  7C 08 02 A6 */	mflr r0
-/* 8018DC8C 0018AC8C  3C 80 80 19 */	lis r4, lbl_8018DDC0@ha
+/* 8018DC8C 0018AC8C  3C 80 80 19 */	lis r4, TRKEXICallBack@ha
 /* 8018DC90 0018AC90  3C 60 80 21 */	lis r3, lbl_80217BF0@ha
 /* 8018DC94 0018AC94  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8018DC98 0018AC98  38 84 DD C0 */	addi r4, r4, lbl_8018DDC0@l
+/* 8018DC98 0018AC98  38 84 DD C0 */	addi r4, r4, TRKEXICallBack@l
 /* 8018DC9C 0018AC9C  81 83 7B F0 */	lwz r12, lbl_80217BF0@l(r3)
 /* 8018DCA0 0018ACA0  7C C3 33 78 */	mr r3, r6
 /* 8018DCA4 0018ACA4  7D 89 03 A6 */	mtctr r12
@@ -264,8 +264,8 @@ func_8018DC84:
 /* 8018DCB8 0018ACB8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018DCBC 0018ACBC  4E 80 00 20 */	blr 
 
-.global func_8018DCC0
-func_8018DCC0:
+.global InitMetroTRKCommTable
+InitMetroTRKCommTable:
 /* 8018DCC0 0018ACC0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DCC4 0018ACC4  7C 08 02 A6 */	mflr r0
 /* 8018DCC8 0018ACC8  2C 03 00 01 */	cmpwi r3, 1
@@ -332,7 +332,9 @@ lbl_8018DDB0:
 /* 8018DDB4 0018ADB4  7C 08 03 A6 */	mtlr r0
 /* 8018DDB8 0018ADB8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018DDBC 0018ADBC  4E 80 00 20 */	blr 
-lbl_8018DDC0:
+
+.global TRKEXICallBack
+TRKEXICallBack:
 /* 8018DDC0 0018ADC0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018DDC4 0018ADC4  7C 08 02 A6 */	mflr r0
 /* 8018DDC8 0018ADC8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -341,7 +343,7 @@ lbl_8018DDC0:
 /* 8018DDD4 0018ADD4  4B FD E1 35 */	bl func_8016BF08
 /* 8018DDD8 0018ADD8  7F E3 FB 78 */	mr r3, r31
 /* 8018DDDC 0018ADDC  38 80 05 00 */	li r4, 0x500
-/* 8018DDE0 0018ADE0  4B FF FB 6D */	bl func_8018D94C
+/* 8018DDE0 0018ADE0  4B FF FB 6D */	bl TRKLoadContext
 /* 8018DDE4 0018ADE4  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8018DDE8 0018ADE8  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8018DDEC 0018ADEC  7C 08 03 A6 */	mtlr r0

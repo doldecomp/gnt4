@@ -2,8 +2,8 @@
 
 .section .text  # 0x801887F4 - 0x80188890
 
-.global func_801887F4
-func_801887F4:
+.global TRKDispatchMessage
+TRKDispatchMessage:
 /* 801887F4 001857F4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801887F8 001857F8  7C 08 02 A6 */	mflr r0
 /* 801887FC 001857FC  38 80 00 00 */	li r4, 0
@@ -12,10 +12,10 @@ func_801887F4:
 /* 80188808 00185808  3B E0 05 00 */	li r31, 0x500
 /* 8018880C 0018580C  93 C1 00 18 */	stw r30, 0x18(r1)
 /* 80188810 00185810  7C 7E 1B 78 */	mr r30, r3
-/* 80188814 00185814  4B FF F9 4D */	bl func_80188160
+/* 80188814 00185814  4B FF F9 4D */	bl TRKSetBufferPosition
 /* 80188818 00185818  7F C3 F3 78 */	mr r3, r30
 /* 8018881C 0018581C  38 81 00 08 */	addi r4, r1, 8
-/* 80188820 00185820  4B FF F5 41 */	bl func_80187D60
+/* 80188820 00185820  4B FF F5 41 */	bl TRKReadBuffer1_ui8
 /* 80188824 00185824  3C 60 80 24 */	lis r3, lbl_802477A8@ha
 /* 80188828 00185828  88 81 00 08 */	lbz r4, 8(r1)
 /* 8018882C 0018582C  80 03 77 A8 */	lwz r0, lbl_802477A8@l(r3)
@@ -39,8 +39,8 @@ lbl_8018885C:
 /* 80188870 00185870  38 21 00 20 */	addi r1, r1, 0x20
 /* 80188874 00185874  4E 80 00 20 */	blr 
 
-.global func_80188878
-func_80188878:
+.global TRKInitializeDispatcher
+TRKInitializeDispatcher:
 /* 80188878 00185878  3C 60 80 24 */	lis r3, lbl_802477A8@ha
 /* 8018887C 0018587C  38 00 00 20 */	li r0, 0x20
 /* 80188880 00185880  38 83 77 A8 */	addi r4, r3, lbl_802477A8@l

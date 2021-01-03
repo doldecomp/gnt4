@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018D590 - 0x8018D908
 
-.global func_8018D590
-func_8018D590:
+.global TRKSaveExtended1Block
+TRKSaveExtended1Block:
 /* 8018D590 0018A590  3C 40 80 24 */	lis r2, lbl_80247860@h
 /* 8018D594 0018A594  60 42 78 60 */	ori r2, r2, lbl_80247860@l
 /* 8018D598 0018A598  7E 00 04 A6 */	mfsr r16, 0
@@ -116,8 +116,8 @@ lbl_8018D6E0:
 /* 8018D740 0018A740  93 E2 02 78 */	stw r31, 0x278(r2)
 /* 8018D744 0018A744  4E 80 00 20 */	blr 
 
-.global func_8018D748
-func_8018D748:
+.global TRKRestoreExtended1Block
+TRKRestoreExtended1Block:
 /* 8018D748 0018A748  3C 40 80 24 */	lis r2, lbl_80247860@h
 /* 8018D74C 0018A74C  60 42 78 60 */	ori r2, r2, lbl_80247860@l
 /* 8018D750 0018A750  3C A0 80 21 */	lis r5, lbl_80217B80@h
@@ -233,7 +233,7 @@ lbl_8018D83C:
 /* 8018D8F8 0018A8F8  7F FA 43 A6 */	mtspr 0x11a, r31
 /* 8018D8FC 0018A8FC  4E 80 00 20 */	blr 
 
-.global func_8018D900
-func_8018D900:
+.global TRKTargetCPUMinorType
+TRKTargetCPUMinorType:
 /* 8018D900 0018A900  38 60 00 54 */	li r3, 0x54
 /* 8018D904 0018A904  4E 80 00 20 */	blr 

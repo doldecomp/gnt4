@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018BAA0 - 0x8018BAD8
 
-.global func_8018BAA0
-func_8018BAA0:
+.global TRK_flush_cache
+TRK_flush_cache:
 /* 8018BAA0 00188AA0  3C A0 FF FF */	lis r5, 0xFFFFFFF1@h
 /* 8018BAA4 00188AA4  60 A5 FF F1 */	ori r5, r5, 0xFFFFFFF1@l
 /* 8018BAA8 00188AA8  7C A5 18 38 */	and r5, r5, r3

@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018BAD8 - 0x8018BB94
 
-.global func_8018BAD8
-func_8018BAD8:
+.global TRK_fill_mem
+TRK_fill_mem:
 /* 8018BAD8 00188AD8  28 05 00 20 */	cmplwi r5, 0x20
 /* 8018BADC 00188ADC  54 84 06 3E */	clrlwi r4, r4, 0x18
 /* 8018BAE0 00188AE0  38 C3 FF FF */	addi r6, r3, -1

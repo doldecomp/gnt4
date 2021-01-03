@@ -2,12 +2,12 @@
 
 .section .text  # 0x80188768 - 0x801887F4
 
-.global func_80188768
-func_80188768:
+.global usr_put_initialize
+usr_put_initialize:
 /* 80188768 00185768  4E 80 00 20 */	blr 
 
-.global func_8018876C
-func_8018876C:
+.global usr_puts_serial
+usr_puts_serial:
 /* 8018876C 0018576C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80188770 00185770  7C 08 02 A6 */	mflr r0
 /* 80188774 00185774  90 01 00 24 */	stw r0, 0x24(r1)
@@ -19,16 +19,16 @@ func_8018876C:
 /* 8018878C 0018578C  38 60 00 00 */	li r3, 0
 /* 80188790 00185790  48 00 00 30 */	b lbl_801887C0
 lbl_80188794:
-/* 80188794 00185794  48 00 29 4D */	bl func_8018B0E0
+/* 80188794 00185794  48 00 29 4D */	bl GetTRKConnected
 /* 80188798 00185798  9B C1 00 08 */	stb r30, 8(r1)
 /* 8018879C 0018579C  7C 7E 1B 78 */	mr r30, r3
 /* 801887A0 001857A0  38 60 00 00 */	li r3, 0
 /* 801887A4 001857A4  9B E1 00 09 */	stb r31, 9(r1)
-/* 801887A8 001857A8  48 00 29 2D */	bl func_8018B0D4
+/* 801887A8 001857A8  48 00 29 2D */	bl SetTRKConnected
 /* 801887AC 001857AC  38 61 00 08 */	addi r3, r1, 8
 /* 801887B0 001857B0  4B FD F0 E9 */	bl func_80167898
 /* 801887B4 001857B4  7F C3 F3 78 */	mr r3, r30
-/* 801887B8 001857B8  48 00 29 1D */	bl func_8018B0D4
+/* 801887B8 001857B8  48 00 29 1D */	bl SetTRKConnected
 /* 801887BC 001857BC  38 60 00 00 */	li r3, 0
 lbl_801887C0:
 /* 801887C0 001857C0  2C 03 00 00 */	cmpwi r3, 0
