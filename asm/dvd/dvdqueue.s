@@ -2,8 +2,8 @@
 
 .section .text  # 0x80172774 - 0x8017296C
 
-.global func_80172774
-func_80172774:
+.global __DVDClearWaitingQueue
+__DVDClearWaitingQueue:
 /* 80172774 0016F774  3C 60 80 24 */	lis r3, lbl_80245318@ha
 /* 80172778 0016F778  38 63 53 18 */	addi r3, r3, lbl_80245318@l
 /* 8017277C 0016F77C  90 63 00 00 */	stw r3, 0(r3)
@@ -19,8 +19,8 @@ func_80172774:
 /* 801727A4 0016F7A4  90 63 00 04 */	stw r3, 4(r3)
 /* 801727A8 0016F7A8  4E 80 00 20 */	blr 
 
-.global func_801727AC
-func_801727AC:
+.global __DVDPushWaitingQueue
+__DVDPushWaitingQueue:
 /* 801727AC 0016F7AC  7C 08 02 A6 */	mflr r0
 /* 801727B0 0016F7B0  90 01 00 04 */	stw r0, 4(r1)
 /* 801727B4 0016F7B4  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -48,8 +48,8 @@ func_801727AC:
 /* 8017280C 0016F80C  7C 08 03 A6 */	mtlr r0
 /* 80172810 0016F810  4E 80 00 20 */	blr 
 
-.global func_80172814
-func_80172814:
+.global __DVDPopWaitingQueue
+__DVDPopWaitingQueue:
 /* 80172814 0016F814  7C 08 02 A6 */	mflr r0
 /* 80172818 0016F818  90 01 00 04 */	stw r0, 4(r1)
 /* 8017281C 0016F81C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -94,8 +94,8 @@ lbl_801728A0:
 /* 801728AC 0016F8AC  7C 08 03 A6 */	mtlr r0
 /* 801728B0 0016F8B0  4E 80 00 20 */	blr 
 
-.global func_801728B4
-func_801728B4:
+.global __DVDCheckWaitingQueue
+__DVDCheckWaitingQueue:
 /* 801728B4 0016F8B4  7C 08 02 A6 */	mflr r0
 /* 801728B8 0016F8B8  90 01 00 04 */	stw r0, 4(r1)
 /* 801728BC 0016F8BC  94 21 FF F8 */	stwu r1, -8(r1)
@@ -122,8 +122,8 @@ lbl_801728FC:
 /* 80172904 0016F904  7C 08 03 A6 */	mtlr r0
 /* 80172908 0016F908  4E 80 00 20 */	blr 
 
-.global func_8017290C
-func_8017290C:
+.global __DVDDequeueWaitingQueue
+__DVDDequeueWaitingQueue:
 /* 8017290C 0016F90C  7C 08 02 A6 */	mflr r0
 /* 80172910 0016F910  90 01 00 04 */	stw r0, 4(r1)
 /* 80172914 0016F914  94 21 FF E8 */	stwu r1, -0x18(r1)

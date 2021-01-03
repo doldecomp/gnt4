@@ -2,8 +2,8 @@
 
 .section .text  # 0x8017296C - 0x80172B04
 
-.global func_8017296C
-func_8017296C:
+.global ErrorCode2Num
+ErrorCode2Num:
 /* 8017296C 0016F96C  38 00 00 02 */	li r0, 2
 /* 80172970 0016F970  3C 80 80 21 */	lis r4, lbl_802166F0@ha
 /* 80172974 0016F974  7C 09 03 A6 */	mtctr r0
@@ -87,8 +87,8 @@ lbl_80172A80:
 /* 80172A80 0016FA80  38 60 00 1D */	li r3, 0x1d
 /* 80172A84 0016FA84  4E 80 00 20 */	blr 
 
-.global func_80172A88
-func_80172A88:
+.global __DVDStoreErrorCode
+__DVDStoreErrorCode:
 /* 80172A88 0016FA88  7C 08 02 A6 */	mflr r0
 /* 80172A8C 0016FA8C  90 01 00 04 */	stw r0, 4(r1)
 /* 80172A90 0016FA90  3C 03 FE DD */	addis r0, r3, 0xfedd
@@ -106,7 +106,7 @@ lbl_80172AAC:
 lbl_80172ABC:
 /* 80172ABC 0016FABC  54 7F 46 3E */	srwi r31, r3, 0x18
 /* 80172AC0 0016FAC0  54 63 02 3E */	clrlwi r3, r3, 8
-/* 80172AC4 0016FAC4  4B FF FE A9 */	bl func_8017296C
+/* 80172AC4 0016FAC4  4B FF FE A9 */	bl ErrorCode2Num
 /* 80172AC8 0016FAC8  28 1F 00 06 */	cmplwi r31, 6
 /* 80172ACC 0016FACC  41 80 00 08 */	blt lbl_80172AD4
 /* 80172AD0 0016FAD0  3B E0 00 06 */	li r31, 6

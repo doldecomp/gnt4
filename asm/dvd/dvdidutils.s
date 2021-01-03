@@ -2,8 +2,8 @@
 
 .section .text  # 0x80172B04 - 0x80172BFC
 
-.global func_80172B04
-func_80172B04:
+.global DVDCompareDiskID
+DVDCompareDiskID:
 /* 80172B04 0016FB04  7C 08 02 A6 */	mflr r0
 /* 80172B08 0016FB08  90 01 00 04 */	stw r0, 4(r1)
 /* 80172B0C 0016FB0C  94 21 FF E8 */	stwu r1, -0x18(r1)

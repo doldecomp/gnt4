@@ -2,8 +2,8 @@
 
 .section .text  # 0x80172BFC - 0x80172C2C
 
-.global func_80172BFC
-func_80172BFC:
+.global __DVDPrintFatalMessage
+__DVDPrintFatalMessage:
 /* 80172BFC 0016FBFC  7C 08 02 A6 */	mflr r0
 /* 80172C00 0016FC00  90 01 00 04 */	stw r0, 4(r1)
 /* 80172C04 0016FC04  94 21 FF F8 */	stwu r1, -8(r1)
