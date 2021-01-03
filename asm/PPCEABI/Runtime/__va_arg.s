@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018E044 - 0x8018E10C
 
-.global func_8018E044
-func_8018E044:
+.global __va_arg
+__va_arg:
 /* 8018E044 0018B044  88 E3 00 00 */	lbz r7, 0(r3)
 /* 8018E048 0018B048  2C 04 00 03 */	cmpwi r4, 3
 /* 8018E04C 0018B04C  7C 66 1B 78 */	mr r6, r3

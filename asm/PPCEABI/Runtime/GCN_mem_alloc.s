@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018E8E4 - 0x8018E99C
 
-.global func_8018E8E4
-func_8018E8E4:
+.global __sys_free
+__sys_free:
 /* 8018E8E4 0018B8E4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8018E8E8 0018B8E8  7C 08 02 A6 */	mflr r0
 /* 8018E8EC 0018B8EC  90 01 00 24 */	stw r0, 0x24(r1)

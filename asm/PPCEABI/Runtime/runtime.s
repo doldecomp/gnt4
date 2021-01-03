@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018E154 - 0x8018E8E4
 
-.global func_8018E154
-func_8018E154:
+.global __cvt_fp2unsigned
+__cvt_fp2unsigned:
 /* 8018E154 0018B154  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018E158 0018B158  3C 80 80 20 */	lis r4, lbl_80205388@h
 /* 8018E15C 0018B15C  60 84 53 88 */	ori r4, r4, lbl_80205388@l
@@ -29,6 +29,9 @@ lbl_8018E194:
 lbl_8018E1A8:
 /* 8018E1A8 0018B1A8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018E1AC 0018B1AC  4E 80 00 20 */	blr 
+
+.global __save_fpr
+__save_fpr:
 /* 8018E1B0 0018B1B0  D9 CB FF 70 */	stfd f14, -0x90(r11)
 /* 8018E1B4 0018B1B4  D9 EB FF 78 */	stfd f15, -0x88(r11)
 /* 8018E1B8 0018B1B8  DA 0B FF 80 */	stfd f16, -0x80(r11)
@@ -41,8 +44,8 @@ lbl_8018E1A8:
 /* 8018E1D4 0018B1D4  DA EB FF B8 */	stfd f23, -0x48(r11)
 /* 8018E1D8 0018B1D8  DB 0B FF C0 */	stfd f24, -0x40(r11)
 
-.global func_8018E1DC
-func_8018E1DC:
+.global _savefpr_25
+_savefpr_25:
 /* 8018E1DC 0018B1DC  DB 2B FF C8 */	stfd f25, -0x38(r11)
 /* 8018E1E0 0018B1E0  DB 4B FF D0 */	stfd f26, -0x30(r11)
 /* 8018E1E4 0018B1E4  DB 6B FF D8 */	stfd f27, -0x28(r11)
@@ -51,6 +54,9 @@ func_8018E1DC:
 /* 8018E1F0 0018B1F0  DB CB FF F0 */	stfd f30, -0x10(r11)
 /* 8018E1F4 0018B1F4  DB EB FF F8 */	stfd f31, -8(r11)
 /* 8018E1F8 0018B1F8  4E 80 00 20 */	blr 
+
+.global __restore_fpr
+__restore_fpr:
 /* 8018E1FC 0018B1FC  C9 CB FF 70 */	lfd f14, -0x90(r11)
 /* 8018E200 0018B200  C9 EB FF 78 */	lfd f15, -0x88(r11)
 /* 8018E204 0018B204  CA 0B FF 80 */	lfd f16, -0x80(r11)
@@ -63,8 +69,8 @@ func_8018E1DC:
 /* 8018E220 0018B220  CA EB FF B8 */	lfd f23, -0x48(r11)
 /* 8018E224 0018B224  CB 0B FF C0 */	lfd f24, -0x40(r11)
 
-.global func_8018E228
-func_8018E228:
+.global _restfpr_25
+_restfpr_25:
 /* 8018E228 0018B228  CB 2B FF C8 */	lfd f25, -0x38(r11)
 /* 8018E22C 0018B22C  CB 4B FF D0 */	lfd f26, -0x30(r11)
 /* 8018E230 0018B230  CB 6B FF D8 */	lfd f27, -0x28(r11)
@@ -74,57 +80,57 @@ func_8018E228:
 /* 8018E240 0018B240  CB EB FF F8 */	lfd f31, -8(r11)
 /* 8018E244 0018B244  4E 80 00 20 */	blr 
 
-.global func_8018E248
-func_8018E248:
+.global __save_gpr
+__save_gpr:
 /* 8018E248 0018B248  91 CB FF B8 */	stw r14, -0x48(r11)
 
-.global func_8018E24C
-func_8018E24C:
+.global _savegpr_15
+_savegpr_15:
 /* 8018E24C 0018B24C  91 EB FF BC */	stw r15, -0x44(r11)
 /* 8018E250 0018B250  92 0B FF C0 */	stw r16, -0x40(r11)
 
-.global func_8018E254
-func_8018E254:
+.global _savegpr_17
+_savegpr_17:
 /* 8018E254 0018B254  92 2B FF C4 */	stw r17, -0x3c(r11)
 
-.global func_8018E258
-func_8018E258:
+.global _savegpr_18
+_savegpr_18:
 /* 8018E258 0018B258  92 4B FF C8 */	stw r18, -0x38(r11)
 
-.global func_8018E25C
-func_8018E25C:
+.global _savegpr_19
+_savegpr_19:
 /* 8018E25C 0018B25C  92 6B FF CC */	stw r19, -0x34(r11)
 
-.global func_8018E260
-func_8018E260:
+.global _savegpr_20
+_savegpr_20:
 /* 8018E260 0018B260  92 8B FF D0 */	stw r20, -0x30(r11)
 
-.global func_8018E264
-func_8018E264:
+.global _savegpr_21
+_savegpr_21:
 /* 8018E264 0018B264  92 AB FF D4 */	stw r21, -0x2c(r11)
 
-.global func_8018E268
-func_8018E268:
+.global _savegpr_22
+_savegpr_22:
 /* 8018E268 0018B268  92 CB FF D8 */	stw r22, -0x28(r11)
 
-.global func_8018E26C
-func_8018E26C:
+.global _savegpr_23
+_savegpr_23:
 /* 8018E26C 0018B26C  92 EB FF DC */	stw r23, -0x24(r11)
 
-.global func_8018E270
-func_8018E270:
+.global _savegpr_24
+_savegpr_24:
 /* 8018E270 0018B270  93 0B FF E0 */	stw r24, -0x20(r11)
 
-.global func_8018E274
-func_8018E274:
+.global _savegpr_25
+_savegpr_25:
 /* 8018E274 0018B274  93 2B FF E4 */	stw r25, -0x1c(r11)
 
-.global func_8018E278
-func_8018E278:
+.global _savegpr_26
+_savegpr_26:
 /* 8018E278 0018B278  93 4B FF E8 */	stw r26, -0x18(r11)
 
-.global func_8018E27C
-func_8018E27C:
+.global _savegpr_27
+_savegpr_27:
 /* 8018E27C 0018B27C  93 6B FF EC */	stw r27, -0x14(r11)
 /* 8018E280 0018B280  93 8B FF F0 */	stw r28, -0x10(r11)
 /* 8018E284 0018B284  93 AB FF F4 */	stw r29, -0xc(r11)
@@ -132,57 +138,57 @@ func_8018E27C:
 /* 8018E28C 0018B28C  93 EB FF FC */	stw r31, -4(r11)
 /* 8018E290 0018B290  4E 80 00 20 */	blr 
 
-.global func_8018E294
-func_8018E294:
+.global __restore_gpr
+__restore_gpr:
 /* 8018E294 0018B294  81 CB FF B8 */	lwz r14, -0x48(r11)
 
-.global func_8018E298
-func_8018E298:
+.global _restgpr_15
+_restgpr_15:
 /* 8018E298 0018B298  81 EB FF BC */	lwz r15, -0x44(r11)
 /* 8018E29C 0018B29C  82 0B FF C0 */	lwz r16, -0x40(r11)
 
-.global func_8018E2A0
-func_8018E2A0:
+.global _restgpr_17
+_restgpr_17:
 /* 8018E2A0 0018B2A0  82 2B FF C4 */	lwz r17, -0x3c(r11)
 
-.global func_8018E2A4
-func_8018E2A4:
+.global _restgpr_18
+_restgpr_18:
 /* 8018E2A4 0018B2A4  82 4B FF C8 */	lwz r18, -0x38(r11)
 
-.global func_8018E2A8
-func_8018E2A8:
+.global _restgpr_19
+_restgpr_19:
 /* 8018E2A8 0018B2A8  82 6B FF CC */	lwz r19, -0x34(r11)
 
-.global func_8018E2AC
-func_8018E2AC:
+.global _restgpr_20
+_restgpr_20:
 /* 8018E2AC 0018B2AC  82 8B FF D0 */	lwz r20, -0x30(r11)
 
-.global func_8018E2B0
-func_8018E2B0:
+.global _restgpr_21
+_restgpr_21:
 /* 8018E2B0 0018B2B0  82 AB FF D4 */	lwz r21, -0x2c(r11)
 
-.global func_8018E2B4
-func_8018E2B4:
+.global _restgpr_22
+_restgpr_22:
 /* 8018E2B4 0018B2B4  82 CB FF D8 */	lwz r22, -0x28(r11)
 
-.global func_8018E2B8
-func_8018E2B8:
+.global _restgpr_23
+_restgpr_23:
 /* 8018E2B8 0018B2B8  82 EB FF DC */	lwz r23, -0x24(r11)
 
-.global func_8018E2BC
-func_8018E2BC:
+.global _restgpr_24
+_restgpr_24:
 /* 8018E2BC 0018B2BC  83 0B FF E0 */	lwz r24, -0x20(r11)
 
-.global func_8018E2C0
-func_8018E2C0:
+.global _restgpr_25
+_restgpr_25:
 /* 8018E2C0 0018B2C0  83 2B FF E4 */	lwz r25, -0x1c(r11)
 
-.global func_8018E2C4
-func_8018E2C4:
+.global _restgpr_26
+_restgpr_26:
 /* 8018E2C4 0018B2C4  83 4B FF E8 */	lwz r26, -0x18(r11)
 
-.global func_8018E2C8
-func_8018E2C8:
+.global _restgpr_27
+_restgpr_27:
 /* 8018E2C8 0018B2C8  83 6B FF EC */	lwz r27, -0x14(r11)
 /* 8018E2CC 0018B2CC  83 8B FF F0 */	lwz r28, -0x10(r11)
 /* 8018E2D0 0018B2D0  83 AB FF F4 */	lwz r29, -0xc(r11)
@@ -190,8 +196,8 @@ func_8018E2C8:
 /* 8018E2D8 0018B2D8  83 EB FF FC */	lwz r31, -4(r11)
 /* 8018E2DC 0018B2DC  4E 80 00 20 */	blr 
 
-.global func_8018E2E0
-func_8018E2E0:
+.global __div2u
+__div2u:
 /* 8018E2E0 0018B2E0  2C 03 00 00 */	cmpwi r3, 0
 /* 8018E2E4 0018B2E4  7C 60 00 34 */	cntlzw r0, r3
 /* 8018E2E8 0018B2E8  7C 89 00 34 */	cntlzw r9, r4
@@ -261,8 +267,8 @@ lbl_8018E3C0:
 /* 8018E3C4 0018B3C4  38 60 00 00 */	li r3, 0
 /* 8018E3C8 0018B3C8  4E 80 00 20 */	blr 
 
-.global func_8018E3CC
-func_8018E3CC:
+.global __div2i
+__div2i:
 /* 8018E3CC 0018B3CC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018E3D0 0018B3D0  54 69 00 01 */	rlwinm. r9, r3, 0, 0, 0
 /* 8018E3D4 0018B3D4  41 82 00 0C */	beq lbl_8018E3E0
@@ -354,8 +360,8 @@ lbl_8018E4FC:
 /* 8018E4FC 0018B4FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018E500 0018B500  4E 80 00 20 */	blr 
 
-.global func_8018E504
-func_8018E504:
+.global __mod2u
+__mod2u:
 /* 8018E504 0018B504  2C 03 00 00 */	cmpwi r3, 0
 /* 8018E508 0018B508  7C 60 00 34 */	cntlzw r0, r3
 /* 8018E50C 0018B50C  7C 89 00 34 */	cntlzw r9, r4
@@ -422,8 +428,8 @@ lbl_8018E5D4:
 /* 8018E5E0 0018B5E0  4E 80 00 20 */	blr 
 /* 8018E5E4 0018B5E4  4E 80 00 20 */	blr 
 
-.global func_8018E5E8
-func_8018E5E8:
+.global __mod2i
+__mod2i:
 /* 8018E5E8 0018B5E8  2F 83 00 00 */	cmpwi cr7, r3, 0
 /* 8018E5EC 0018B5EC  40 9C 00 0C */	bge cr7, lbl_8018E5F8
 /* 8018E5F0 0018B5F0  20 84 00 00 */	subfic r4, r4, 0
@@ -503,8 +509,8 @@ lbl_8018E6E4:
 /* 8018E6EC 0018B6EC  7C 63 01 90 */	subfze r3, r3
 /* 8018E6F0 0018B6F0  4E 80 00 20 */	blr 
 
-.global func_8018E6F4
-func_8018E6F4:
+.global __shl2i
+__shl2i:
 /* 8018E6F4 0018B6F4  21 05 00 20 */	subfic r8, r5, 0x20
 /* 8018E6F8 0018B6F8  31 25 FF E0 */	addic r9, r5, -32
 /* 8018E6FC 0018B6FC  7C 63 28 30 */	slw r3, r3, r5
@@ -515,8 +521,8 @@ func_8018E6F4:
 /* 8018E710 0018B710  7C 84 28 30 */	slw r4, r4, r5
 /* 8018E714 0018B714  4E 80 00 20 */	blr 
 
-.global func_8018E718
-func_8018E718:
+.global __shr2u
+__shr2u:
 /* 8018E718 0018B718  21 05 00 20 */	subfic r8, r5, 0x20
 /* 8018E71C 0018B71C  31 25 FF E0 */	addic r9, r5, -32
 /* 8018E720 0018B720  7C 84 2C 30 */	srw r4, r4, r5
@@ -527,8 +533,8 @@ func_8018E718:
 /* 8018E734 0018B734  7C 63 2C 30 */	srw r3, r3, r5
 /* 8018E738 0018B738  4E 80 00 20 */	blr 
 
-.global func_8018E73C
-func_8018E73C:
+.global __shr2i
+__shr2i:
 /* 8018E73C 0018B73C  21 05 00 20 */	subfic r8, r5, 0x20
 /* 8018E740 0018B740  35 25 FF E0 */	addic. r9, r5, -32
 /* 8018E744 0018B744  7C 84 2C 30 */	srw r4, r4, r5
@@ -541,8 +547,8 @@ lbl_8018E75C:
 /* 8018E75C 0018B75C  7C 63 2E 30 */	sraw r3, r3, r5
 /* 8018E760 0018B760  4E 80 00 20 */	blr 
 
-.global func_8018E764
-func_8018E764:
+.global __cvt_sll_flt
+__cvt_sll_flt:
 /* 8018E764 0018B764  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018E768 0018B768  54 65 00 01 */	rlwinm. r5, r3, 0, 0, 0
 /* 8018E76C 0018B76C  41 82 00 0C */	beq lbl_8018E778
@@ -593,8 +599,8 @@ lbl_8018E800:
 /* 8018E810 0018B810  38 21 00 10 */	addi r1, r1, 0x10
 /* 8018E814 0018B814  4E 80 00 20 */	blr 
 
-.global func_8018E818
-func_8018E818:
+.global __cvt_dbl_usll
+__cvt_dbl_usll:
 /* 8018E818 0018B818  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018E81C 0018B81C  D8 21 00 08 */	stfd f1, 8(r1)
 /* 8018E820 0018B820  80 61 00 08 */	lwz r3, 8(r1)
