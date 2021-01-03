@@ -2,8 +2,8 @@
 
 .section .text  # 0x8017C034 - 0x8017C2DC
 
-.global func_8017C034
-func_8017C034:
+.global BlockReadCallback
+BlockReadCallback:
 /* 8017C034 00179034  7C 08 02 A6 */	mflr r0
 /* 8017C038 00179038  90 01 00 04 */	stw r0, 4(r1)
 /* 8017C03C 0017903C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -30,10 +30,10 @@ func_8017C034:
 /* 8017C090 00179090  34 03 FF FF */	addic. r0, r3, -1
 /* 8017C094 00179094  90 1E 00 AC */	stw r0, 0xac(r30)
 /* 8017C098 00179098  40 81 00 1C */	ble lbl_8017C0B4
-/* 8017C09C 0017909C  3C 60 80 18 */	lis r3, func_8017C034@ha
-/* 8017C0A0 001790A0  38 83 C0 34 */	addi r4, r3, func_8017C034@l
+/* 8017C09C 0017909C  3C 60 80 18 */	lis r3, BlockReadCallback@ha
+/* 8017C0A0 001790A0  38 83 C0 34 */	addi r4, r3, BlockReadCallback@l
 /* 8017C0A4 001790A4  38 7F 00 00 */	addi r3, r31, 0
-/* 8017C0A8 001790A8  4B FF E4 29 */	bl func_8017A4D0
+/* 8017C0A8 001790A8  4B FF E4 29 */	bl __CARDReadSegment
 /* 8017C0AC 001790AC  7C 7D 1B 79 */	or. r29, r3, r3
 /* 8017C0B0 001790B0  40 80 00 44 */	bge lbl_8017C0F4
 lbl_8017C0B4:
@@ -42,7 +42,7 @@ lbl_8017C0B4:
 /* 8017C0BC 001790BC  40 82 00 10 */	bne lbl_8017C0CC
 /* 8017C0C0 001790C0  38 7E 00 00 */	addi r3, r30, 0
 /* 8017C0C4 001790C4  38 9D 00 00 */	addi r4, r29, 0
-/* 8017C0C8 001790C8  4B FF E9 2D */	bl func_8017A9F4
+/* 8017C0C8 001790C8  4B FF E9 2D */	bl __CARDPutControlBlock
 lbl_8017C0CC:
 /* 8017C0CC 001790CC  80 1E 00 D4 */	lwz r0, 0xd4(r30)
 /* 8017C0D0 001790D0  28 00 00 00 */	cmplwi r0, 0
@@ -63,8 +63,8 @@ lbl_8017C0F4:
 /* 8017C108 00179108  7C 08 03 A6 */	mtlr r0
 /* 8017C10C 0017910C  4E 80 00 20 */	blr 
 
-.global func_8017C110
-func_8017C110:
+.global __CARDRead
+__CARDRead:
 /* 8017C110 00179110  7C 08 02 A6 */	mflr r0
 /* 8017C114 00179114  1D 23 01 10 */	mulli r9, r3, 0x110
 /* 8017C118 00179118  90 01 00 04 */	stw r0, 4(r1)
@@ -80,19 +80,21 @@ func_8017C110:
 lbl_8017C140:
 /* 8017C140 00179140  90 E8 00 D4 */	stw r7, 0xd4(r8)
 /* 8017C144 00179144  54 A0 BA 7E */	srwi r0, r5, 9
-/* 8017C148 00179148  3C A0 80 18 */	lis r5, func_8017C034@ha
+/* 8017C148 00179148  3C A0 80 18 */	lis r5, BlockReadCallback@ha
 /* 8017C14C 0017914C  90 08 00 AC */	stw r0, 0xac(r8)
-/* 8017C150 00179150  38 05 C0 34 */	addi r0, r5, func_8017C034@l
+/* 8017C150 00179150  38 05 C0 34 */	addi r0, r5, BlockReadCallback@l
 /* 8017C154 00179154  90 88 00 B0 */	stw r4, 0xb0(r8)
 /* 8017C158 00179158  7C 04 03 78 */	mr r4, r0
 /* 8017C15C 0017915C  90 C8 00 B4 */	stw r6, 0xb4(r8)
-/* 8017C160 00179160  4B FF E3 71 */	bl func_8017A4D0
+/* 8017C160 00179160  4B FF E3 71 */	bl __CARDReadSegment
 lbl_8017C164:
 /* 8017C164 00179164  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8017C168 00179168  38 21 00 08 */	addi r1, r1, 8
 /* 8017C16C 0017916C  7C 08 03 A6 */	mtlr r0
 /* 8017C170 00179170  4E 80 00 20 */	blr 
-lbl_8017C174:
+
+.global BlockWriteCallback
+BlockWriteCallback:
 /* 8017C174 00179174  7C 08 02 A6 */	mflr r0
 /* 8017C178 00179178  90 01 00 04 */	stw r0, 4(r1)
 /* 8017C17C 0017917C  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -122,10 +124,10 @@ lbl_8017C174:
 /* 8017C1DC 001791DC  34 03 FF FF */	addic. r0, r3, -1
 /* 8017C1E0 001791E0  90 1F 00 AC */	stw r0, 0xac(r31)
 /* 8017C1E4 001791E4  40 81 00 1C */	ble lbl_8017C200
-/* 8017C1E8 001791E8  3C 60 80 18 */	lis r3, lbl_8017C174@ha
-/* 8017C1EC 001791EC  38 83 C1 74 */	addi r4, r3, lbl_8017C174@l
+/* 8017C1E8 001791E8  3C 60 80 18 */	lis r3, BlockWriteCallback@ha
+/* 8017C1EC 001791EC  38 83 C1 74 */	addi r4, r3, BlockWriteCallback@l
 /* 8017C1F0 001791F0  38 7D 00 00 */	addi r3, r29, 0
-/* 8017C1F4 001791F4  4B FF E4 11 */	bl func_8017A604
+/* 8017C1F4 001791F4  4B FF E4 11 */	bl __CARDWritePage
 /* 8017C1F8 001791F8  7C 7E 1B 79 */	or. r30, r3, r3
 /* 8017C1FC 001791FC  40 80 00 44 */	bge lbl_8017C240
 lbl_8017C200:
@@ -134,7 +136,7 @@ lbl_8017C200:
 /* 8017C208 00179208  40 82 00 10 */	bne lbl_8017C218
 /* 8017C20C 0017920C  38 7F 00 00 */	addi r3, r31, 0
 /* 8017C210 00179210  38 9E 00 00 */	addi r4, r30, 0
-/* 8017C214 00179214  4B FF E7 E1 */	bl func_8017A9F4
+/* 8017C214 00179214  4B FF E7 E1 */	bl __CARDPutControlBlock
 lbl_8017C218:
 /* 8017C218 00179218  80 1F 00 D4 */	lwz r0, 0xd4(r31)
 /* 8017C21C 0017921C  28 00 00 00 */	cmplwi r0, 0
@@ -155,8 +157,8 @@ lbl_8017C240:
 /* 8017C254 00179254  7C 08 03 A6 */	mtlr r0
 /* 8017C258 00179258  4E 80 00 20 */	blr 
 
-.global func_8017C25C
-func_8017C25C:
+.global __CARDWrite
+__CARDWrite:
 /* 8017C25C 0017925C  7C 08 02 A6 */	mflr r0
 /* 8017C260 00179260  1D 23 01 10 */	mulli r9, r3, 0x110
 /* 8017C264 00179264  90 01 00 04 */	stw r0, 4(r1)
@@ -171,23 +173,23 @@ func_8017C25C:
 /* 8017C288 00179288  48 00 00 2C */	b lbl_8017C2B4
 lbl_8017C28C:
 /* 8017C28C 0017928C  90 E8 00 D4 */	stw r7, 0xd4(r8)
-/* 8017C290 00179290  3C E0 80 18 */	lis r7, lbl_8017C174@ha
-/* 8017C294 00179294  38 07 C1 74 */	addi r0, r7, lbl_8017C174@l
+/* 8017C290 00179290  3C E0 80 18 */	lis r7, BlockWriteCallback@ha
+/* 8017C294 00179294  38 07 C1 74 */	addi r0, r7, BlockWriteCallback@l
 /* 8017C298 00179298  A0 E8 00 0A */	lhz r7, 0xa(r8)
 /* 8017C29C 0017929C  7C A5 3B D6 */	divw r5, r5, r7
 /* 8017C2A0 001792A0  90 A8 00 AC */	stw r5, 0xac(r8)
 /* 8017C2A4 001792A4  90 88 00 B0 */	stw r4, 0xb0(r8)
 /* 8017C2A8 001792A8  7C 04 03 78 */	mr r4, r0
 /* 8017C2AC 001792AC  90 C8 00 B4 */	stw r6, 0xb4(r8)
-/* 8017C2B0 001792B0  4B FF E3 55 */	bl func_8017A604
+/* 8017C2B0 001792B0  4B FF E3 55 */	bl __CARDWritePage
 lbl_8017C2B4:
 /* 8017C2B4 001792B4  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8017C2B8 001792B8  38 21 00 08 */	addi r1, r1, 8
 /* 8017C2BC 001792BC  7C 08 03 A6 */	mtlr r0
 /* 8017C2C0 001792C0  4E 80 00 20 */	blr 
 
-.global func_8017C2C4
-func_8017C2C4:
+.global CARDGetXferredBytes
+CARDGetXferredBytes:
 /* 8017C2C4 001792C4  1C 03 01 10 */	mulli r0, r3, 0x110
 /* 8017C2C8 001792C8  3C 60 80 24 */	lis r3, lbl_80245540@ha
 /* 8017C2CC 001792CC  38 63 55 40 */	addi r3, r3, lbl_80245540@l
