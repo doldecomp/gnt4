@@ -2,8 +2,8 @@
 
 .section .text  # 0x801853B0 - 0x80185AD0
 
-.global func_801853B0
-func_801853B0:
+.global GXSetTevOp
+GXSetTevOp:
 /* 801853B0 001823B0  2C 03 00 00 */	cmpwi r3, 0
 /* 801853B4 001823B4  3C A0 80 21 */	lis r5, lbl_80217938@ha
 /* 801853B8 001823B8  38 05 79 38 */	addi r0, r5, lbl_80217938@l
@@ -42,8 +42,8 @@ lbl_801853E4:
 /* 80185434 00182434  B0 07 00 02 */	sth r0, 2(r7)
 /* 80185438 00182438  4E 80 00 20 */	blr 
 
-.global func_8018543C
-func_8018543C:
+.global GXSetTevColorIn
+GXSetTevColorIn:
 /* 8018543C 0018243C  81 22 BA 70 */	lwz r9, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185440 00182440  54 63 10 3A */	slwi r3, r3, 2
 /* 80185444 00182444  38 00 00 61 */	li r0, 0x61
@@ -62,8 +62,8 @@ func_8018543C:
 /* 80185478 00182478  B0 09 00 02 */	sth r0, 2(r9)
 /* 8018547C 0018247C  4E 80 00 20 */	blr 
 
-.global func_80185480
-func_80185480:
+.global GXSetTevAlphaIn
+GXSetTevAlphaIn:
 /* 80185480 00182480  81 22 BA 70 */	lwz r9, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185484 00182484  54 63 10 3A */	slwi r3, r3, 2
 /* 80185488 00182488  38 00 00 61 */	li r0, 0x61
@@ -82,8 +82,8 @@ func_80185480:
 /* 801854BC 001824BC  B0 09 00 02 */	sth r0, 2(r9)
 /* 801854C0 001824C0  4E 80 00 20 */	blr 
 
-.global func_801854C4
-func_801854C4:
+.global GXSetTevColorOp
+GXSetTevColorOp:
 /* 801854C4 001824C4  80 02 BA 70 */	lwz r0, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801854C8 001824C8  54 69 10 3A */	slwi r9, r3, 2
 /* 801854CC 001824CC  2C 04 00 01 */	cmpwi r4, 1
@@ -113,8 +113,8 @@ lbl_801854FC:
 /* 80185524 00182524  B0 04 00 02 */	sth r0, 2(r4)
 /* 80185528 00182528  4E 80 00 20 */	blr 
 
-.global func_8018552C
-func_8018552C:
+.global GXSetTevAlphaOp
+GXSetTevAlphaOp:
 /* 8018552C 0018252C  80 02 BA 70 */	lwz r0, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185530 00182530  54 69 10 3A */	slwi r9, r3, 2
 /* 80185534 00182534  2C 04 00 01 */	cmpwi r4, 1
@@ -144,8 +144,8 @@ lbl_80185564:
 /* 8018558C 0018258C  B0 04 00 02 */	sth r0, 2(r4)
 /* 80185590 00182590  4E 80 00 20 */	blr 
 
-.global func_80185594
-func_80185594:
+.global GXSetTevColor
+GXSetTevColor:
 /* 80185594 00182594  54 66 08 3C */	slwi r6, r3, 1
 /* 80185598 00182598  81 04 00 00 */	lwz r8, 0(r4)
 /* 8018559C 0018259C  38 86 00 E0 */	addi r4, r6, 0xe0
@@ -171,8 +171,8 @@ func_80185594:
 /* 801855EC 001825EC  B0 03 00 02 */	sth r0, 2(r3)
 /* 801855F0 001825F0  4E 80 00 20 */	blr 
 
-.global func_801855F4
-func_801855F4:
+.global GXSetTevColorS10
+GXSetTevColorS10:
 /* 801855F4 001825F4  81 04 00 00 */	lwz r8, 0(r4)
 /* 801855F8 001825F8  54 66 08 3C */	slwi r6, r3, 1
 /* 801855FC 001825FC  81 24 00 04 */	lwz r9, 4(r4)
@@ -199,8 +199,8 @@ func_801855F4:
 /* 80185650 00182650  B0 03 00 02 */	sth r0, 2(r3)
 /* 80185654 00182654  4E 80 00 20 */	blr 
 
-.global func_80185658
-func_80185658:
+.global GXSetTevKColor
+GXSetTevKColor:
 /* 80185658 00182658  54 65 08 3C */	slwi r5, r3, 1
 /* 8018565C 0018265C  81 24 00 00 */	lwz r9, 0(r4)
 /* 80185660 00182660  38 85 00 E0 */	addi r4, r5, 0xe0
@@ -227,8 +227,8 @@ func_80185658:
 /* 801856B4 001826B4  B0 03 00 02 */	sth r0, 2(r3)
 /* 801856B8 001826B8  4E 80 00 20 */	blr 
 
-.global func_801856BC
-func_801856BC:
+.global GXSetTevKColorSel
+GXSetTevKColorSel:
 /* 801856BC 001826BC  7C 65 0E 70 */	srawi r5, r3, 1
 /* 801856C0 001826C0  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801856C4 001826C4  54 60 07 FF */	clrlwi. r0, r3, 0x1f
@@ -255,8 +255,8 @@ lbl_801856F4:
 /* 80185710 00182710  B0 03 00 02 */	sth r0, 2(r3)
 /* 80185714 00182714  4E 80 00 20 */	blr 
 
-.global func_80185718
-func_80185718:
+.global GXSetTevKAlphaSel
+GXSetTevKAlphaSel:
 /* 80185718 00182718  7C 65 0E 70 */	srawi r5, r3, 1
 /* 8018571C 0018271C  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185720 00182720  54 60 07 FF */	clrlwi. r0, r3, 0x1f
@@ -283,8 +283,8 @@ lbl_80185750:
 /* 8018576C 0018276C  B0 03 00 02 */	sth r0, 2(r3)
 /* 80185770 00182770  4E 80 00 20 */	blr 
 
-.global func_80185774
-func_80185774:
+.global GXSetTevSwapMode
+GXSetTevSwapMode:
 /* 80185774 00182774  54 63 10 3A */	slwi r3, r3, 2
 /* 80185778 00182778  80 E2 BA 70 */	lwz r7, lbl_8027B710-_SDA2_BASE_(r2)
 /* 8018577C 0018277C  39 03 01 70 */	addi r8, r3, 0x170
@@ -304,8 +304,8 @@ func_80185774:
 /* 801857B4 001827B4  B0 07 00 02 */	sth r0, 2(r7)
 /* 801857B8 001827B8  4E 80 00 20 */	blr 
 
-.global func_801857BC
-func_801857BC:
+.global GXSetTevSwapModeTable
+GXSetTevSwapModeTable:
 /* 801857BC 001827BC  54 69 08 3C */	slwi r9, r3, 1
 /* 801857C0 001827C0  81 02 BA 70 */	lwz r8, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801857C4 001827C4  54 63 18 38 */	slwi r3, r3, 3
@@ -339,8 +339,8 @@ func_801857BC:
 /* 80185834 00182834  B0 08 00 02 */	sth r0, 2(r8)
 /* 80185838 00182838  4E 80 00 20 */	blr 
 
-.global func_8018583C
-func_8018583C:
+.global GXSetAlphaCompare
+GXSetAlphaCompare:
 /* 8018583C 0018283C  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 80185840 00182840  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185844 00182844  3D 00 F3 00 */	lis r8, 0xf300
@@ -359,8 +359,8 @@ func_8018583C:
 /* 80185878 00182878  B0 04 00 02 */	sth r0, 2(r4)
 /* 8018587C 0018287C  4E 80 00 20 */	blr 
 
-.global func_80185880
-func_80185880:
+.global GXSetZTexture
+GXSetZTexture:
 /* 80185880 00182880  2C 04 00 13 */	cmpwi r4, 0x13
 /* 80185884 00182884  38 00 00 F4 */	li r0, 0xf4
 /* 80185888 00182888  38 C0 00 00 */	li r6, 0
@@ -403,8 +403,8 @@ lbl_801858D4:
 /* 80185904 00182904  B0 04 00 02 */	sth r0, 2(r4)
 /* 80185908 00182908  4E 80 00 20 */	blr 
 
-.global func_8018590C
-func_8018590C:
+.global GXSetTevOrder
+GXSetTevOrder:
 /* 8018590C 0018290C  7C 67 0E 70 */	srawi r7, r3, 1
 /* 80185910 00182910  81 22 BA 70 */	lwz r9, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185914 00182914  54 AA 06 2C */	rlwinm r10, r5, 0, 0x18, 0x16
@@ -521,8 +521,8 @@ lbl_80185A78:
 /* 80185AA0 00182AA0  90 03 05 AC */	stw r0, 0x5ac(r3)
 /* 80185AA4 00182AA4  4E 80 00 20 */	blr 
 
-.global func_80185AA8
-func_80185AA8:
+.global GXSetNumTevStages
+GXSetNumTevStages:
 /* 80185AA8 00182AA8  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185AAC 00182AAC  54 63 06 3E */	clrlwi r3, r3, 0x18
 /* 80185AB0 00182AB0  38 03 FF FF */	addi r0, r3, -1

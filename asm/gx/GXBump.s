@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018513C - 0x801853B0
 
-.global func_8018513C
-func_8018513C:
+.global GXSetTevIndirect
+GXSetTevIndirect:
 /* 8018513C 0018213C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80185140 00182140  38 00 00 00 */	li r0, 0
 /* 80185144 00182144  50 80 07 BE */	rlwimi r0, r4, 0, 0x1e, 0x1f
@@ -32,8 +32,8 @@ func_8018513C:
 /* 801851A0 001821A0  38 21 00 30 */	addi r1, r1, 0x30
 /* 801851A4 001821A4  4E 80 00 20 */	blr 
 
-.global func_801851A8
-func_801851A8:
+.global GXSetIndTexCoordScale
+GXSetIndTexCoordScale:
 /* 801851A8 001821A8  2C 03 00 02 */	cmpwi r3, 2
 /* 801851AC 001821AC  41 82 00 AC */	beq lbl_80185258
 /* 801851B0 001821B0  40 80 00 14 */	bge lbl_801851C4
@@ -122,8 +122,8 @@ lbl_801852DC:
 /* 801852E4 001822E4  B0 03 00 02 */	sth r0, 2(r3)
 /* 801852E8 001822E8  4E 80 00 20 */	blr 
 
-.global func_801852EC
-func_801852EC:
+.global GXSetNumIndStages
+GXSetNumIndStages:
 /* 801852EC 001822EC  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801852F0 001822F0  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 801852F4 001822F4  80 64 02 04 */	lwz r3, 0x204(r4)
@@ -134,8 +134,8 @@ func_801852EC:
 /* 80185308 00182308  90 04 05 AC */	stw r0, 0x5ac(r4)
 /* 8018530C 0018230C  4E 80 00 20 */	blr 
 
-.global func_80185310
-func_80185310:
+.global GXSetTevDirect
+GXSetTevDirect:
 /* 80185310 00182310  7C 08 02 A6 */	mflr r0
 /* 80185314 00182314  38 80 00 00 */	li r4, 0
 /* 80185318 00182318  90 01 00 04 */	stw r0, 4(r1)
@@ -149,18 +149,18 @@ func_80185310:
 /* 80185338 00182338  39 20 00 00 */	li r9, 0
 /* 8018533C 0018233C  90 01 00 0C */	stw r0, 0xc(r1)
 /* 80185340 00182340  39 40 00 00 */	li r10, 0
-/* 80185344 00182344  4B FF FD F9 */	bl func_8018513C
+/* 80185344 00182344  4B FF FD F9 */	bl GXSetTevIndirect
 /* 80185348 00182348  80 01 00 1C */	lwz r0, 0x1c(r1)
 /* 8018534C 0018234C  38 21 00 18 */	addi r1, r1, 0x18
 /* 80185350 00182350  7C 08 03 A6 */	mtlr r0
 /* 80185354 00182354  4E 80 00 20 */	blr 
 
-.global func_80185358
-func_80185358:
+.global __GXUpdateBPMask
+__GXUpdateBPMask:
 /* 80185358 00182358  4E 80 00 20 */	blr 
 
-.global func_8018535C
-func_8018535C:
+.global __GXSetIndirectMask
+__GXSetIndirectMask:
 /* 8018535C 0018235C  80 E2 BA 70 */	lwz r7, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185360 00182360  38 A0 00 61 */	li r5, 0x61
 /* 80185364 00182364  3C 80 CC 01 */	lis r4, 0xCC008000@ha
@@ -174,8 +174,8 @@ func_8018535C:
 /* 80185384 00182384  B0 07 00 02 */	sth r0, 2(r7)
 /* 80185388 00182388  4E 80 00 20 */	blr 
 
-.global func_8018538C
-func_8018538C:
+.global __GXFlushTextureState
+__GXFlushTextureState:
 /* 8018538C 0018238C  38 00 00 61 */	li r0, 0x61
 /* 80185390 00182390  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185394 00182394  3C A0 CC 01 */	lis r5, 0xCC008000@ha

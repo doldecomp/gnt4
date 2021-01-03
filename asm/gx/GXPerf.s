@@ -2,8 +2,8 @@
 
 .section .text  # 0x80186A9C - 0x801872F4
 
-.global func_80186A9C
-func_80186A9C:
+.global GXSetGPMetric
+GXSetGPMetric:
 /* 80186A9C 00183A9C  80 A2 BA 70 */	lwz r5, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80186AA0 00183AA0  80 05 05 9C */	lwz r0, 0x59c(r5)
 /* 80186AA4 00183AA4  2C 00 00 22 */	cmpwi r0, 0x22
@@ -547,8 +547,8 @@ lbl_801872D4:
 /* 801872DC 001842DC  B0 03 00 02 */	sth r0, 2(r3)
 /* 801872E0 001842E0  4E 80 00 20 */	blr 
 
-.global func_801872E4
-func_801872E4:
+.global GXClearGPMetric
+GXClearGPMetric:
 /* 801872E4 001842E4  80 6D 8E 14 */	lwz r3, lbl_80277734-_SDA_BASE_(r13)
 /* 801872E8 001842E8  38 00 00 04 */	li r0, 4
 /* 801872EC 001842EC  B0 03 00 04 */	sth r0, 4(r3)

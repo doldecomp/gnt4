@@ -2,8 +2,8 @@
 
 .section .text  # 0x80181B54 - 0x8018284C
 
-.global func_80181B54
-func_80181B54:
+.global GXSetVtxDesc
+GXSetVtxDesc:
 /* 80181B54 0017EB54  28 03 00 19 */	cmplwi r3, 0x19
 /* 80181B58 0017EB58  41 81 02 10 */	bgt lbl_80181D68
 /* 80181B5C 0017EB5C  3C A0 80 21 */	lis r5, lbl_802172C0@ha
@@ -166,8 +166,8 @@ lbl_80181DAC:
 /* 80181DB8 0017EDB8  90 03 05 AC */	stw r0, 0x5ac(r3)
 /* 80181DBC 0017EDBC  4E 80 00 20 */	blr 
 
-.global func_80181DC0
-func_80181DC0:
+.global __GXSetVCD
+__GXSetVCD:
 /* 80181DC0 0017EDC0  38 C0 00 08 */	li r6, 8
 /* 80181DC4 0017EDC4  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80181DC8 0017EDC8  3C A0 CC 01 */	lis r5, 0xCC008000@ha
@@ -219,8 +219,8 @@ lbl_80181E20:
 /* 80181E74 0017EE74  B0 05 00 02 */	sth r0, 2(r5)
 /* 80181E78 0017EE78  4E 80 00 20 */	blr 
 
-.global func_80181E7C
-func_80181E7C:
+.global __GXCalculateVLim
+__GXCalculateVLim:
 /* 80181E7C 0017EE7C  80 62 BA 70 */	lwz r3, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80181E80 0017EE80  A0 03 00 04 */	lhz r0, 4(r3)
 /* 80181E84 0017EE84  28 00 00 00 */	cmplwi r0, 0
@@ -297,8 +297,8 @@ lbl_80181F04:
 /* 80181F98 0017EF98  B0 03 00 06 */	sth r0, 6(r3)
 /* 80181F9C 0017EF9C  4E 80 00 20 */	blr 
 
-.global func_80181FA0
-func_80181FA0:
+.global GXClearVtxDesc
+GXClearVtxDesc:
 /* 80181FA0 0017EFA0  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80181FA4 0017EFA4  38 A0 00 00 */	li r5, 0
 /* 80181FA8 0017EFA8  38 00 00 01 */	li r0, 1
@@ -314,8 +314,8 @@ func_80181FA0:
 /* 80181FD0 0017EFD0  90 04 05 AC */	stw r0, 0x5ac(r4)
 /* 80181FD4 0017EFD4  4E 80 00 20 */	blr 
 
-.global func_80181FD8
-func_80181FD8:
+.global GXSetVtxAttrFmt
+GXSetVtxAttrFmt:
 /* 80181FD8 0017EFD8  38 04 FF F7 */	addi r0, r4, -9
 /* 80181FDC 0017EFDC  81 02 BA 70 */	lwz r8, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80181FE0 0017EFE0  54 64 10 3A */	slwi r4, r3, 2
@@ -470,8 +470,8 @@ lbl_80182204:
 /* 8018222C 0017F22C  98 05 05 AB */	stb r0, 0x5ab(r5)
 /* 80182230 0017F230  4E 80 00 20 */	blr 
 
-.global func_80182234
-func_80182234:
+.global GXSetVtxAttrFmtv
+GXSetVtxAttrFmtv:
 /* 80182234 0017F234  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80182238 0017F238  54 60 10 3A */	slwi r0, r3, 2
 /* 8018223C 0017F23C  3C A0 80 21 */	lis r5, lbl_8021736C@ha
@@ -637,8 +637,8 @@ lbl_80182478:
 /* 801824AC 0017F4AC  98 05 05 AB */	stb r0, 0x5ab(r5)
 /* 801824B0 0017F4B0  4E 80 00 20 */	blr 
 
-.global func_801824B4
-func_801824B4:
+.global __GXSetVAT
+__GXSetVAT:
 /* 801824B4 0017F4B4  81 22 BA 70 */	lwz r9, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801824B8 0017F4B8  39 60 00 00 */	li r11, 0
 /* 801824BC 0017F4BC  39 40 00 00 */	li r10, 0
@@ -676,8 +676,8 @@ lbl_8018251C:
 /* 80182534 0017F534  98 03 05 AB */	stb r0, 0x5ab(r3)
 /* 80182538 0017F538  4E 80 00 20 */	blr 
 
-.global func_8018253C
-func_8018253C:
+.global GXSetArray
+GXSetArray:
 /* 8018253C 0017F53C  2C 03 00 19 */	cmpwi r3, 0x19
 /* 80182540 0017F540  40 82 00 08 */	bne lbl_80182548
 /* 80182544 0017F544  38 60 00 0A */	li r3, 0xa
@@ -697,15 +697,15 @@ lbl_80182548:
 /* 80182578 0017F578  90 06 80 00 */	stw r0, -0x8000(r6)
 /* 8018257C 0017F57C  4E 80 00 20 */	blr 
 
-.global func_80182580
-func_80182580:
+.global GXInvalidateVtxCache
+GXInvalidateVtxCache:
 /* 80182580 0017F580  38 00 00 48 */	li r0, 0x48
 /* 80182584 0017F584  3C 60 CC 01 */	lis r3, 0xCC008000@ha
 /* 80182588 0017F588  98 03 80 00 */	stb r0, 0xCC008000@l(r3)
 /* 8018258C 0017F58C  4E 80 00 20 */	blr 
 
-.global func_80182590
-func_80182590:
+.global GXSetTexCoordGen2
+GXSetTexCoordGen2:
 /* 80182590 0017F590  7C 08 02 A6 */	mflr r0
 /* 80182594 0017F594  28 05 00 14 */	cmplwi r5, 0x14
 /* 80182598 0017F598  90 01 00 04 */	stw r0, 4(r1)
@@ -872,14 +872,14 @@ lbl_801827E8:
 /* 801827F4 0017F7F4  90 04 00 84 */	stw r0, 0x84(r4)
 lbl_801827F8:
 /* 801827F8 0017F7F8  38 63 00 01 */	addi r3, r3, 1
-/* 801827FC 0017F7FC  48 00 42 1D */	bl func_80186A18
+/* 801827FC 0017F7FC  48 00 42 1D */	bl __GXSetMatrixIndex
 /* 80182800 0017F800  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80182804 0017F804  38 21 00 08 */	addi r1, r1, 8
 /* 80182808 0017F808  7C 08 03 A6 */	mtlr r0
 /* 8018280C 0017F80C  4E 80 00 20 */	blr 
 
-.global func_80182810
-func_80182810:
+.global GXSetNumTexGens
+GXSetNumTexGens:
 /* 80182810 0017F810  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80182814 0017F814  54 65 06 3E */	clrlwi r5, r3, 0x18
 /* 80182818 0017F818  38 80 00 10 */	li r4, 0x10

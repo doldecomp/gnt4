@@ -2,8 +2,8 @@
 
 .section .text  # 0x80185AD0 - 0x801862B8
 
-.global func_80185AD0
-func_80185AD0:
+.global GXSetFog
+GXSetFog:
 /* 80185AD0 00182AD0  7C 08 02 A6 */	mflr r0
 /* 80185AD4 00182AD4  90 01 00 04 */	stw r0, 4(r1)
 /* 80185AD8 00182AD8  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -150,8 +150,8 @@ lbl_80185C3C:
 /* 80185CDC 00182CDC  7C 08 03 A6 */	mtlr r0
 /* 80185CE0 00182CE0  4E 80 00 20 */	blr 
 
-.global func_80185CE4
-func_80185CE4:
+.global GXInitFogAdjTable
+GXInitFogAdjTable:
 /* 80185CE4 00182CE4  7C 08 02 A6 */	mflr r0
 /* 80185CE8 00182CE8  90 01 00 04 */	stw r0, 4(r1)
 /* 80185CEC 00182CEC  94 21 FF 80 */	stwu r1, -0x80(r1)
@@ -265,8 +265,8 @@ lbl_80185E34:
 /* 80185E8C 00182E8C  7C 08 03 A6 */	mtlr r0
 /* 80185E90 00182E90  4E 80 00 20 */	blr 
 
-.global func_80185E94
-func_80185E94:
+.global GXSetFogRangeAdj
+GXSetFogRangeAdj:
 /* 80185E94 00182E94  54 60 06 3F */	clrlwi. r0, r3, 0x18
 /* 80185E98 00182E98  41 82 00 E4 */	beq lbl_80185F7C
 /* 80185E9C 00182E9C  38 C0 00 00 */	li r6, 0
@@ -342,8 +342,8 @@ lbl_80185F7C:
 /* 80185FB0 00182FB0  B0 04 00 02 */	sth r0, 2(r4)
 /* 80185FB4 00182FB4  4E 80 00 20 */	blr 
 
-.global func_80185FB8
-func_80185FB8:
+.global GXSetBlendMode
+GXSetBlendMode:
 /* 80185FB8 00182FB8  81 02 BA 70 */	lwz r8, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80185FBC 00182FBC  20 03 00 03 */	subfic r0, r3, 3
 /* 80185FC0 00182FC0  7C 07 00 34 */	cntlzw r7, r0
@@ -366,8 +366,8 @@ func_80185FB8:
 /* 80186004 00183004  B0 08 00 02 */	sth r0, 2(r8)
 /* 80186008 00183008  4E 80 00 20 */	blr 
 
-.global func_8018600C
-func_8018600C:
+.global GXSetColorUpdate
+GXSetColorUpdate:
 /* 8018600C 0018300C  80 A2 BA 70 */	lwz r5, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80186010 00183010  38 00 00 61 */	li r0, 0x61
 /* 80186014 00183014  3C 80 CC 01 */	lis r4, 0xCC008000@ha
@@ -380,8 +380,8 @@ func_8018600C:
 /* 80186030 00183030  B0 05 00 02 */	sth r0, 2(r5)
 /* 80186034 00183034  4E 80 00 20 */	blr 
 
-.global func_80186038
-func_80186038:
+.global GXSetAlphaUpdate
+GXSetAlphaUpdate:
 /* 80186038 00183038  80 A2 BA 70 */	lwz r5, lbl_8027B710-_SDA2_BASE_(r2)
 /* 8018603C 0018303C  38 00 00 61 */	li r0, 0x61
 /* 80186040 00183040  3C 80 CC 01 */	lis r4, 0xCC008000@ha
@@ -394,8 +394,8 @@ func_80186038:
 /* 8018605C 0018305C  B0 05 00 02 */	sth r0, 2(r5)
 /* 80186060 00183060  4E 80 00 20 */	blr 
 
-.global func_80186064
-func_80186064:
+.global GXSetZMode
+GXSetZMode:
 /* 80186064 00183064  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80186068 00183068  38 00 00 61 */	li r0, 0x61
 /* 8018606C 0018306C  80 E6 01 D8 */	lwz r7, 0x1d8(r6)
@@ -410,8 +410,8 @@ func_80186064:
 /* 80186090 00183090  B0 06 00 02 */	sth r0, 2(r6)
 /* 80186094 00183094  4E 80 00 20 */	blr 
 
-.global func_80186098
-func_80186098:
+.global GXSetZCompLoc
+GXSetZCompLoc:
 /* 80186098 00183098  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 8018609C 0018309C  54 60 06 3E */	clrlwi r0, r3, 0x18
 /* 801860A0 001830A0  38 60 00 61 */	li r3, 0x61
@@ -426,8 +426,8 @@ func_80186098:
 /* 801860C4 001830C4  B0 06 00 02 */	sth r0, 2(r6)
 /* 801860C8 001830C8  4E 80 00 20 */	blr 
 
-.global func_801860CC
-func_801860CC:
+.global GXSetPixelFmt
+GXSetPixelFmt:
 /* 801860CC 001830CC  3C A0 80 21 */	lis r5, lbl_802179B0@ha
 /* 801860D0 001830D0  80 E2 BA 70 */	lwz r7, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801860D4 001830D4  54 66 10 3A */	slwi r6, r3, 2
@@ -486,8 +486,8 @@ lbl_80186190:
 /* 80186198 00183198  B0 03 00 02 */	sth r0, 2(r3)
 /* 8018619C 0018319C  4E 80 00 20 */	blr 
 
-.global func_801861A0
-func_801861A0:
+.global GXSetDither
+GXSetDither:
 /* 801861A0 001831A0  80 A2 BA 70 */	lwz r5, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801861A4 001831A4  38 00 00 61 */	li r0, 0x61
 /* 801861A8 001831A8  3C 80 CC 01 */	lis r4, 0xCC008000@ha
@@ -500,8 +500,8 @@ func_801861A0:
 /* 801861C4 001831C4  B0 05 00 02 */	sth r0, 2(r5)
 /* 801861C8 001831C8  4E 80 00 20 */	blr 
 
-.global func_801861CC
-func_801861CC:
+.global GXSetDstAlpha
+GXSetDstAlpha:
 /* 801861CC 001831CC  80 C2 BA 70 */	lwz r6, lbl_8027B710-_SDA2_BASE_(r2)
 /* 801861D0 001831D0  54 85 06 3E */	clrlwi r5, r4, 0x18
 /* 801861D4 001831D4  38 00 00 61 */	li r0, 0x61
@@ -518,8 +518,8 @@ func_801861CC:
 /* 80186200 00183200  B0 06 00 02 */	sth r0, 2(r6)
 /* 80186204 00183204  4E 80 00 20 */	blr 
 
-.global func_80186208
-func_80186208:
+.global GXSetFieldMask
+GXSetFieldMask:
 /* 80186208 00183208  54 80 06 3E */	clrlwi r0, r4, 0x18
 /* 8018620C 0018320C  80 82 BA 70 */	lwz r4, lbl_8027B710-_SDA2_BASE_(r2)
 /* 80186210 00183210  38 A0 00 00 */	li r5, 0
@@ -535,8 +535,8 @@ func_80186208:
 /* 80186238 00183238  B0 04 00 02 */	sth r0, 2(r4)
 /* 8018623C 0018323C  4E 80 00 20 */	blr 
 
-.global func_80186240
-func_80186240:
+.global GXSetFieldMode
+GXSetFieldMode:
 /* 80186240 00183240  7C 08 02 A6 */	mflr r0
 /* 80186244 00183244  90 01 00 04 */	stw r0, 4(r1)
 /* 80186248 00183248  54 80 06 3E */	clrlwi r0, r4, 0x18
@@ -554,12 +554,12 @@ func_80186240:
 /* 80186278 00183278  9B DF 80 00 */	stb r30, 0xCC008000@l(r31)
 /* 8018627C 0018327C  80 05 00 7C */	lwz r0, 0x7c(r5)
 /* 80186280 00183280  90 1F 80 00 */	stw r0, -0x8000(r31)
-/* 80186284 00183284  4B FF F1 09 */	bl func_8018538C
+/* 80186284 00183284  4B FF F1 09 */	bl __GXFlushTextureState
 /* 80186288 00183288  57 A0 06 3E */	clrlwi r0, r29, 0x18
 /* 8018628C 0018328C  9B DF 80 00 */	stb r30, -0x8000(r31)
 /* 80186290 00183290  64 00 68 00 */	oris r0, r0, 0x6800
 /* 80186294 00183294  90 1F 80 00 */	stw r0, -0x8000(r31)
-/* 80186298 00183298  4B FF F0 F5 */	bl func_8018538C
+/* 80186298 00183298  4B FF F0 F5 */	bl __GXFlushTextureState
 /* 8018629C 0018329C  80 01 00 24 */	lwz r0, 0x24(r1)
 /* 801862A0 001832A0  83 E1 00 1C */	lwz r31, 0x1c(r1)
 /* 801862A4 001832A4  83 C1 00 18 */	lwz r30, 0x18(r1)
