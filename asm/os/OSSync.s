@@ -2,8 +2,8 @@
 
 .section .text  # 0x8016BC98 - 0x8016BD1C
 
-.global func_8016BC98
-func_8016BC98:
+.global SystemCallVector
+SystemCallVector:
 /* 8016BC98 00168C98  7D 30 FA A6 */	mfspr r9, 0x3f0
 /* 8016BC9C 00168C9C  61 2A 00 08 */	ori r10, r9, 8
 /* 8016BCA0 00168CA0  7D 50 FB A6 */	mtspr 0x3f0, r10
@@ -14,28 +14,28 @@ func_8016BC98:
 lbl_8016BCB4:
 /* 8016BCB4 00168CB4  60 00 00 00 */	nop 
 
-.global func_8016BCB8
-func_8016BCB8:
+.global __OSInitSystemCall
+__OSInitSystemCall:
 /* 8016BCB8 00168CB8  7C 08 02 A6 */	mflr r0
 /* 8016BCBC 00168CBC  90 01 00 04 */	stw r0, 4(r1)
 /* 8016BCC0 00168CC0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8016BCC4 00168CC4  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8016BCC8 00168CC8  3C A0 80 00 */	lis r5, 0x80000C00@ha
-/* 8016BCCC 00168CCC  3C 80 80 17 */	lis r4, func_8016BC98@ha
+/* 8016BCCC 00168CCC  3C 80 80 17 */	lis r4, SystemCallVector@ha
 /* 8016BCD0 00168CD0  3C 60 80 17 */	lis r3, lbl_8016BCB4@ha
 /* 8016BCD4 00168CD4  3B E5 0C 00 */	addi r31, r5, 0x80000C00@l
 /* 8016BCD8 00168CD8  38 03 BC B4 */	addi r0, r3, lbl_8016BCB4@l
-/* 8016BCDC 00168CDC  38 84 BC 98 */	addi r4, r4, func_8016BC98@l
+/* 8016BCDC 00168CDC  38 84 BC 98 */	addi r4, r4, SystemCallVector@l
 /* 8016BCE0 00168CE0  7F E3 FB 78 */	mr r3, r31
 /* 8016BCE4 00168CE4  7C A4 00 50 */	subf r5, r4, r0
 /* 8016BCE8 00168CE8  4B E9 98 E5 */	bl memcpy
 /* 8016BCEC 00168CEC  7F E3 FB 78 */	mr r3, r31
 /* 8016BCF0 00168CF0  38 80 01 00 */	li r4, 0x100
-/* 8016BCF4 00168CF4  4B FF AE 45 */	bl func_80166B38
+/* 8016BCF4 00168CF4  4B FF AE 45 */	bl DCFlushRangeNoSync
 /* 8016BCF8 00168CF8  7C 00 04 AC */	sync 0
 /* 8016BCFC 00168CFC  7F E3 FB 78 */	mr r3, r31
 /* 8016BD00 00168D00  38 80 01 00 */	li r4, 0x100
-/* 8016BD04 00168D04  4B FF AE 8D */	bl func_80166B90
+/* 8016BD04 00168D04  4B FF AE 8D */	bl ICInvalidateRange
 /* 8016BD08 00168D08  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 8016BD0C 00168D0C  83 E1 00 0C */	lwz r31, 0xc(r1)
 /* 8016BD10 00168D10  38 21 00 10 */	addi r1, r1, 0x10

@@ -2,8 +2,8 @@
 
 .section .text  # 0x8016A3C4 - 0x8016A3DC
 
-.global func_8016A3C4
-func_8016A3C4:
+.global __OSModuleInit
+__OSModuleInit:
 /* 8016A3C4 001673C4  3C 80 80 00 */	lis r4, 0x800030CC@ha
 /* 8016A3C8 001673C8  38 00 00 00 */	li r0, 0
 /* 8016A3CC 001673CC  90 04 30 CC */	stw r0, 0x800030CC@l(r4)

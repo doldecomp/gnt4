@@ -2,19 +2,19 @@
 
 .section .text  # 0x8016D488 - 0x8016D51C
 
-.global func_8016D488
-func_8016D488:
+.global __init_user
+__init_user:
 /* 8016D488 0016A488  7C 08 02 A6 */	mflr r0
 /* 8016D48C 0016A48C  90 01 00 04 */	stw r0, 4(r1)
 /* 8016D490 0016A490  94 21 FF F8 */	stwu r1, -8(r1)
-/* 8016D494 0016A494  48 00 00 15 */	bl func_8016D4A8
+/* 8016D494 0016A494  48 00 00 15 */	bl __init_cpp
 /* 8016D498 0016A498  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 8016D49C 0016A49C  38 21 00 08 */	addi r1, r1, 8
 /* 8016D4A0 0016A4A0  7C 08 03 A6 */	mtlr r0
 /* 8016D4A4 0016A4A4  4E 80 00 20 */	blr 
 
-.global func_8016D4A8
-func_8016D4A8:
+.global __init_cpp
+__init_cpp:
 /* 8016D4A8 0016A4A8  7C 08 02 A6 */	mflr r0
 /* 8016D4AC 0016A4AC  90 01 00 04 */	stw r0, 4(r1)
 /* 8016D4B0 0016A4B0  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -41,8 +41,8 @@ lbl_8016D4DC:
 /* 8016D4F4 0016A4F4  7C 08 03 A6 */	mtlr r0
 /* 8016D4F8 0016A4F8  4E 80 00 20 */	blr 
 
-.global func_8016D4FC
-func_8016D4FC:
+.global _ExitProcess
+_ExitProcess:
 /* 8016D4FC 0016A4FC  7C 08 02 A6 */	mflr r0
 /* 8016D500 0016A500  90 01 00 04 */	stw r0, 4(r1)
 /* 8016D504 0016A504  94 21 FF F8 */	stwu r1, -8(r1)

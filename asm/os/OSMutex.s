@@ -2,8 +2,8 @@
 
 .section .text  # 0x8016A6C0 - 0x8016A730
 
-.global func_8016A6C0
-func_8016A6C0:
+.global __OSUnlockAllMutex
+__OSUnlockAllMutex:
 /* 8016A6C0 001676C0  7C 08 02 A6 */	mflr r0
 /* 8016A6C4 001676C4  90 01 00 04 */	stw r0, 4(r1)
 /* 8016A6C8 001676C8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -25,7 +25,7 @@ lbl_8016A6FC:
 /* 8016A6FC 001676FC  90 BE 02 F4 */	stw r5, 0x2f4(r30)
 /* 8016A700 00167700  93 E4 00 0C */	stw r31, 0xc(r4)
 /* 8016A704 00167704  93 E4 00 08 */	stw r31, 8(r4)
-/* 8016A708 00167708  48 00 27 A9 */	bl func_8016CEB0
+/* 8016A708 00167708  48 00 27 A9 */	bl OSWakeupThread
 lbl_8016A70C:
 /* 8016A70C 0016770C  80 9E 02 F4 */	lwz r4, 0x2f4(r30)
 /* 8016A710 00167710  28 04 00 00 */	cmplwi r4, 0

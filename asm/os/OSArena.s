@@ -2,28 +2,28 @@
 
 .section .text  # 0x801667B8 - 0x80166804
 
-.global func_801667B8
-func_801667B8:
+.global OSGetArenaHi
+OSGetArenaHi:
 /* 801667B8 001637B8  80 6D 8B 68 */	lwz r3, lbl_80277488-_SDA_BASE_(r13)
 /* 801667BC 001637BC  4E 80 00 20 */	blr 
 
-.global func_801667C0
-func_801667C0:
+.global OSGetArenaLo
+OSGetArenaLo:
 /* 801667C0 001637C0  80 6D 81 28 */	lwz r3, lbl_80276A48-_SDA_BASE_(r13)
 /* 801667C4 001637C4  4E 80 00 20 */	blr 
 
-.global func_801667C8
-func_801667C8:
+.global OSSetArenaHi
+OSSetArenaHi:
 /* 801667C8 001637C8  90 6D 8B 68 */	stw r3, lbl_80277488-_SDA_BASE_(r13)
 /* 801667CC 001637CC  4E 80 00 20 */	blr 
 
-.global func_801667D0
-func_801667D0:
+.global OSSetArenaLo
+OSSetArenaLo:
 /* 801667D0 001637D0  90 6D 81 28 */	stw r3, lbl_80276A48-_SDA_BASE_(r13)
 /* 801667D4 001637D4  4E 80 00 20 */	blr 
 
-.global func_801667D8
-func_801667D8:
+.global OSAllocFromArenaLo
+OSAllocFromArenaLo:
 /* 801667D8 001637D8  80 0D 81 28 */	lwz r0, lbl_80276A48-_SDA_BASE_(r13)
 /* 801667DC 001637DC  38 84 FF FF */	addi r4, r4, -1
 /* 801667E0 001637E0  7C 85 20 F8 */	nor r5, r4, r4

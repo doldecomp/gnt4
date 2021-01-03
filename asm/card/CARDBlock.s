@@ -280,7 +280,7 @@ __CARDUpdateFatBlock:
 /* 8017C688 00179688  48 00 02 BD */	bl __CARDCheckSum
 /* 8017C68C 0017968C  38 7D 00 00 */	addi r3, r29, 0
 /* 8017C690 00179690  38 80 20 00 */	li r4, 0x2000
-/* 8017C694 00179694  4B FE A4 75 */	bl func_80166B08
+/* 8017C694 00179694  4B FE A4 75 */	bl DCStoreRange
 /* 8017C698 00179698  93 DF 00 D8 */	stw r30, 0xd8(r31)
 /* 8017C69C 0017969C  3C 60 80 18 */	lis r3, EraseCallback_@ha
 /* 8017C6A0 001796A0  38 A3 C3 B8 */	addi r5, r3, EraseCallback_@l
