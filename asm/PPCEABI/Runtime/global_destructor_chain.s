@@ -2,8 +2,8 @@
 
 .section .text  # 0x8018E10C - 0x8018E154
 
-.global func_8018E10C
-func_8018E10C:
+.global __destroy_global_chain_
+__destroy_global_chain_:
 /* 8018E10C 0018B10C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8018E110 0018B110  7C 08 02 A6 */	mflr r0
 /* 8018E114 0018B114  90 01 00 14 */	stw r0, 0x14(r1)
