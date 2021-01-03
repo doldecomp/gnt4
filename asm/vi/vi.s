@@ -2,8 +2,8 @@
 
 .section .text  # 0x80172E6C - 0x80174CA4
 
-.global func_80172E6C
-func_80172E6C:
+.global __VIRetraceHandler
+__VIRetraceHandler:
 /* 80172E6C 0016FE6C  7C 08 02 A6 */	mflr r0
 /* 80172E70 0016FE70  3C 60 CC 00 */	lis r3, 0xCC002000@ha
 /* 80172E74 0016FE74  90 01 00 04 */	stw r0, 4(r1)
@@ -59,7 +59,7 @@ lbl_80172F10:
 /* 80172F28 0016FF28  41 82 00 24 */	beq lbl_80172F4C
 /* 80172F2C 0016FF2C  38 61 00 16 */	addi r3, r1, 0x16
 /* 80172F30 0016FF30  38 81 00 14 */	addi r4, r1, 0x14
-/* 80172F34 0016FF34  48 00 1D 11 */	bl func_80174C44
+/* 80172F34 0016FF34  48 00 1D 11 */	bl __VIGetCurrentPosition
 /* 80172F38 0016FF38  81 8D 8C E4 */	lwz r12, lbl_80277604-_SDA_BASE_(r13)
 /* 80172F3C 0016FF3C  A8 61 00 16 */	lha r3, 0x16(r1)
 /* 80172F40 0016FF40  7D 88 03 A6 */	mtlr r12
@@ -92,7 +92,7 @@ lbl_80172F94:
 /* 80172FA0 0016FFA0  80 0D 8D 00 */	lwz r0, lbl_80277620-_SDA_BASE_(r13)
 /* 80172FA4 0016FFA4  28 00 00 01 */	cmplwi r0, 1
 /* 80172FA8 0016FFA8  40 82 00 10 */	bne lbl_80172FB8
-/* 80172FAC 0016FFAC  48 00 18 3D */	bl func_801747E8
+/* 80172FAC 0016FFAC  48 00 18 3D */	bl getCurrentFieldEvenOdd
 /* 80172FB0 0016FFB0  28 03 00 00 */	cmplwi r3, 0
 /* 80172FB4 0016FFB4  41 82 00 C4 */	beq lbl_80173078
 lbl_80172FB8:
@@ -180,8 +180,8 @@ lbl_801730CC:
 /* 801730D8 001700D8  7C 08 03 A6 */	mtlr r0
 /* 801730DC 001700DC  4E 80 00 20 */	blr 
 
-.global func_801730E0
-func_801730E0:
+.global VISetPreRetraceCallback
+VISetPreRetraceCallback:
 /* 801730E0 001700E0  7C 08 02 A6 */	mflr r0
 /* 801730E4 001700E4  90 01 00 04 */	stw r0, 4(r1)
 /* 801730E8 001700E8  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -200,8 +200,8 @@ func_801730E0:
 /* 8017311C 0017011C  7C 08 03 A6 */	mtlr r0
 /* 80173120 00170120  4E 80 00 20 */	blr 
 
-.global func_80173124
-func_80173124:
+.global VISetPostRetraceCallback
+VISetPostRetraceCallback:
 /* 80173124 00170124  7C 08 02 A6 */	mflr r0
 /* 80173128 00170128  90 01 00 04 */	stw r0, 4(r1)
 /* 8017312C 0017012C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -220,8 +220,8 @@ func_80173124:
 /* 80173160 00170160  7C 08 03 A6 */	mtlr r0
 /* 80173164 00170164  4E 80 00 20 */	blr 
 
-.global func_80173168
-func_80173168:
+.global getTiming
+getTiming:
 /* 80173168 00170168  28 03 00 1E */	cmplwi r3, 0x1e
 /* 8017316C 0017016C  3C 80 80 21 */	lis r4, lbl_802167A8@ha
 /* 80173170 00170170  38 A4 67 A8 */	addi r5, r4, lbl_802167A8@l
@@ -266,8 +266,8 @@ lbl_80173208:
 /* 80173208 00170208  38 60 00 00 */	li r3, 0
 /* 8017320C 0017020C  4E 80 00 20 */	blr 
 
-.global func_80173210
-func_80173210:
+.global __VIInit
+__VIInit:
 /* 80173210 00170210  7C 08 02 A6 */	mflr r0
 /* 80173214 00170214  3C 80 80 00 */	lis r4, 0x800000CC@ha
 /* 80173218 00170218  90 01 00 04 */	stw r0, 4(r1)
@@ -278,7 +278,7 @@ func_80173210:
 /* 8017322C 0017022C  93 C1 00 20 */	stw r30, 0x20(r1)
 /* 80173230 00170230  7C 1E 03 78 */	mr r30, r0
 /* 80173234 00170234  90 04 00 CC */	stw r0, 0x800000CC@l(r4)
-/* 80173238 00170238  4B FF FF 31 */	bl func_80173168
+/* 80173238 00170238  4B FF FF 31 */	bl getTiming
 /* 8017323C 0017023C  3C 80 CC 00 */	lis r4, 0xCC002000@ha
 /* 80173240 00170240  38 00 00 02 */	li r0, 2
 /* 80173244 00170244  38 A4 20 00 */	addi r5, r4, 0xCC002000@l
@@ -406,8 +406,8 @@ lbl_801733FC:
 /* 8017340C 0017040C  7C 08 03 A6 */	mtlr r0
 /* 80173410 00170410  4E 80 00 20 */	blr 
 
-.global func_80173414
-func_80173414:
+.global VIInit
+VIInit:
 /* 80173414 00170414  7C 08 02 A6 */	mflr r0
 /* 80173418 00170418  3C 80 80 21 */	lis r4, lbl_802167A8@ha
 /* 8017341C 0017041C  90 01 00 04 */	stw r0, 4(r1)
@@ -433,7 +433,7 @@ func_80173414:
 /* 8017346C 0017046C  54 00 07 FF */	clrlwi. r0, r0, 0x1f
 /* 80173470 00170470  40 82 00 0C */	bne lbl_8017347C
 /* 80173474 00170474  38 60 00 00 */	li r3, 0
-/* 80173478 00170478  4B FF FD 99 */	bl func_80173210
+/* 80173478 00170478  4B FF FD 99 */	bl __VIInit
 lbl_8017347C:
 /* 8017347C 0017047C  3B E0 00 00 */	li r31, 0
 /* 80173480 00170480  93 ED 8C CC */	stw r31, lbl_802775EC-_SDA_BASE_(r13)
@@ -553,7 +553,7 @@ lbl_80173640:
 /* 80173640 00170640  80 04 00 00 */	lwz r0, 0(r4)
 /* 80173644 00170644  54 63 10 3A */	slwi r3, r3, 2
 /* 80173648 00170648  7C 63 02 14 */	add r3, r3, r0
-/* 8017364C 0017064C  4B FF FB 1D */	bl func_80173168
+/* 8017364C 0017064C  4B FF FB 1D */	bl getTiming
 /* 80173650 00170650  90 7E 01 44 */	stw r3, 0x144(r30)
 /* 80173654 00170654  38 9E 01 44 */	addi r4, r30, 0x144
 /* 80173658 00170658  38 00 02 80 */	li r0, 0x280
@@ -710,8 +710,8 @@ lbl_801737EC:
 /* 8017386C 0017086C  38 A3 20 00 */	addi r5, r3, 0x2000
 /* 80173870 00170870  54 00 04 7E */	clrlwi r0, r0, 0x11
 /* 80173874 00170874  B0 04 00 30 */	sth r0, 0x30(r4)
-/* 80173878 00170878  3C 60 80 17 */	lis r3, func_80172E6C@ha
-/* 8017387C 0017087C  38 83 2E 6C */	addi r4, r3, func_80172E6C@l
+/* 80173878 00170878  3C 60 80 17 */	lis r3, __VIRetraceHandler@ha
+/* 8017387C 0017087C  38 83 2E 6C */	addi r4, r3, __VIRetraceHandler@l
 /* 80173880 00170880  A0 05 00 34 */	lhz r0, 0x34(r5)
 /* 80173884 00170884  38 60 00 18 */	li r3, 0x18
 /* 80173888 00170888  54 00 04 7E */	clrlwi r0, r0, 0x11
@@ -731,8 +731,8 @@ lbl_801738A4:
 /* 801738BC 001708BC  7C 08 03 A6 */	mtlr r0
 /* 801738C0 001708C0  4E 80 00 20 */	blr 
 
-.global func_801738C4
-func_801738C4:
+.global VIWaitForRetrace
+VIWaitForRetrace:
 /* 801738C4 001708C4  7C 08 02 A6 */	mflr r0
 /* 801738C8 001708C8  90 01 00 04 */	stw r0, 4(r1)
 /* 801738CC 001708CC  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -756,8 +756,8 @@ lbl_801738E4:
 /* 80173910 00170910  7C 08 03 A6 */	mtlr r0
 /* 80173914 00170914  4E 80 00 20 */	blr 
 
-.global func_80173918
-func_80173918:
+.global setFbbRegs
+setFbbRegs:
 /* 80173918 00170918  94 21 FF B8 */	stwu r1, -0x48(r1)
 /* 8017391C 0017091C  3D 20 80 24 */	lis r9, lbl_802453A8@ha
 /* 80173920 00170920  39 29 53 A8 */	addi r9, r9, lbl_802453A8@l
@@ -951,8 +951,8 @@ lbl_80173BE0:
 /* 80173BE4 00170BE4  38 21 00 48 */	addi r1, r1, 0x48
 /* 80173BE8 00170BE8  4E 80 00 20 */	blr 
 
-.global func_80173BEC
-func_80173BEC:
+.global setVerticalRegs
+setVerticalRegs:
 /* 80173BEC 00170BEC  94 21 FF D8 */	stwu r1, -0x28(r1)
 /* 80173BF0 00170BF0  3D 60 80 24 */	lis r11, lbl_802453A8@ha
 /* 80173BF4 00170BF4  39 6B 53 A8 */	addi r11, r11, lbl_802453A8@l
@@ -1063,8 +1063,8 @@ lbl_80173CE0:
 /* 80173D84 00170D84  38 21 00 28 */	addi r1, r1, 0x28
 /* 80173D88 00170D88  4E 80 00 20 */	blr 
 
-.global func_80173D8C
-func_80173D8C:
+.global VIConfigure
+VIConfigure:
 /* 80173D8C 00170D8C  7C 08 02 A6 */	mflr r0
 /* 80173D90 00170D90  3C A0 80 21 */	lis r5, lbl_802167A8@ha
 /* 80173D94 00170D94  90 01 00 04 */	stw r0, 4(r1)
@@ -1238,7 +1238,7 @@ lbl_80173FDC:
 /* 80173FEC 00170FEC  80 1D 00 00 */	lwz r0, 0(r29)
 /* 80173FF0 00170FF0  54 63 10 3A */	slwi r3, r3, 2
 /* 80173FF4 00170FF4  7C 63 02 14 */	add r3, r3, r0
-/* 80173FF8 00170FF8  4B FF F1 71 */	bl func_80173168
+/* 80173FF8 00170FF8  4B FF F1 71 */	bl getTiming
 /* 80173FFC 00170FFC  7C 7F 1B 78 */	mr r31, r3
 /* 80174000 00171000  93 FE 01 44 */	stw r31, 0x144(r30)
 /* 80174004 00171004  A0 19 00 00 */	lhz r0, 0(r25)
@@ -1610,7 +1610,7 @@ lbl_801744D0:
 /* 8017453C 0017153C  38 BE 01 28 */	addi r5, r30, 0x128
 /* 80174540 00171540  38 DE 01 3C */	addi r6, r30, 0x13c
 /* 80174544 00171544  38 FE 01 40 */	addi r7, r30, 0x140
-/* 80174548 00171548  4B FF F3 D1 */	bl func_80173918
+/* 80174548 00171548  4B FF F3 D1 */	bl setFbbRegs
 lbl_8017454C:
 /* 8017454C 0017154C  80 1E 01 30 */	lwz r0, 0x130(r30)
 /* 80174550 00171550  90 01 00 08 */	stw r0, 8(r1)
@@ -1622,7 +1622,7 @@ lbl_8017454C:
 /* 80174568 00171568  A1 1F 00 06 */	lhz r8, 6(r31)
 /* 8017456C 0017156C  A1 3F 00 08 */	lhz r9, 8(r31)
 /* 80174570 00171570  A1 5F 00 0A */	lhz r10, 0xa(r31)
-/* 80174574 00171574  4B FF F6 79 */	bl func_80173BEC
+/* 80174574 00171574  4B FF F6 79 */	bl setVerticalRegs
 /* 80174578 00171578  7D E3 7B 78 */	mr r3, r15
 /* 8017457C 0017157C  4B FF 56 05 */	bl func_80169B80
 /* 80174580 00171580  B9 E1 00 34 */	lmw r15, 0x34(r1)
@@ -1631,8 +1631,8 @@ lbl_8017454C:
 /* 8017458C 0017158C  7C 08 03 A6 */	mtlr r0
 /* 80174590 00171590  4E 80 00 20 */	blr 
 
-.global func_80174594
-func_80174594:
+.global VIFlush
+VIFlush:
 /* 80174594 00171594  7C 08 02 A6 */	mflr r0
 /* 80174598 00171598  3C 60 80 24 */	lis r3, lbl_802453A8@ha
 /* 8017459C 0017159C  90 01 00 04 */	stw r0, 4(r1)
@@ -1714,8 +1714,8 @@ lbl_80174670:
 /* 801746BC 001716BC  7C 08 03 A6 */	mtlr r0
 /* 801746C0 001716C0  4E 80 00 20 */	blr 
 
-.global func_801746C4
-func_801746C4:
+.global VISetNextFrameBuffer
+VISetNextFrameBuffer:
 /* 801746C4 001716C4  7C 08 02 A6 */	mflr r0
 /* 801746C8 001716C8  3C 80 80 24 */	lis r4, lbl_802453A8@ha
 /* 801746CC 001716CC  90 01 00 04 */	stw r0, 4(r1)
@@ -1734,7 +1734,7 @@ func_801746C4:
 /* 80174700 00171700  38 BF 01 28 */	addi r5, r31, 0x128
 /* 80174704 00171704  38 DF 01 3C */	addi r6, r31, 0x13c
 /* 80174708 00171708  38 FF 01 40 */	addi r7, r31, 0x140
-/* 8017470C 0017170C  4B FF F2 0D */	bl func_80173918
+/* 8017470C 0017170C  4B FF F2 0D */	bl setFbbRegs
 /* 80174710 00171710  7F C3 F3 78 */	mr r3, r30
 /* 80174714 00171714  4B FF 54 6D */	bl func_80169B80
 /* 80174718 00171718  80 01 00 1C */	lwz r0, 0x1c(r1)
@@ -1744,8 +1744,8 @@ func_801746C4:
 /* 80174728 00171728  7C 08 03 A6 */	mtlr r0
 /* 8017472C 0017172C  4E 80 00 20 */	blr 
 
-.global func_80174730
-func_80174730:
+.global VISetBlack
+VISetBlack:
 /* 80174730 00171730  7C 08 02 A6 */	mflr r0
 /* 80174734 00171734  3C 80 80 24 */	lis r4, lbl_802453A8@ha
 /* 80174738 00171738  90 01 00 04 */	stw r0, 4(r1)
@@ -1768,7 +1768,7 @@ func_80174730:
 /* 8017477C 0017177C  A1 0A 00 06 */	lhz r8, 6(r10)
 /* 80174780 00171780  A1 2A 00 08 */	lhz r9, 8(r10)
 /* 80174784 00171784  A1 4A 00 0A */	lhz r10, 0xa(r10)
-/* 80174788 00171788  4B FF F4 65 */	bl func_80173BEC
+/* 80174788 00171788  4B FF F4 65 */	bl setVerticalRegs
 /* 8017478C 0017178C  7F C3 F3 78 */	mr r3, r30
 /* 80174790 00171790  4B FF 53 F1 */	bl func_80169B80
 /* 80174794 00171794  80 01 00 24 */	lwz r0, 0x24(r1)
@@ -1778,8 +1778,8 @@ func_80174730:
 /* 801747A4 001717A4  7C 08 03 A6 */	mtlr r0
 /* 801747A8 001717A8  4E 80 00 20 */	blr 
 
-.global func_801747AC
-func_801747AC:
+.global GetCurrentDisplayPosition
+GetCurrentDisplayPosition:
 /* 801747AC 001717AC  3C A0 CC 00 */	lis r5, 0xCC002000@ha
 /* 801747B0 001717B0  38 E5 20 00 */	addi r7, r5, 0xCC002000@l
 /* 801747B4 001717B4  A4 07 00 2C */	lhzu r0, 0x2c(r7)
@@ -1797,8 +1797,8 @@ lbl_801747C0:
 /* 801747E0 001717E0  91 24 00 00 */	stw r9, 0(r4)
 /* 801747E4 001717E4  4E 80 00 20 */	blr 
 
-.global func_801747E8
-func_801747E8:
+.global getCurrentFieldEvenOdd
+getCurrentFieldEvenOdd:
 /* 801747E8 001717E8  3C 60 CC 00 */	lis r3, 0xCC002000@ha
 /* 801747EC 001717EC  38 E3 20 00 */	addi r7, r3, 0xCC002000@l
 /* 801747F0 001717F0  A4 07 00 2C */	lhzu r0, 0x2c(r7)
@@ -1828,8 +1828,8 @@ lbl_80174848:
 /* 80174848 00171848  38 60 00 00 */	li r3, 0
 /* 8017484C 0017184C  4E 80 00 20 */	blr 
 
-.global func_80174850
-func_80174850:
+.global VIGetNextField
+VIGetNextField:
 /* 80174850 00171850  7C 08 02 A6 */	mflr r0
 /* 80174854 00171854  90 01 00 04 */	stw r0, 4(r1)
 /* 80174858 00171858  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -1839,7 +1839,7 @@ func_80174850:
 /* 80174868 00171868  3B C3 00 00 */	addi r30, r3, 0
 /* 8017486C 0017186C  38 61 00 10 */	addi r3, r1, 0x10
 /* 80174870 00171870  38 81 00 14 */	addi r4, r1, 0x14
-/* 80174874 00171874  4B FF FF 39 */	bl func_801747AC
+/* 80174874 00171874  4B FF FF 39 */	bl GetCurrentDisplayPosition
 /* 80174878 00171878  80 AD 8D 10 */	lwz r5, lbl_80277630-_SDA_BASE_(r13)
 /* 8017487C 0017187C  80 61 00 10 */	lwz r3, 0x10(r1)
 /* 80174880 00171880  A0 05 00 1A */	lhz r0, 0x1a(r5)
@@ -1872,8 +1872,8 @@ lbl_801748B4:
 /* 801748E4 001718E4  7C 08 03 A6 */	mtlr r0
 /* 801748E8 001718E8  4E 80 00 20 */	blr 
 
-.global func_801748EC
-func_801748EC:
+.global VIGetCurrentLine
+VIGetCurrentLine:
 /* 801748EC 001718EC  7C 08 02 A6 */	mflr r0
 /* 801748F0 001718F0  90 01 00 04 */	stw r0, 4(r1)
 /* 801748F4 001718F4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -1915,8 +1915,8 @@ lbl_80174968:
 /* 8017497C 0017197C  7C 08 03 A6 */	mtlr r0
 /* 80174980 00171980  4E 80 00 20 */	blr 
 
-.global func_80174984
-func_80174984:
+.global VIGetTvFormat
+VIGetTvFormat:
 /* 80174984 00171984  7C 08 02 A6 */	mflr r0
 /* 80174988 00171988  90 01 00 04 */	stw r0, 4(r1)
 /* 8017498C 0017198C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -1945,8 +1945,8 @@ lbl_801749D0:
 /* 801749E4 001719E4  7C 08 03 A6 */	mtlr r0
 /* 801749E8 001719E8  4E 80 00 20 */	blr 
 
-.global func_801749EC
-func_801749EC:
+.global VIGetDTVStatus
+VIGetDTVStatus:
 /* 801749EC 001719EC  7C 08 02 A6 */	mflr r0
 /* 801749F0 001719F0  90 01 00 04 */	stw r0, 4(r1)
 /* 801749F4 001719F4  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -1963,8 +1963,8 @@ func_801749EC:
 /* 80174A20 00171A20  7C 08 03 A6 */	mtlr r0
 /* 80174A24 00171A24  4E 80 00 20 */	blr 
 
-.global func_80174A28
-func_80174A28:
+.global __VIDisplayPositionToXY
+__VIDisplayPositionToXY:
 /* 80174A28 00171A28  81 2D 8D 10 */	lwz r9, lbl_80277630-_SDA_BASE_(r13)
 /* 80174A2C 00171A2C  3C E0 80 24 */	lis r7, lbl_80245498@ha
 /* 80174A30 00171A30  38 E7 54 98 */	addi r7, r7, lbl_80245498@l
@@ -2117,8 +2117,8 @@ lbl_80174C38:
 /* 80174C3C 00171C3C  B0 05 00 00 */	sth r0, 0(r5)
 /* 80174C40 00171C40  4E 80 00 20 */	blr 
 
-.global func_80174C44
-func_80174C44:
+.global __VIGetCurrentPosition
+__VIGetCurrentPosition:
 /* 80174C44 00171C44  7C 08 02 A6 */	mflr r0
 /* 80174C48 00171C48  3C E0 CC 00 */	lis r7, 0xCC002000@ha
 /* 80174C4C 00171C4C  90 01 00 04 */	stw r0, 4(r1)
@@ -2139,7 +2139,7 @@ lbl_80174C6C:
 /* 80174C84 00171C84  40 82 FF E8 */	bne lbl_80174C6C
 /* 80174C88 00171C88  7C 03 03 78 */	mr r3, r0
 /* 80174C8C 00171C8C  38 88 00 00 */	addi r4, r8, 0
-/* 80174C90 00171C90  4B FF FD 99 */	bl func_80174A28
+/* 80174C90 00171C90  4B FF FD 99 */	bl __VIDisplayPositionToXY
 /* 80174C94 00171C94  80 01 00 0C */	lwz r0, 0xc(r1)
 /* 80174C98 00171C98  38 21 00 08 */	addi r1, r1, 8
 /* 80174C9C 00171C9C  7C 08 03 A6 */	mtlr r0
