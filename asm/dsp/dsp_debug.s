@@ -2,8 +2,8 @@
 
 .section .text  # 0x80178F18 - 0x80178F68
 
-.global func_80178F18
-func_80178F18:
+.global __DSP_debug_printf
+__DSP_debug_printf:
 /* 80178F18 00175F18  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80178F1C 00175F1C  40 86 00 24 */	bne cr1, lbl_80178F40
 /* 80178F20 00175F20  D8 21 00 28 */	stfd f1, 0x28(r1)
