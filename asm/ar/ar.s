@@ -2,8 +2,8 @@
 
 .section .text  # 0x80176F20 - 0x801789FC
 
-.global func_80176F20
-func_80176F20:
+.global ARRegisterDMACallback
+ARRegisterDMACallback:
 /* 80176F20 00173F20  7C 08 02 A6 */	mflr r0
 /* 80176F24 00173F24  90 01 00 04 */	stw r0, 4(r1)
 /* 80176F28 00173F28  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -22,8 +22,8 @@ func_80176F20:
 /* 80176F5C 00173F5C  7C 08 03 A6 */	mtlr r0
 /* 80176F60 00173F60  4E 80 00 20 */	blr 
 
-.global func_80176F64
-func_80176F64:
+.global ARStartDMA
+ARStartDMA:
 /* 80176F64 00173F64  7C 08 02 A6 */	mflr r0
 /* 80176F68 00173F68  90 01 00 04 */	stw r0, 4(r1)
 /* 80176F6C 00173F6C  94 21 FF D8 */	stwu r1, -0x28(r1)
@@ -85,8 +85,8 @@ func_80176F64:
 /* 8017704C 0017404C  7C 08 03 A6 */	mtlr r0
 /* 80177050 00174050  4E 80 00 20 */	blr 
 
-.global func_80177054
-func_80177054:
+.global ARAlloc
+ARAlloc:
 /* 80177054 00174054  7C 08 02 A6 */	mflr r0
 /* 80177058 00174058  90 01 00 04 */	stw r0, 4(r1)
 /* 8017705C 0017405C  94 21 FF E8 */	stwu r1, -0x18(r1)
@@ -114,8 +114,8 @@ func_80177054:
 /* 801770B4 001740B4  7C 08 03 A6 */	mtlr r0
 /* 801770B8 001740B8  4E 80 00 20 */	blr 
 
-.global func_801770BC
-func_801770BC:
+.global ARInit
+ARInit:
 /* 801770BC 001740BC  7C 08 02 A6 */	mflr r0
 /* 801770C0 001740C0  90 01 00 04 */	stw r0, 4(r1)
 /* 801770C4 001740C4  94 21 FF E0 */	stwu r1, -0x20(r1)
@@ -134,10 +134,10 @@ lbl_801770F0:
 /* 801770F4 001740F4  4B FE E8 A9 */	bl func_8016599C
 /* 801770F8 001740F8  4B FF 2A 61 */	bl func_80169B58
 /* 801770FC 001740FC  38 00 00 00 */	li r0, 0
-/* 80177100 00174100  3C 80 80 17 */	lis r4, lbl_80177190@ha
+/* 80177100 00174100  3C 80 80 17 */	lis r4, __ARHandler@ha
 /* 80177104 00174104  90 0D 8D A0 */	stw r0, lbl_802776C0-_SDA_BASE_(r13)
 /* 80177108 00174108  3B E3 00 00 */	addi r31, r3, 0
-/* 8017710C 0017410C  38 84 71 90 */	addi r4, r4, lbl_80177190@l
+/* 8017710C 0017410C  38 84 71 90 */	addi r4, r4, __ARHandler@l
 /* 80177110 00174110  38 60 00 06 */	li r3, 6
 /* 80177114 00174114  4B FF 2A 91 */	bl func_80169BA4
 /* 80177118 00174118  3C 60 02 00 */	lis r3, 0x200
@@ -153,7 +153,7 @@ lbl_801770F0:
 /* 80177140 00174140  54 00 00 2E */	rlwinm r0, r0, 0, 0, 0x17
 /* 80177144 00174144  50 60 06 3E */	rlwimi r0, r3, 0, 0x18, 0x1f
 /* 80177148 00174148  B0 04 00 1A */	sth r0, 0x1a(r4)
-/* 8017714C 0017414C  48 00 00 BD */	bl func_80177208
+/* 8017714C 0017414C  48 00 00 BD */	bl __ARChecksize
 /* 80177150 00174150  38 00 00 01 */	li r0, 1
 /* 80177154 00174154  90 0D 8D BC */	stw r0, lbl_802776DC-_SDA_BASE_(r13)
 /* 80177158 00174158  7F E3 FB 78 */	mr r3, r31
@@ -168,16 +168,18 @@ lbl_80177164:
 /* 80177178 00174178  7C 08 03 A6 */	mtlr r0
 /* 8017717C 0017417C  4E 80 00 20 */	blr 
 
-.global func_80177180
-func_80177180:
+.global ARGetBaseAddress
+ARGetBaseAddress:
 /* 80177180 00174180  38 60 40 00 */	li r3, 0x4000
 /* 80177184 00174184  4E 80 00 20 */	blr 
 
-.global func_80177188
-func_80177188:
+.global ARGetSize
+ARGetSize:
 /* 80177188 00174188  80 6D 8D A4 */	lwz r3, lbl_802776C4-_SDA_BASE_(r13)
 /* 8017718C 0017418C  4E 80 00 20 */	blr 
-lbl_80177190:
+
+.global __ARHandler
+__ARHandler:
 /* 80177190 00174190  7C 08 02 A6 */	mflr r0
 /* 80177194 00174194  3C 60 CC 00 */	lis r3, 0xCC005000@ha
 /* 80177198 00174198  90 01 00 04 */	stw r0, 4(r1)
@@ -210,8 +212,8 @@ lbl_801771E4:
 /* 80177200 00174200  7C 08 03 A6 */	mtlr r0
 /* 80177204 00174204  4E 80 00 20 */	blr 
 
-.global func_80177208
-func_80177208:
+.global __ARChecksize
+__ARChecksize:
 /* 80177208 00174208  7C 08 02 A6 */	mflr r0
 /* 8017720C 0017420C  3C 60 CC 00 */	lis r3, 0xCC005000@ha
 /* 80177210 00174210  90 01 00 04 */	stw r0, 4(r1)
