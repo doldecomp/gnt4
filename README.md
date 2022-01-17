@@ -1,26 +1,95 @@
-# Naruto: Gekitou Ninja Taisen 4
 
-This repo contains a WIP decompilation of Naruto: Gekitou Ninja Taisen 4 (GNT4).
+# Naruto : Gekitou Ninja Taisen 4 [![Discord Badge]][Discord]
 
-It builds the following DOL:
+*A* ***WIP*** *decompiled version of the game.*
 
-main.dol: `sha1: 0eb4cc3bd4c7363f8cb7baff79de7a964cbdeadb`
+<br>
 
-## Windows Prerequisites
+---
 
-1. Download and run the latest release of the [Windows devkitpro installer](https://github.com/devkitPro/installer/releases)
-2. Run the executable located at `devkitPro\msys2\msys2.exe`
-3. Update pacman by running the following command: `pacman -Syu`
-4. Install the necessary dependencies by running the following command: `pacman -S python3-pip base-devel gcc vim cmake`
-5. Change to the directory of where you cloned this repository and you are ready to build!
+## DOL
+
+*The* ***DOL*** *built with this repository.*
+
+**File** : `main.dol` <br>
+**SHA1** : `0eb4cc3bd4c7363f8cb7baff79de7a964cbdeadb`
+
+---
+
+<br>
+
+## Building
+
+### Windows Prerequisites
+
+1. Install **[DevKitPro]**.
+
+2. Run `devkitPro\msys2\msys2.exe`.
+
+3. Update **PacMan** :
+
+    ```sh
+    pacman -Syu
+    ```
+
+4. Install needed dependencies :
+
+    ```sh
+    pacman -S python3-pip base-devel gcc vim cmake
+    ```
+
+5. Clone this repository & navigate to it's root folder.
+
+<br>
 
 ## Build Instructions
 
-1. Obtain a clean DOL of GNT4 and place it in the build folder and name it `baserom.dol`.
-2. Obtain a copy of the MWCC (Build 158) PowerPC and place it in tools/mwcc_compiler/1.1/ folder in tools/. (NOTE: This compiler's executables [mwcceppc.exe mwasmeppc.exe and mwldeppc.exe] can be installed with Codewarrior 1.1 for Gamecube, but no license or crack is provided with this project. Please obtain access to the compiler on your own.) If you are in the Gamecube/Wii Decompilation discord (not public at this time), download GC_COMPILERS.zip and extract it to tools/mwcc_compiler/.
-3. Change to the directory of the tools folder and run `make`
-4. Change back to the parent directory and run `make`
+1. Obtain a clean **DOL** of `Gekitou Ninja Taisen 4` .
+
+2. Place it in the root folder with `baserom.dol` as its name.
+
+3. Obtain the **MWCC** PowerPC.
+
+    *Build : `158`*
+
+    *This compilers executables,* <kbd>mwcceppc.exe</kbd> , <kbd>mwasmeppc.exe</kbd><br>
+    and <kbd>mwldeppc.exe</kbd> , can be installed with **CodeWarrior 1.1** <br> for the Gamecube, however no license nor crack is provided.
+
+    Place it in the `/tools/mwcc_compiler/1.1/` folder.
+
+    If you're on the **[Discord]**, download <br>
+    <kbd>**[GC_WII_COMPILERS.zip][GC]**</kbd> and extract <br>
+    it into `./tools/mwcc_compiler/` .
+
+4. Navigate to the `tools` folder and run :
+
+    ```sh
+    make
+    ```
+
+5. Navigate to the ***root*** folder and run :
+
+    ```sh
+    make
+    ```
+
+<br>
+
+---
+
+<br>
 
 ## Contributions
 
-Contributions and PRs are welcome.
+*`Contributions` / `Pull Requests` are welcome !*
+
+
+<!----------------------------------------------------------------------------->
+
+[DevKitPro]: https://github.com/devkitPro/installer/releases
+[Python3]: https://www.python.org/
+[GCC]: https://gcc.gnu.org/
+[GC]: https://cdn.discordapp.com/attachments/727918646525165659/917185027656286218/GC_WII_COMPILERS.zip
+
+[Discord Badge]: https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white
+[Discord]: https://discord.gg/hKx3FJJgrV
