@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .sbss2, "", @nobits # 0x8027C570 - 0x8027C578
+.global lbl_8027C570
+lbl_8027C570:
+	.skip 0x4
+.global lbl_8027C574
+lbl_8027C574:
+	.skip 0x4
+
 .section .text  # 0x801D2334 - 0x801D336C
 
 .global assign_reg

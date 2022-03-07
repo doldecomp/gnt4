@@ -1,5 +1,10 @@
 .include "macros.inc"
 
+.section .sbss2, "", @nobits # 0x8027C560 - 0x8027C568
+.global lbl_8027C560
+lbl_8027C560:
+	.skip 0x8
+
 .section .text  # 0x801C1394 - 0x801C1EEC
 
 .global HSD_InitComponent

@@ -38,7 +38,7 @@ O_FILES := $(INIT_O_FILES) $(CTORS_O_FILES) $(DTORS_O_FILES) $(TEXT_O_FILES)    
 # Tools
 #-------------------------------------------------------------------------------
 
-MWCC_VERSION := 2.7
+MWCC_VERSION := 2.6
 
 # Programs
 ifeq ($(WINDOWS),1)
@@ -63,6 +63,10 @@ INCLUDES := -i include -i include/dolphin/ -i src -i src/sysdolphin
 ASFLAGS := -mgekko -I include
 LDFLAGS := -map $(MAP) -fp hard -nodefaults
 CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -nodefaults -msgstyle gcc $(INCLUDES)
+
+# elf2dol needs to know these in order to calculate sbss correctly.
+SDATA_PDHR := 9
+SBSS_PDHR := 10
 
 # for postprocess.py
 PROCFLAGS := -fprologue-fixup=old_stack

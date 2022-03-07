@@ -266,6 +266,3 @@ BSS_O_FILES :=                                                 \
 
 SBSS_O_FILES :=                                                \
     $(BUILD_DIR)/asm/sbss.o
-
-SBSS2_O_FILES :=                                               \
-    $(BUILD_DIR)/asm/sbss2.o
