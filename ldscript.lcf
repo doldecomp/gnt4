@@ -23,3 +23,9 @@ SECTIONS {
     __ArenaLo = (_db_stack_addr + 0x1f) & ~0x1f;
     __ArenaHi = 0x81700000 ;
 }
+
+FORCEFILES {
+    EXIUart.o
+    object.o
+    uart_console_io.o
+}
