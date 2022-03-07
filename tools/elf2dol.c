@@ -15,6 +15,8 @@
 #define MIN(a, b)	(((a) < (b)) ? (a) : (b))
 #endif
 
+#define ARRAY_COUNT(arr) (sizeof(arr)/sizeof((arr)[0]))
+
 #define EI_NIDENT       16
 
 typedef struct {
@@ -149,8 +151,14 @@ void ferrordie(FILE *f, const char *str)
 void add_bss(DOL_map *map, uint32_t paddr, uint32_t memsz)
 {
 	if(map->flags & HAVE_BSS) {
-		uint32_t start = swap32(map->header.bss_addr);
-		map->header.bss_size = swap32(paddr - start + memsz);
+		uint32_t curr_start = swap32(map->header.bss_addr);
+		uint32_t curr_size = swap32(map->header.bss_size);
+		if (paddr < curr_start)
+			map->header.bss_addr = swap32(paddr);
+		// Total BSS size should be the end of the last bss section minus the
+		// start of the first bss section.
+		if (paddr + memsz > curr_start + curr_size)
+			map->header.bss_size = swap32(paddr + memsz - curr_start);
 	} else {
 		map->header.bss_addr = swap32(paddr);
 		map->header.bss_size = swap32(memsz);
@@ -217,7 +225,7 @@ void read_elf_segments(DOL_map *map, const char *elf)
 	for(i=0; i<phnum; i++) {
 		if(swap32(phdrs[i].p_type) == PT_LOAD) {
 			uint32_t offset = swap32(phdrs[i].p_offset);
-			uint32_t paddr = swap32(phdrs[i].p_paddr);
+			uint32_t paddr = swap32(phdrs[i].p_vaddr);
 			uint32_t filesz = swap32(phdrs[i].p_filesz);
 			uint32_t memsz = swap32(phdrs[i].p_memsz);
 			uint32_t flags = swap32(phdrs[i].p_flags);
@@ -364,6 +372,16 @@ void fcpy(FILE *dst, FILE *src, uint32_t dst_off, uint32_t src_off, uint32_t siz
 	free(blockbuf);
 }
 
+void fpad(FILE *dst, uint32_t dst_off, uint32_t size)
+{
+	uint32_t i;
+
+	if(fseek(dst, dst_off, SEEK_SET) < 0)
+		ferrordie(dst, "writing DOL segment data");
+	for(i=0; i<size; i++)
+		fputc(0, dst);
+}
+
 void write_dol(DOL_map *map, const char *dol)
 {
 	FILE *dolf;
@@ -394,21 +412,33 @@ void write_dol(DOL_map *map, const char *dol)
 		fprintf(stderr, "Writing DOL header...\n");
 	}
 	
-	written = fwrite(&map->header, sizeof(DOL_hdr), 1, dolf);
+	// Write DOL header with aligned text and data section sizes
+	DOL_hdr aligned_header = map->header;
+	for(i=0; i<ARRAY_COUNT(aligned_header.text_size); i++)
+		aligned_header.text_size[i] = swap32(DOL_ALIGN(swap32(aligned_header.text_size[i])));
+	for(i=0; i<ARRAY_COUNT(aligned_header.data_size); i++)
+		aligned_header.data_size[i] = swap32(DOL_ALIGN(swap32(aligned_header.data_size[i])));
+	written = fwrite(&aligned_header, sizeof(DOL_hdr), 1, dolf);
 	if(written != 1)
 		ferrordie(dolf, "writing DOL header");
 	
 	for(i=0; i<map->text_cnt; i++) {
+		uint32_t size = swap32(map->header.text_size[i]);
+		uint32_t padded_size = DOL_ALIGN(size);
 		if(verbosity >= 2)
 			fprintf(stderr, "Writing TEXT segment %d...\n", i);
-		fcpy(dolf, map->elf, swap32(map->header.text_off[i]), map->text_elf_off[i],
-		     swap32(map->header.text_size[i]));
+		fcpy(dolf, map->elf, swap32(map->header.text_off[i]), map->text_elf_off[i], size);
+		if (padded_size > size)
+			fpad(dolf, swap32(map->header.text_off[i]) + size, padded_size - size);
 	}
 	for(i=0; i<map->data_cnt; i++) {
+		uint32_t size = swap32(map->header.data_size[i]);
+		uint32_t padded_size = DOL_ALIGN(size);
 		if(verbosity >= 2)
 			fprintf(stderr, "Writing DATA segment %d...\n", i);
-		fcpy(dolf, map->elf, swap32(map->header.data_off[i]), map->data_elf_off[i],
-		     swap32(map->header.data_size[i]));
+		fcpy(dolf, map->elf, swap32(map->header.data_off[i]), map->data_elf_off[i], size);
+		if (padded_size > size)
+			fpad(dolf, swap32(map->header.data_off[i]) + size, padded_size - size);
 	}
 	
 	if(verbosity >= 2)
