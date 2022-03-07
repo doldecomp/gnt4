@@ -131,7 +131,7 @@ lbl_8018F264:
 __num2dec_internal:
 /* 8018F27C 0018C27C  94 21 FF 50 */	stwu r1, -0xb0(r1)
 /* 8018F280 0018C280  7C 08 02 A6 */	mflr r0
-/* 8018F284 0018C284  C8 02 BB 68 */	lfd f0, lbl_8027B808-_SDA2_BASE_(r2)
+/* 8018F284 0018C284  C8 02 BB 68 */	lfd f0, lbl_8027B808@sda21(r2)
 /* 8018F288 0018C288  90 01 00 B4 */	stw r0, 0xb4(r1)
 /* 8018F28C 0018C28C  FC 00 08 00 */	fcmpu cr0, f0, f1
 /* 8018F290 0018C290  DB E1 00 A8 */	stfd f31, 0xa8(r1)

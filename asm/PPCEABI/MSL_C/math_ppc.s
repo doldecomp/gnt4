@@ -4,13 +4,13 @@
 
 .global sqrt
 sqrt:
-/* 80196754 00193754  C0 02 C0 D8 */	lfs f0, lbl_8027BD78-_SDA2_BASE_(r2)
+/* 80196754 00193754  C0 02 C0 D8 */	lfs f0, lbl_8027BD78@sda21(r2)
 /* 80196758 00193758  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8019675C 0019375C  FC 01 00 40 */	.byte 0xFC, 0x01, 0x00, 0x40  /* unknown instruction */
 /* 80196760 00193760  40 81 00 50 */	ble lbl_801967B0
 /* 80196764 00193764  FC 40 08 34 */	frsqrte f2, f1
-/* 80196768 00193768  C8 82 C0 E0 */	lfd f4, lbl_8027BD80-_SDA2_BASE_(r2)
-/* 8019676C 0019376C  C8 62 C0 E8 */	lfd f3, lbl_8027BD88-_SDA2_BASE_(r2)
+/* 80196768 00193768  C8 82 C0 E0 */	lfd f4, lbl_8027BD80@sda21(r2)
+/* 8019676C 0019376C  C8 62 C0 E8 */	lfd f3, lbl_8027BD88@sda21(r2)
 /* 80196770 00193770  FC 02 00 B2 */	fmul f0, f2, f2
 /* 80196774 00193774  FC 44 00 B2 */	fmul f2, f4, f2
 /* 80196778 00193778  FC 01 18 3C */	fnmsub f0, f1, f0, f3

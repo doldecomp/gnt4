@@ -56,15 +56,15 @@ salNormalizeVector:
 /* 801F7DCC 001F4DCC  EC 41 00 72 */	fmuls f2, f1, f1
 /* 801F7DD0 001F4DD0  C0 63 00 08 */	lfs f3, 8(r3)
 /* 801F7DD4 001F4DD4  EC 20 00 32 */	fmuls f1, f0, f0
-/* 801F7DD8 001F4DD8  C0 02 C8 30 */	lfs f0, lbl_8027C4D0-_SDA2_BASE_(r2)
+/* 801F7DD8 001F4DD8  C0 02 C8 30 */	lfs f0, lbl_8027C4D0@sda21(r2)
 /* 801F7DDC 001F4DDC  EC 63 00 F2 */	fmuls f3, f3, f3
 /* 801F7DE0 001F4DE0  EC 22 08 2A */	fadds f1, f2, f1
 /* 801F7DE4 001F4DE4  EC 23 08 2A */	fadds f1, f3, f1
 /* 801F7DE8 001F4DE8  FC 01 00 40 */	.byte 0xFC, 0x01, 0x00, 0x40  /* unknown instruction */
 /* 801F7DEC 001F4DEC  40 81 00 5C */	ble lbl_801F7E48
 /* 801F7DF0 001F4DF0  FC 40 08 34 */	frsqrte f2, f1
-/* 801F7DF4 001F4DF4  C8 82 C8 38 */	lfd f4, lbl_8027C4D8-_SDA2_BASE_(r2)
-/* 801F7DF8 001F4DF8  C8 62 C8 40 */	lfd f3, lbl_8027C4E0-_SDA2_BASE_(r2)
+/* 801F7DF4 001F4DF4  C8 82 C8 38 */	lfd f4, lbl_8027C4D8@sda21(r2)
+/* 801F7DF8 001F4DF8  C8 62 C8 40 */	lfd f3, lbl_8027C4E0@sda21(r2)
 /* 801F7DFC 001F4DFC  FC 02 00 B2 */	fmul f0, f2, f2
 /* 801F7E00 001F4E00  FC 44 00 B2 */	fmul f2, f4, f2
 /* 801F7E04 001F4E04  FC 01 00 32 */	fmul f0, f1, f0

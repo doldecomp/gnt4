@@ -38,8 +38,8 @@ PSQUATScale:
 
 .global PSVECNormalize
 PSVECNormalize:
-/* 8016E308 0016B308  C0 02 BA 68 */	lfs f0, lbl_8027B708-_SDA2_BASE_(r2)
-/* 8016E30C 0016B30C  C0 22 BA 6C */	lfs f1, lbl_8027B70C-_SDA2_BASE_(r2)
+/* 8016E308 0016B308  C0 02 BA 68 */	lfs f0, lbl_8027B708@sda21(r2)
+/* 8016E30C 0016B30C  C0 22 BA 6C */	lfs f1, lbl_8027B70C@sda21(r2)
 /* 8016E310 0016B310  E0 43 00 00 */	psq_l p2, 0(r3), 0, qr0
 /* 8016E314 0016B314  10 A2 00 B2 */	ps_mul p5, p2, p2
 /* 8016E318 0016B318  E0 63 80 08 */	psq_l p3, 8(r3), 1, qr0
@@ -67,7 +67,7 @@ PSVECSquareMag:
 
 .global PSVECMag
 PSVECMag:
-/* 8016E364 0016B364  C0 82 BA 68 */	lfs f4, lbl_8027B708-_SDA2_BASE_(r2)
+/* 8016E364 0016B364  C0 82 BA 68 */	lfs f4, lbl_8027B708@sda21(r2)
 /* 8016E368 0016B368  E0 03 00 00 */	psq_l p0, 0(r3), 0, qr0
 /* 8016E36C 0016B36C  10 00 00 32 */	ps_mul p0, p0, p0
 /* 8016E370 0016B370  C0 23 00 08 */	lfs f1, 8(r3)
@@ -77,7 +77,7 @@ PSVECMag:
 /* 8016E380 0016B380  FC 01 10 00 */	fcmpu cr0, f1, f2
 /* 8016E384 0016B384  41 82 00 20 */	beq lbl_8016E3A4
 /* 8016E388 0016B388  FC 00 08 34 */	frsqrte f0, f1
-/* 8016E38C 0016B38C  C0 62 BA 6C */	lfs f3, lbl_8027B70C-_SDA2_BASE_(r2)
+/* 8016E38C 0016B38C  C0 62 BA 6C */	lfs f3, lbl_8027B70C@sda21(r2)
 /* 8016E390 0016B390  EC 40 00 32 */	fmuls f2, f0, f0
 /* 8016E394 0016B394  EC 00 01 32 */	fmuls f0, f0, f4
 /* 8016E398 0016B398  EC 42 18 7C */	fnmsubs f2, f2, f1, f3
@@ -137,13 +137,13 @@ PSVECDistance:
 /* 8016E43C 0016B43C  E0 24 00 00 */	psq_l p1, 0(r4), 0, qr0
 /* 8016E440 0016B440  10 42 00 B2 */	ps_mul p2, p2, p2
 /* 8016E444 0016B444  10 00 08 28 */	ps_sub p0, p0, p1
-/* 8016E448 0016B448  C0 62 BA 68 */	lfs f3, lbl_8027B708-_SDA2_BASE_(r2)
+/* 8016E448 0016B448  C0 62 BA 68 */	lfs f3, lbl_8027B708@sda21(r2)
 /* 8016E44C 0016B44C  10 20 10 3A */	ps_madd p1, p0, p0, p2
 /* 8016E450 0016B450  EC 03 18 28 */	fsubs f0, f3, f3
 /* 8016E454 0016B454  10 21 10 94 */	ps_sum0 p1, p1, p2, p2
 /* 8016E458 0016B458  FC 00 08 00 */	fcmpu cr0, f0, f1
 /* 8016E45C 0016B45C  41 82 00 20 */	beq lbl_8016E47C
-/* 8016E460 0016B460  C0 82 BA 6C */	lfs f4, lbl_8027B70C-_SDA2_BASE_(r2)
+/* 8016E460 0016B460  C0 82 BA 6C */	lfs f4, lbl_8027B70C@sda21(r2)
 /* 8016E464 0016B464  FC 00 08 34 */	frsqrte f0, f1
 /* 8016E468 0016B468  EC 40 00 32 */	fmuls f2, f0, f0
 /* 8016E46C 0016B46C  EC 00 00 F2 */	fmuls f0, f0, f3
