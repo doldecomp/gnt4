@@ -107,7 +107,7 @@ seqGetMIDIPriority:
 .global seqGetInstanceForVoice
 seqGetInstanceForVoice:
 /* 801E6E50 001E3E50  38 00 00 08 */	li r0, 8
-/* 801E6E54 001E3E54  80 8D 91 C4 */	lwz r4, lbl_80277AE4-_SDA_BASE_(r13)
+/* 801E6E54 001E3E54  80 8D 91 C4 */	lwz r4, lbl_80277AE4@sda21(r13)
 /* 801E6E58 001E3E58  7C 09 03 A6 */	mtctr r0
 lbl_801E6E5C:
 /* 801E6E5C 001E3E5C  7C 86 23 78 */	mr r6, r4

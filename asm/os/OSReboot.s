@@ -35,8 +35,8 @@ __OSReboot:
 
 .global OSGetSaveRegion
 OSGetSaveRegion:
-/* 8016A7A0 001677A0  80 0D 8B A0 */	lwz r0, lbl_802774C0-_SDA_BASE_(r13)
+/* 8016A7A0 001677A0  80 0D 8B A0 */	lwz r0, lbl_802774C0@sda21(r13)
 /* 8016A7A4 001677A4  90 03 00 00 */	stw r0, 0(r3)
-/* 8016A7A8 001677A8  80 0D 8B A4 */	lwz r0, lbl_802774C4-_SDA_BASE_(r13)
+/* 8016A7A8 001677A8  80 0D 8B A4 */	lwz r0, lbl_802774C4@sda21(r13)
 /* 8016A7AC 001677AC  90 04 00 00 */	stw r0, 0(r4)
 /* 8016A7B0 001677B0  4E 80 00 20 */	blr 
