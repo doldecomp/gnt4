@@ -2,6 +2,8 @@
 
 .section .init, "ax"  # 0x80003100 - 0x800056C0
 
+.balign 8
+
 .global __check_pad3
 __check_pad3:
 /* 80003100 00000100  7C 08 02 A6 */	mflr r0

@@ -1,4 +1,7 @@
 .section .rodata, "wa"  # 0x801FD840 - 0x80205C40
+
+.balign 8
+
 .global lbl_801FD840
 lbl_801FD840:
 	.incbin "baserom.dol", 0x1FA840, 0x14

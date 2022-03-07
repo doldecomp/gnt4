@@ -1,4 +1,7 @@
 .section .data, "wa"  # 0x80205C40 - 0x802229E0
+
+.balign 8
+
 .global lbl_80205C40
 lbl_80205C40:
 	.incbin "baserom.dol", 0x202C40, 0x70

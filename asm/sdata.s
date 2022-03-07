@@ -1,4 +1,7 @@
 .section .sdata  # 0x80276920 - 0x80276FE0
+
+.balign 8
+
 .global lbl_80276920
 lbl_80276920:
 	.incbin "baserom.dol", 0x21F9E0, 0x4

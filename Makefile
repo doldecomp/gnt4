@@ -5,11 +5,17 @@ ifneq ($(findstring MSYS,$(shell uname)),)
   WINDOWS := 1
 endif
 
+GENERATE_MAP ?= 0
+
+VERBOSE ?= 0
+
+ifeq ($(VERBOSE),0)
+  QUIET := @
+endif
+
 #-------------------------------------------------------------------------------
 # Files
 #-------------------------------------------------------------------------------
-
-TARGET_COL := gamecube
 
 TARGET := gnt4
 
@@ -21,6 +27,8 @@ ASM_DIRS := asm asm/sysdolphin asm/hvqm asm/musyx asm/si asm/exi asm/PPCEABI/MSL
 			asm/mtx asm/db asm/os asm/base
 
 # Inputs
+S_FILES := $(wildcard asm/*.s)
+C_FILES := $(wildcard src/*.c)
 LDSCRIPT := $(BUILD_DIR)/ldscript.lcf
 
 # Outputs
@@ -30,9 +38,9 @@ MAP     := $(BUILD_DIR)/gnt4.map
 
 include obj_files.mk
 
-O_FILES := $(INIT_O_FILES) $(CTORS_O_FILES) $(DTORS_O_FILES) $(TEXT_O_FILES)    \
+O_FILES := $(INIT_O_FILES) $(CTORS_O_FILES) $(TEXT_O_FILES)                     \
            $(RODATA_O_FILES) $(DATA_O_FILES) $(SDATA_O_FILES) $(SDATA2_O_FILES) \
-           $(BSS_O_FILES) $(SBSS_O_FILES) $(SBSS2_O_FILES)
+           $(BSS_O_FILES) $(SBSS_O_FILES)
 
 #-------------------------------------------------------------------------------
 # Tools
@@ -44,7 +52,7 @@ MWCC_VERSION := 2.6
 ifeq ($(WINDOWS),1)
   WINE :=
 else
-  WINE := wine
+  WINE ?= wine
 endif
 AS      := $(DEVKITPPC)/bin/powerpc-eabi-as
 OBJCOPY := $(DEVKITPPC)/bin/powerpc-eabi-objcopy
@@ -63,10 +71,6 @@ INCLUDES := -i include -i include/dolphin/ -i src -i src/sysdolphin
 ASFLAGS := -mgekko -I include
 LDFLAGS := -map $(MAP) -fp hard -nodefaults
 CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -nodefaults -msgstyle gcc $(INCLUDES)
-
-# elf2dol needs to know these in order to calculate sbss correctly.
-SDATA_PDHR := 9
-SBSS_PDHR := 10
 
 # for postprocess.py
 PROCFLAGS := -fprologue-fixup=old_stack
@@ -92,7 +96,7 @@ $(LDSCRIPT): ldscript.lcf
 	$(CPP) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(DOL): $(ELF) | tools
-	$(ELF2DOL) $< $@ $(SDATA_PDHR) $(SBSS_PDHR) $(TARGET_COL)
+	$(ELF2DOL) $< $@
 	$(SHA1SUM) -c $(TARGET).sha1
 
 clean:

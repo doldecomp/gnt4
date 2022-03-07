@@ -1,5 +1,13 @@
 .include "macros.inc"
 
+.section .dtors, "wa"  # 0x801FD820 - 0x801FD840
+
+.balign 8
+
+.global lbl_801FD820
+lbl_801FD820:
+	.incbin "baserom.dol", 0x1FA820, 0x20
+
 .section .text  # 0x8018E99C - 0x8018EA68
 
 .global exit
