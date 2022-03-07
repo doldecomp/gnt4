@@ -3,9 +3,6 @@
 INIT_O_FILES := 						                       \
     $(BUILD_DIR)/asm/init.o
 
-CTORS_O_FILES :=                                               \
-    $(BUILD_DIR)/asm/ctors.o
-
 TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/text_1.o                                  \
 	$(BUILD_DIR)/src/unlock.o                                  \
