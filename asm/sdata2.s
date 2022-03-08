@@ -8204,9 +8204,12 @@ lbl_8027C268:
 .global lbl_8027C26C
 lbl_8027C26C:
 	.incbin "baserom.dol", 0x22466C, 0x4
-.global USHRT_MAX
-USHRT_MAX:
+.global lbl_8027C270
+lbl_8027C270:
 	.incbin "baserom.dol", 0x224670, 0x8
+.global lbl_8027C278
+lbl_8027C278:
+	.incbin "baserom.dol", 0x224678, 0x8
 .global lbl_8027C280
 lbl_8027C280:
 	.incbin "baserom.dol", 0x224680, 0x8

@@ -202,7 +202,7 @@ TEXT_O_FILES := 						                       \
 	$(BUILD_DIR)/asm/sysdolphin/memory.o                       \
 	$(BUILD_DIR)/asm/sysdolphin/shadow.o                       \
 	$(BUILD_DIR)/asm/sysdolphin/archive.o                      \
-	$(BUILD_DIR)/src/sysdolphin/random.o                       \
+	$(BUILD_DIR)/asm/sysdolphin/random.o                       \
 	$(BUILD_DIR)/asm/sysdolphin/bytecode.o                     \
 	$(BUILD_DIR)/asm/sysdolphin/class.o                        \
 	$(BUILD_DIR)/asm/sysdolphin/hash.o                         \
